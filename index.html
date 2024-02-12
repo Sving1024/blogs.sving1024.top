@@ -71,7 +71,119 @@
 
 
   
-<meta name="generator" content="Hexo 7.1.1"></head>
+<meta name="generator" content="Hexo 7.1.1"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -232,7 +344,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/ti-jie/staoi-g-round-4-t1-ti-jie/" target="_self">
         <div>
-          特解 先来考虑方程 \(\begin{cases}x+y=A\\x \operatorname{AND} y =B\end{cases}\) 的一组特解。 由于按位与不进位，并且 \(a \operatorname{AND} b=1\) 当且仅当 \(a=b=1\) ,这意味这 \(B\) 的二进制中有一位为 \(1\)，\(x,y\) 相应的位上必定也为 \(1\)，如果这位是 \(0\
+          特解 先来考虑方程  的一组特解。 由于按位与不进位，并且  当且仅当  ,这意味这  的二进制中有一位为 ， 相应的位上必定也为 ，如果这位是 ，那么只要保证  中相应的位上不同时为  就行。因此，我们可以先构造出一个满足 的最小解，方法是： - 将  进行二进制分解，枚举其中的每一位。 - 如果这一位为 ，则把  相应的位上变为 。 - 如果这一位是 ，就把  中相应的位保持 。 最后
         </div>
       </a>
 
@@ -266,41 +378,13 @@
   
     <span>></span>
     
-  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/OI/" class="category-chain-item">OI</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/OI/" class="category-chain-item">OI</a>
+  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/OI/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/OI/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/OI/OI/%E9%A2%98%E8%A7%A3/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/OI/OI/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
-  
-  
-
-  
-
-  
-
-  
-
   
 
   
@@ -378,20 +462,6 @@
   <a href="/categories/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/" class="category-chain-item">物理</a>
   
   
-    <span>></span>
-    
-  <a href="/categories/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/" class="category-chain-item">物理</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/" class="category-chain-item">物理</a>
-  
-  
-
-  
-
-  
 
   
 
@@ -459,20 +529,6 @@
     
   <a href="/categories/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/" class="category-chain-item">物理</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/" class="category-chain-item">物理</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/" class="category-chain-item">物理</a>
-  
-  
-
-  
-
   
 
   
@@ -542,20 +598,6 @@
   <a href="/categories/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/" class="category-chain-item">物理</a>
   
   
-    <span>></span>
-    
-  <a href="/categories/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/" class="category-chain-item">物理</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/%E7%89%A9%E7%90%86/" class="category-chain-item">物理</a>
-  
-  
-
-  
-
-  
 
   
 
@@ -592,7 +634,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/shu-lun/gou-gu-ding-li/" target="_self">
         <div>
-          本篇笔记探究\(a^2+b^2=c^2\)的通解。 方程齐次:\(a^2+b^2=c^2\Rightarrow(\lambda a)^2+(\lambda b)^2=(\lambda c)^2\) 不妨设\(a,b,c\in\mathbb{N}_1\)且\(gcd(a,b,c)=1\). 则有 \[ \begin{cases} a=r^2-s^2\\ b=2rs\\ c=r^2+s^2
+          本篇笔记探究的通解。 方程齐次: 不妨设且. 则有  或互换。 证明： 1. a,b,c两奇一偶 因为𝟘. 而 又因为两两互质，所以只有当一奇一偶，为奇数时有 之后不妨设为偶。 2. 分解因式。  (记n的质因数分解中p的幂次为) 所以对于的每个质因子p，有  3. 互素 由九章算术·更损相减术可知互素（即，没有公共质因子） 为奇） 所以  或  无论如何，都是平方数（每个质因子
         </div>
       </a>
 
@@ -626,41 +668,13 @@
   
     <span>></span>
     
-  <a href="/categories/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/" class="category-chain-item">数论</a>
+  <a href="/categories/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  <a href="/categories/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/" class="category-chain-item">数论</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/" class="category-chain-item">数论</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/" class="category-chain-item">数论</a>
-  
-  
-
-  
-
-  
-
-  
-
   
 
   
@@ -702,7 +716,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/cartisian-ping-mian-ji-he/zhi-xian-yu-xian-xing-bian-huan/" target="_self">
         <div>
-          \(\newcommand{\A}{\begin{bmatrix}m&amp;p\\n&amp;q\end{bmatrix}} \newcommand{\lA}{\begin{bmatrix}m\\n\end{bmatrix}} \newcommand{\rA}{\begin{bmatrix}p\\q\end{bmatrix}} \newcommand{\lvec}{\begin{bmatr
+          本文研究一条经过二维线性变换的直线的解析式。 我们假设变换前直线的解析式为，变换后的解析式为,变换矩阵. 附：计算变换后的结果的方法 推到过程：  结论：（没错，的值里包含矩阵的行列式，我也不知道为什么）。 1. 的推导 1. 直接计算 过程比较朴素，就是取两个求出变换后的点坐标，再用待定系数法或来求出. 2. 众所周知，与直线的方向相同，直线进行变换后该向量变成了 易得上述结论。
         </div>
       </a>
 
@@ -736,41 +750,13 @@
   
     <span>></span>
     
-  <a href="/categories/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/" class="category-chain-item">Cartisian平面几何</a>
+  <a href="/categories/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
   
   
     <span>></span>
     
-  <a href="/categories/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  <a href="/categories/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/" class="category-chain-item">Cartisian平面几何</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/" class="category-chain-item">Cartisian平面几何</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/%E6%95%B0%E5%AD%A6/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/" class="category-chain-item">Cartisian平面几何</a>
-  
-  
-
-  
-
-  
-
-  
-
   
 
   
