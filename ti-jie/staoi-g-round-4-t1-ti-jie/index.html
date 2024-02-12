@@ -16,12 +16,12 @@
   <meta name="author" content="Sving1024">
   <meta name="keywords" content="">
   
-    <meta name="description" content="特解先来考虑方程 $\begin{cases}x+y&#x3D;A\x \operatorname{AND} y &#x3D;B\end{cases}$ 的一组特解。由于按位与不进位，并且 $a \operatorname{AND} b&#x3D;1$ 当且仅当 $a&#x3D;b&#x3D;1$ ,这意味这 $B$ 的二进制中有一位为 $1$，$x,y$ 相应的位上必定也为 $1$，如果这位是">
+    <meta name="description" content="特解 先来考虑方程 \(\begin{cases}x+y&#x3D;A\\x \operatorname{AND} y &#x3D;B\end{cases}\) 的一组特解。 由于按位与不进位，并且 \(a \operatorname{AND} b&#x3D;1\) 当且仅当 \(a&#x3D;b&#x3D;1\) ,这意味这 \(B\) 的二进制中有一位为 \(1\)，\(x,y\) 相应的位上必定也为 \(1\)，如果这位是 \(0\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STAOI G Round 4 T1题解">
 <meta property="og:url" content="https://blogs.sving1024.top/ti-jie/staoi-g-round-4-t1-ti-jie/index.html">
 <meta property="og:site_name" content="Sving&#39;s Blogs">
-<meta property="og:description" content="特解先来考虑方程 $\begin{cases}x+y&#x3D;A\x \operatorname{AND} y &#x3D;B\end{cases}$ 的一组特解。由于按位与不进位，并且 $a \operatorname{AND} b&#x3D;1$ 当且仅当 $a&#x3D;b&#x3D;1$ ,这意味这 $B$ 的二进制中有一位为 $1$，$x,y$ 相应的位上必定也为 $1$，如果这位是">
+<meta property="og:description" content="特解 先来考虑方程 \(\begin{cases}x+y&#x3D;A\\x \operatorname{AND} y &#x3D;B\end{cases}\) 的一组特解。 由于按位与不进位，并且 \(a \operatorname{AND} b&#x3D;1\) 当且仅当 \(a&#x3D;b&#x3D;1\) ,这意味这 \(B\) 的二进制中有一位为 \(1\)，\(x,y\) 相应的位上必定也为 \(1\)，如果这位是 \(0\">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-12T07:02:12.427Z">
 <meta property="article:modified_time" content="2024-02-12T07:02:21.680Z">
@@ -275,15 +275,91 @@
             
               <div class="markdown-body">
                 
-                <h2 id="特解"><a href="#特解" class="headerlink" title="特解"></a>特解</h2><p>先来考虑方程 $\begin{cases}x+y&#x3D;A\x \operatorname{AND} y &#x3D;B\end{cases}$ 的一组特解。<br>由于按位与<strong>不进位</strong>，并且 $a \operatorname{AND} b&#x3D;1$ 当且仅当 $a&#x3D;b&#x3D;1$ ,这意味这 $B$ 的二进制中有一位为 $1$，$x,y$ 相应的位上必定也为 $1$，如果这位是 $0$，那么只要保证 $x,y$ 中相应的位上不同时为 $1$ 就行。因此，我们可以先构造出一个满足 $a \operatorname{AND} b &#x3D;B$的最小解，方法是：</p>
-<ul>
-<li>将 $B$ 进行二进制分解，枚举其中的每一位。</li>
-<li>如果这一位为 $1$，则把 $a,b$ 相应的位上变为 $1$。</li>
-<li>如果这一位是 $0$，就把 $a,b$ 中相应的位保持 $0$。<br>最后得到的 $x,y$ 就是满足 $a \operatorname{AND} b &#x3D;B$ 并且最小的 $a,b$。此时，我们改变 $a$ 中任意一位为 $0$ 的位并不会改变 $a \operatorname{AND} b$ 的值，而改变第 $i$ 位相当于给这个数加上 $2^{i-1}$，我们可以通过改变这些 $0$ 位来补齐 $a+b$ 和 $A$ 之间的差值。<br>设 $a$ 的二进制分解为 $\overline{a_1a_2\cdots a_n}$，差值 $c$ 的二进制分解为 $\overline{b_1b_2\cdots c_m}$。显然，差值可以被补齐当且仅当 $\forall i,b_i&#x3D;1$ 都有 $a_i&#x3D;0$，否则这一位无法被补齐。因此，我们只要检验 $(a+c) \operatorname{AND} b$ 是否仍等于 $B$ 就行了，如果可以，那么 $x&#x3D;a+c,y&#x3D;b$ 就是一组特解，否则无解。</li>
-</ul>
-<h2 id="齐次解"><a href="#齐次解" class="headerlink" title="齐次解"></a>齐次解</h2><p>假设已经求出一组解 $x,y$，设 $x&#x3D;(\overline{x_1x_2\cdots x_n})_2,y&#x3D;(\overline{y_1y_2\cdots y_n})_2$（不足的位向高位填 $0$ 补齐）。我们通过观察样例可以发现，如果 $x_i,y_i$ 一个为 $1$，另一个为 $0$，此时交换这两个数既不会改变 $x \operatorname{AND} y$，也不会改变 $x+y$，也就是说，交换这两位后的 $x,y$ 是一组不同的解。为了满足 $x\le y$，我们只要保持最高的满足上面条件的两位保持不变，只交换后面不同的两位。</p>
-<h2 id="求和"><a href="#求和" class="headerlink" title="求和"></a>求和</h2><p>接下来不妨设共有 $n$ 个不同位，$x_i,y_i$ 是其中一组不同位（不是最高的一位 ）。由加乘原理可以得知，一共由 $2^n$ 组解。其中，$x_i&#x3D;1,y_i&#x3D;0$ 的解有 $2^{n-1}$ 种，反过来也有 $2^{n-1}$ 种。在计算 $y-x$ 时，第一种情况会计算为 $$\displaylines{(\overline{x_1x_2\cdots 1 \cdots x_n})_2-(\overline{y_1y_2\cdots 0 \cdots y_n})_2\&#x3D;(\overline{x_1x_2\cdots 0 \cdots x_n})_2-(\overline{y_1y_2\cdots 0 \cdots y_n})+(1-0)*2^{n-i}\&#x3D;(\overline{x_1x_2\cdots 0 \cdots x_n})_2-(\overline{y_1y_2\cdots 0 \cdots y_n})+2^{n-i}}$$后一种情况会计算为 $$\displaylines{(\overline{x_1x_2\cdots 0 \cdots x_n})_2-(\overline{y_1y_2\cdots 1 \cdots y_n})_2\&#x3D;(\overline{x_1x_2\cdots 0 \cdots x_n})_2-(\overline{y_1y_2\cdots 0 \cdots y_n})+(0-1)*2^{n-i}\&#x3D;(\overline{x_1x_2\cdots 0 \cdots x_n})_2-(\overline{y_1y_2\cdots 0 \cdots y_n})-2^{n-i}}$$两者在相加时抵消。其它不同位也一样。因此，最后不同位并不会对最终答案有影响，最终答案是将 $x,y$ 除去不同位后相减，在乘上 $2^n$，最后对 $m$ 取模后的结果。</p>
-<h2 id="AC-Code"><a href="#AC-Code" class="headerlink" title="AC Code"></a>AC Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bitset&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;utility&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cmath&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">65</span>;<br><span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> a,m,t;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ull;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><br><span class="hljs-function">bitset&lt;N&gt; <span class="hljs-title">binary_fact</span><span class="hljs-params">(ull a)</span></span>&#123; <span class="hljs-comment">//二进制分解</span><br>    bitset&lt;65&gt; ret;<br>    <span class="hljs-keyword">for</span>(ull i=<span class="hljs-number">0</span>;a;a&gt;&gt;=<span class="hljs-number">1</span>,i++)&#123;<br>        ret[i]=a&amp;<span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ret;<br>&#125;<br><br><span class="hljs-function">ull <span class="hljs-title">lpow</span><span class="hljs-params">(ull a,ull b,ull p)</span></span>&#123; <span class="hljs-comment">//快速幂</span><br>    ull ans=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(ull i=<span class="hljs-number">1</span>;b;b&gt;&gt;=<span class="hljs-number">1</span>,i*=<span class="hljs-number">2</span>)&#123;<br>        ans*=<span class="hljs-built_in">pow</span>(a,(b&amp;<span class="hljs-number">1</span>)*i);<br>        ans=ans%m;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br><br><span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">alyze</span><span class="hljs-params">(<span class="hljs-type">const</span> bitset&lt;N&gt;&amp; a,<span class="hljs-type">const</span> bitset&lt;N&gt;&amp; b)</span></span>&#123; <span class="hljs-comment">//求出所有不同位的下标</span><br>    vector&lt;<span class="hljs-type">int</span>&gt; x;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;N;i++)&#123;<br>        <span class="hljs-keyword">if</span>(a[i]^b[i])x.<span class="hljs-built_in">push_back</span>(i);<br>    &#125;<br>    <span class="hljs-keyword">if</span>(!x.<span class="hljs-built_in">empty</span>())x.<span class="hljs-built_in">pop_back</span>();<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-function">ull <span class="hljs-title">cau</span><span class="hljs-params">(bitset&lt;N&gt; a,bitset&lt;N&gt; b,vector&lt;<span class="hljs-type">int</span>&gt; al)</span></span>&#123; <span class="hljs-comment">//求结果</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> x:al)&#123;<br>        a[x]=b[x]=<span class="hljs-number">0</span>;<br>    &#125;<br>    ull x=a.<span class="hljs-built_in">to_ullong</span>(),y=b.<span class="hljs-built_in">to_ullong</span>();<br>    ull ans=((<span class="hljs-built_in">max</span>(x,y)-<span class="hljs-built_in">min</span>(x,y))%m)*(<span class="hljs-built_in">lpow</span>(<span class="hljs-number">2</span>,al.<span class="hljs-built_in">size</span>(),m));<br>    <span class="hljs-keyword">return</span> ans%m;<br>&#125;<br><br><span class="hljs-function">pair&lt;ull,ull&gt; <span class="hljs-title">spe_sol</span><span class="hljs-params">(bitset&lt;N&gt; a,bitset&lt;N&gt; b)</span></span>&#123; <span class="hljs-comment">//特解</span><br>    ull x=<span class="hljs-number">0</span>,y=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;N;i++)&#123;<br>        <span class="hljs-keyword">if</span>(b[i]==<span class="hljs-number">1</span>)x+=(<span class="hljs-number">1ull</span>&lt;&lt;i),y+=(<span class="hljs-number">1ull</span>&lt;&lt;i);<br>    &#125;<br>    <span class="hljs-keyword">if</span>(x+y&gt;a.<span class="hljs-built_in">to_ullong</span>())<span class="hljs-keyword">return</span> <span class="hljs-built_in">make_pair</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">auto</span> t=a.<span class="hljs-built_in">to_ullong</span>()-x-y;<br>    <span class="hljs-keyword">if</span>(((x+t)&amp;y)!=b.<span class="hljs-built_in">to_ullong</span>())<span class="hljs-keyword">return</span> <span class="hljs-built_in">make_pair</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">make_pair</span>(x+t,y);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    ios_base::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>    cin.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>),cout.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>);<br>    cin&gt;&gt;t&gt;&gt;m;<br>    <span class="hljs-keyword">for</span>(ull i=<span class="hljs-number">0</span>;i&lt;t;i++)&#123;<br>        ull a,b;<br>        cin&gt;&gt;a&gt;&gt;b;<br>        <span class="hljs-keyword">auto</span> z=<span class="hljs-built_in">spe_sol</span>(<span class="hljs-built_in">binary_fact</span>(a),<span class="hljs-built_in">binary_fact</span>(b));<br>        bitset&lt;N&gt; p=z.first,q=z.second;<br>        vector&lt;<span class="hljs-type">int</span>&gt; k=<span class="hljs-built_in">alyze</span>(p,q);<br>        cout&lt;&lt;<span class="hljs-built_in">cau</span>(p,q,k)&lt;&lt;endl;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="特解">特解</h2>
+<p>先来考虑方程 <span class="math inline">\(\begin{cases}x+y=A\\x
+\operatorname{AND} y =B\end{cases}\)</span> 的一组特解。
+由于按位与<strong>不进位</strong>，并且 <span class="math inline">\(a
+\operatorname{AND} b=1\)</span> 当且仅当 <span
+class="math inline">\(a=b=1\)</span> ,这意味这 <span
+class="math inline">\(B\)</span> 的二进制中有一位为 <span
+class="math inline">\(1\)</span>，<span
+class="math inline">\(x,y\)</span> 相应的位上必定也为 <span
+class="math inline">\(1\)</span>，如果这位是 <span
+class="math inline">\(0\)</span>，那么只要保证 <span
+class="math inline">\(x,y\)</span> 中相应的位上不同时为 <span
+class="math inline">\(1\)</span> 就行。因此，我们可以先构造出一个满足
+<span class="math inline">\(a \operatorname{AND} b
+=B\)</span>的最小解，方法是： - 将 <span
+class="math inline">\(B\)</span> 进行二进制分解，枚举其中的每一位。 -
+如果这一位为 <span class="math inline">\(1\)</span>，则把 <span
+class="math inline">\(a,b\)</span> 相应的位上变为 <span
+class="math inline">\(1\)</span>。 - 如果这一位是 <span
+class="math inline">\(0\)</span>，就把 <span
+class="math inline">\(a,b\)</span> 中相应的位保持 <span
+class="math inline">\(0\)</span>。 最后得到的 <span
+class="math inline">\(x,y\)</span> 就是满足 <span
+class="math inline">\(a \operatorname{AND} b =B\)</span> 并且最小的
+<span class="math inline">\(a,b\)</span>。此时，我们改变 <span
+class="math inline">\(a\)</span> 中任意一位为 <span
+class="math inline">\(0\)</span> 的位并不会改变 <span
+class="math inline">\(a \operatorname{AND} b\)</span> 的值，而改变第
+<span class="math inline">\(i\)</span> 位相当于给这个数加上 <span
+class="math inline">\(2^{i-1}\)</span>，我们可以通过改变这些 <span
+class="math inline">\(0\)</span> 位来补齐 <span
+class="math inline">\(a+b\)</span> 和 <span
+class="math inline">\(A\)</span> 之间的差值。 设 <span
+class="math inline">\(a\)</span> 的二进制分解为 <span
+class="math inline">\(\overline{a_1a_2\cdots a_n}\)</span>，差值 <span
+class="math inline">\(c\)</span> 的二进制分解为 <span
+class="math inline">\(\overline{b_1b_2\cdots
+c_m}\)</span>。显然，差值可以被补齐当且仅当 <span
+class="math inline">\(\forall i,b_i=1\)</span> 都有 <span
+class="math inline">\(a_i=0\)</span>，否则这一位无法被补齐。因此，我们只要检验
+<span class="math inline">\((a+c) \operatorname{AND} b\)</span>
+是否仍等于 <span class="math inline">\(B\)</span> 就行了，如果可以，那么
+<span class="math inline">\(x=a+c,y=b\)</span> 就是一组特解，否则无解。
+## 齐次解 假设已经求出一组解 <span
+class="math inline">\(x,y\)</span>，设 <span
+class="math inline">\(x=(\overline{x_1x_2\cdots
+x_n})_2,y=(\overline{y_1y_2\cdots y_n})_2\)</span>（不足的位向高位填
+<span class="math inline">\(0\)</span>
+补齐）。我们通过观察样例可以发现，如果 <span
+class="math inline">\(x_i,y_i\)</span> 一个为 <span
+class="math inline">\(1\)</span>，另一个为 <span
+class="math inline">\(0\)</span>，此时交换这两个数既不会改变 <span
+class="math inline">\(x \operatorname{AND} y\)</span>，也不会改变 <span
+class="math inline">\(x+y\)</span>，也就是说，交换这两位后的 <span
+class="math inline">\(x,y\)</span> 是一组不同的解。为了满足 <span
+class="math inline">\(x\le
+y\)</span>，我们只要保持最高的满足上面条件的两位保持不变，只交换后面不同的两位。</p>
+<h2 id="求和">求和</h2>
+<p>接下来不妨设共有 <span class="math inline">\(n\)</span>
+个不同位，<span class="math inline">\(x_i,y_i\)</span>
+是其中一组不同位（不是最高的一位 ）。由加乘原理可以得知，一共由 <span
+class="math inline">\(2^n\)</span> 组解。其中，<span
+class="math inline">\(x_i=1,y_i=0\)</span> 的解有 <span
+class="math inline">\(2^{n-1}\)</span> 种，反过来也有 <span
+class="math inline">\(2^{n-1}\)</span> 种。在计算 <span
+class="math inline">\(y-x\)</span> 时，第一种情况会计算为 <span
+class="math display">\[\displaylines{(\overline{x_1x_2\cdots 1 \cdots
+x_n})_2-(\overline{y_1y_2\cdots 0 \cdots
+y_n})_2\\=(\overline{x_1x_2\cdots 0 \cdots
+x_n})_2-(\overline{y_1y_2\cdots 0 \cdots
+y_n})+(1-0)*2^{n-i}\\=(\overline{x_1x_2\cdots 0 \cdots
+x_n})_2-(\overline{y_1y_2\cdots 0 \cdots
+y_n})+2^{n-i}}\]</span>后一种情况会计算为 <span
+class="math display">\[\displaylines{(\overline{x_1x_2\cdots 0 \cdots
+x_n})_2-(\overline{y_1y_2\cdots 1 \cdots
+y_n})_2\\=(\overline{x_1x_2\cdots 0 \cdots
+x_n})_2-(\overline{y_1y_2\cdots 0 \cdots
+y_n})+(0-1)*2^{n-i}\\=(\overline{x_1x_2\cdots 0 \cdots
+x_n})_2-(\overline{y_1y_2\cdots 0 \cdots
+y_n})-2^{n-i}}\]</span>两者在相加时抵消。其它不同位也一样。因此，最后不同位并不会对最终答案有影响，最终答案是将
+<span class="math inline">\(x,y\)</span> 除去不同位后相减，在乘上 <span
+class="math inline">\(2^n\)</span>，最后对 <span
+class="math inline">\(m\)</span> 取模后的结果。 ## AC Code
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bitset&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;utility&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cmath&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">65</span>;<br><span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> a,m,t;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ull;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><br><span class="hljs-function">bitset&lt;N&gt; <span class="hljs-title">binary_fact</span><span class="hljs-params">(ull a)</span></span>&#123; <span class="hljs-comment">//二进制分解</span><br>    bitset&lt;65&gt; ret;<br>    <span class="hljs-keyword">for</span>(ull i=<span class="hljs-number">0</span>;a;a&gt;&gt;=<span class="hljs-number">1</span>,i++)&#123;<br>        ret[i]=a&amp;<span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ret;<br>&#125;<br><br><span class="hljs-function">ull <span class="hljs-title">lpow</span><span class="hljs-params">(ull a,ull b,ull p)</span></span>&#123; <span class="hljs-comment">//快速幂</span><br>    ull ans=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(ull i=<span class="hljs-number">1</span>;b;b&gt;&gt;=<span class="hljs-number">1</span>,i*=<span class="hljs-number">2</span>)&#123;<br>        ans*=<span class="hljs-built_in">pow</span>(a,(b&amp;<span class="hljs-number">1</span>)*i);<br>        ans=ans%m;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br><br><span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">alyze</span><span class="hljs-params">(<span class="hljs-type">const</span> bitset&lt;N&gt;&amp; a,<span class="hljs-type">const</span> bitset&lt;N&gt;&amp; b)</span></span>&#123; <span class="hljs-comment">//求出所有不同位的下标</span><br>    vector&lt;<span class="hljs-type">int</span>&gt; x;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;N;i++)&#123;<br>        <span class="hljs-keyword">if</span>(a[i]^b[i])x.<span class="hljs-built_in">push_back</span>(i);<br>    &#125;<br>    <span class="hljs-keyword">if</span>(!x.<span class="hljs-built_in">empty</span>())x.<span class="hljs-built_in">pop_back</span>();<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-function">ull <span class="hljs-title">cau</span><span class="hljs-params">(bitset&lt;N&gt; a,bitset&lt;N&gt; b,vector&lt;<span class="hljs-type">int</span>&gt; al)</span></span>&#123; <span class="hljs-comment">//求结果</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> x:al)&#123;<br>        a[x]=b[x]=<span class="hljs-number">0</span>;<br>    &#125;<br>    ull x=a.<span class="hljs-built_in">to_ullong</span>(),y=b.<span class="hljs-built_in">to_ullong</span>();<br>    ull ans=((<span class="hljs-built_in">max</span>(x,y)-<span class="hljs-built_in">min</span>(x,y))%m)*(<span class="hljs-built_in">lpow</span>(<span class="hljs-number">2</span>,al.<span class="hljs-built_in">size</span>(),m));<br>    <span class="hljs-keyword">return</span> ans%m;<br>&#125;<br><br><span class="hljs-function">pair&lt;ull,ull&gt; <span class="hljs-title">spe_sol</span><span class="hljs-params">(bitset&lt;N&gt; a,bitset&lt;N&gt; b)</span></span>&#123; <span class="hljs-comment">//特解</span><br>    ull x=<span class="hljs-number">0</span>,y=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;N;i++)&#123;<br>        <span class="hljs-keyword">if</span>(b[i]==<span class="hljs-number">1</span>)x+=(<span class="hljs-number">1ull</span>&lt;&lt;i),y+=(<span class="hljs-number">1ull</span>&lt;&lt;i);<br>    &#125;<br>    <span class="hljs-keyword">if</span>(x+y&gt;a.<span class="hljs-built_in">to_ullong</span>())<span class="hljs-keyword">return</span> <span class="hljs-built_in">make_pair</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">auto</span> t=a.<span class="hljs-built_in">to_ullong</span>()-x-y;<br>    <span class="hljs-keyword">if</span>(((x+t)&amp;y)!=b.<span class="hljs-built_in">to_ullong</span>())<span class="hljs-keyword">return</span> <span class="hljs-built_in">make_pair</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">make_pair</span>(x+t,y);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    ios_base::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>    cin.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>),cout.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>);<br>    cin&gt;&gt;t&gt;&gt;m;<br>    <span class="hljs-keyword">for</span>(ull i=<span class="hljs-number">0</span>;i&lt;t;i++)&#123;<br>        ull a,b;<br>        cin&gt;&gt;a&gt;&gt;b;<br>        <span class="hljs-keyword">auto</span> z=<span class="hljs-built_in">spe_sol</span>(<span class="hljs-built_in">binary_fact</span>(a),<span class="hljs-built_in">binary_fact</span>(b));<br>        bitset&lt;N&gt; p=z.first,q=z.second;<br>        vector&lt;<span class="hljs-type">int</span>&gt; k=<span class="hljs-built_in">alyze</span>(p,q);<br>        cout&lt;&lt;<span class="hljs-built_in">cau</span>(p,q,k)&lt;&lt;endl;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure></p>
+
                 
               </div>
             
@@ -311,13 +387,41 @@
   
     <span>></span>
     
-  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/OI/" class="category-chain-item">OI</a>
+  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/OI/" class="category-chain-item">OI</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/OI/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/OI/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/OI/OI/%E9%A2%98%E8%A7%A3/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/OI/OI/%E9%A2%98%E8%A7%A3/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+  
+
+  
+
   
 
   
@@ -460,6 +564,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -653,6 +763,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://mathjax.sving1024.top/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
