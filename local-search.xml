@@ -4,7 +4,7 @@
   
   
   <entry>
-    <title></title>
+    <title>STAOI G Round 4 T1题解</title>
     <link href="/ti-jie/staoi-g-round-4-t1-ti-jie/"/>
     <url>/ti-jie/staoi-g-round-4-t1-ti-jie/</url>
     
@@ -12,6 +12,10 @@
     
     
     <categories>
+      
+      <category>题解</category>
+      
+      <category>OI</category>
       
       <category>OI</category>
       
@@ -35,7 +39,7 @@
   
   
   <entry>
-    <title></title>
+    <title>小孔成像</title>
     <link href="/xiao-kong-cheng-xiang/"/>
     <url>/xiao-kong-cheng-xiang/</url>
     
@@ -46,6 +50,8 @@
       
       <category>物理</category>
       
+      <category>物理</category>
+      
     </categories>
     
     
@@ -60,7 +66,7 @@
   
   
   <entry>
-    <title></title>
+    <title>实像和虚像</title>
     <link href="/shi-xiang-he-xu-xiang/"/>
     <url>/shi-xiang-he-xu-xiang/</url>
     
@@ -71,6 +77,8 @@
       
       <category>物理</category>
       
+      <category>物理</category>
+      
     </categories>
     
     
@@ -85,7 +93,7 @@
   
   
   <entry>
-    <title></title>
+    <title>凸透镜与凹透镜</title>
     <link href="/tu-tou-jing-yu-ao-tou-jing/"/>
     <url>/tu-tou-jing-yu-ao-tou-jing/</url>
     
@@ -93,6 +101,8 @@
     
     
     <categories>
+      
+      <category>物理</category>
       
       <category>物理</category>
       
@@ -110,7 +120,7 @@
   
   
   <entry>
-    <title></title>
+    <title>勾股定理</title>
     <link href="/shu-lun/gou-gu-ding-li/"/>
     <url>/shu-lun/gou-gu-ding-li/</url>
     
@@ -118,6 +128,10 @@
     
     
     <categories>
+      
+      <category>数论</category>
+      
+      <category>数学</category>
       
       <category>数学</category>
       
@@ -137,7 +151,7 @@
   
   
   <entry>
-    <title></title>
+    <title>直线与线性变换</title>
     <link href="/cartisian-ping-mian-ji-he/zhi-xian-yu-xian-xing-bian-huan/"/>
     <url>/cartisian-ping-mian-ji-he/zhi-xian-yu-xian-xing-bian-huan/</url>
     
@@ -145,6 +159,10 @@
     
     
     <categories>
+      
+      <category>Cartisian平面几何</category>
+      
+      <category>数学</category>
       
       <category>数学</category>
       
