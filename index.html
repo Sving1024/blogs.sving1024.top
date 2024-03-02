@@ -222,15 +222,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/xiao-kong-cheng-xiang/" target="_self">
-          小孔成像
+        <a href="/ti-jie/staoi-g-round-4-t1-ti-jie/" target="_self">
+          STAOI G Round 4 T1题解
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/xiao-kong-cheng-xiang/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/ti-jie/staoi-g-round-4-t1-ti-jie/" target="_self">
         <div>
-          小孔成像，顾名思义，就是再光源和光屏之间放一个小孔，观察光源的成像效果。发现小孔再光屏上成倒立实像。 我们再[[实像和虚像]]里曾讨论过实像的形成，小孔成像是怎么实现的？很简单，把点光源发出的其他光线挡住，只留下一束光线打在光屏上。   这样就做到了每个点光源上发出的光线会在光屏上投射要一个点上。 严格意义来说，其实并不是一个点，构成像的单位（即，每个点光源投射到光屏上的形状）是孔的形状
+          特解 先来考虑方程 \(\begin{cases}x+y=A\\x \operatorname{AND} y =B\end{cases}\) 的一组特解。 由于按位与不进位，并且 \(a \operatorname{AND} b=1\) 当且仅当 \(a=b=1\) ,这意味这 \(B\) 的二进制中有一位为 \(1\)，\(x,y\) 相应的位上必定也为 \(1\)，如果这位是 \(0\
         </div>
       </a>
 
@@ -238,7 +238,136 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-18 18:38" pubdate>
+            <time datetime="2024-03-02 11:15" pubdate>
+              2024-03-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/qian-tan-dong-tai-gui-hua/" target="_self">
+          浅谈动态规划
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/qian-tan-dong-tai-gui-hua/" target="_self">
+        <div>
+          从搜索的优化说起 考虑这样题目： &gt;写一个程序来查找从最高点到底部任意处结束的路径，使路径经过数字的和最大。每一步可以走到左下方的点也可以到达右下方的点。  显然，我们可以从顶端开始，枚举每一条路径，求出其中的最大值。我们注意到，如果有一条路径可以到达某个点，之前的路径并不会影响之后走的路径。  举个例子：假如通过 \(7-8-1\) 到达了 \(1\) 这个点，接下来打算走 \
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-02 00:00" pubdate>
+              2024-03-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/OI/" class="category-chain-item">OI</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/tu-tou-jing-yu-ao-tou-jing/" target="_self">
+          凸透镜与凹透镜
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/tu-tou-jing-yu-ao-tou-jing/" target="_self">
+        <div>
+          凸透镜 成像原理  关于实像和虚像的定义，请参见实像和虚像  众所周知，凸透镜有聚光的作用。 1. 在一倍焦距以内，一个点光源发出的光线最后是这样的：  此时经过凸透镜的光线的反射延长线交于H点，这个点光源会在H点成虚像。由于光线会比原来汇聚，所以H点到透镜的距离会大于点光源到透镜的距离。 2. 当点光源位于一倍焦距之外是，光线是这个样子的。  此时经过凸透镜的光线会交于J点，再
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-18 00:00" pubdate>
               2024-02-18
             </time>
           </div>
@@ -299,7 +428,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-18 18:38" pubdate>
+            <time datetime="2024-02-18 00:00" pubdate>
               2024-02-18
             </time>
           </div>
@@ -344,15 +473,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/tu-tou-jing-yu-ao-tou-jing/" target="_self">
-          凸透镜与凹透镜
+        <a href="/xiao-kong-cheng-xiang/" target="_self">
+          小孔成像
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/tu-tou-jing-yu-ao-tou-jing/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/xiao-kong-cheng-xiang/" target="_self">
         <div>
-          凸透镜 成像原理  关于实像和虚像的定义，请参见实像和虚像  众所周知，凸透镜有聚光的作用。 1. 在一倍焦距以内，一个点光源发出的光线最后是这样的：  此时经过凸透镜的光线的反射延长线交于H点，这个点光源会在H点成虚像。由于光线会比原来汇聚，所以H点到透镜的距离会大于点光源到透镜的距离。 2. 当点光源位于一倍焦距之外是，光线是这个样子的。  此时经过凸透镜的光线会交于J点，再
+          小孔成像，顾名思义，就是再光源和光屏之间放一个小孔，观察光源的成像效果。发现小孔再光屏上成倒立实像。 我们再[[实像和虚像]]里曾讨论过实像的形成，小孔成像是怎么实现的？很简单，把点光源发出的其他光线挡住，只留下一束光线打在光屏上。   这样就做到了每个点光源上发出的光线会在光屏上投射要一个点上。 严格意义来说，其实并不是一个点，构成像的单位（即，每个点光源投射到光屏上的形状）是孔的形状
         </div>
       </a>
 
@@ -360,7 +489,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-18 18:38" pubdate>
+            <time datetime="2024-02-18 00:00" pubdate>
               2024-02-18
             </time>
           </div>
@@ -421,8 +550,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-18 18:38" pubdate>
-              2024-02-18
+            <time datetime="2024-02-12 00:00" pubdate>
+              2024-02-12
             </time>
           </div>
         
@@ -448,142 +577,6 @@
     <span>></span>
     
   <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/" class="category-chain-item">数论</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/cartisian-ping-mian-ji-he/zhi-xian-yu-xian-xing-bian-huan/" target="_self">
-          直线与线性变换
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/cartisian-ping-mian-ji-he/zhi-xian-yu-xian-xing-bian-huan/" target="_self">
-        <div>
-          \(\newcommand{\A}{\begin{bmatrix}m&amp;p\\n&amp;q\end{bmatrix}} \newcommand{\lA}{\begin{bmatrix}m\\n\end{bmatrix}} \newcommand{\rA}{\begin{bmatrix}p\\q\end{bmatrix}} \newcommand{\lvec}{\begin{bmatr
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-18 18:38" pubdate>
-              2024-02-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/Cartisian%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/" class="category-chain-item">Cartisian平面几何</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/ti-jie/staoi-g-round-4-t1-ti-jie/" target="_self">
-          STAOI G Round 4 T1题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/ti-jie/staoi-g-round-4-t1-ti-jie/" target="_self">
-        <div>
-          特解 先来考虑方程 \(\begin{cases}x+y=A\\x \operatorname{AND} y =B\end{cases}\) 的一组特解。 由于按位与不进位，并且 \(a \operatorname{AND} b=1\) 当且仅当 \(a=b=1\) ,这意味这 \(B\) 的二进制中有一位为 \(1\)，\(x,y\) 相应的位上必定也为 \(1\)，如果这位是 \(0\
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-18 18:38" pubdate>
-              2024-02-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
   
 
