@@ -5,27 +5,6 @@
     
     <entry>
       <title>瞎谈点积</title>
-      <link href="/xia-tan-dian-ji/"/>
-      <url>/xia-tan-dian-ji/</url>
-      
-        <content type="html"><![CDATA[<p><spanclass="math inline">\(\newcommand{\lm}{\begin{bmatrix}}\newcommand{\rm}{\end{bmatrix}}\newcommand{\dis}[1]{\left\|#1\right\|}\)</span>从标题可以看出这篇文章时关于点积的。本文讨论的是平面点积。本文记 <spanclass="math inline">\(\vec{a}\)</span> 的长度为 <spanclass="math inline">\(\left\|\vec{a}\right\|\)</span>。</p><p>参与点积运算的是两个向量。架设有两个向量 <spanclass="math inline">\(\vec{a}=\begin{bmatrix}x_0 \\y_0\end{bmatrix},\vec{b}=\begin{bmatrix}x_1 \\y_1\end{bmatrix}\)</span>，则我们定义点积为 <spanclass="math inline">\(\vec{a} \cdot\vec{b}=x_0x_1+y_0y_1\)</span>。点积是一个很神奇的东西，先说它的几条性质。</p><h3 id="性质">性质</h3><h4 id="交换律">交换律</h4><p>对于任意 <span class="math inline">\(\vec{a}=\begin{bmatrix}x_0 \\y_0\end{bmatrix},\vec{b}=\begin{bmatrix}x_1 \\y_1\end{bmatrix}\)</span>，都有 <span class="math inline">\(\vec{a}\cdot \vec{b}=\vec{b} \cdot \vec{a}\)</span>。 证明：显而易见吧。 <spanclass="math display">\[\displaylines{\vec{a} \cdot \vec{b}=x_0x_1+y_0y_1\\\vec{b} \cdot \vec{a}=x_1x_0+y_1y_0=x_0x_1+y_0y_1}\]</span> #### 双线性 双线性意味着一下两点： 1. <spanclass="math inline">\(\vec{a}\cdot(\vec{b}+\vec{c})=\vec{a}\cdot\vec{b}+\vec{a}\cdot \vec{c}\)</span> 2. <spanclass="math inline">\(\vec{a}\cdot(k\vec{b})=k(\vec{a}\cdot\vec{b})\)</span>证明都不难，根据定义展开计算即可，在这里不做赘述。</p><h4 id="正定性">正定性</h4><p><del>其实就是非负性</del></p><p>正定性意味着对于任何向量 <span class="math inline">\(\vec{a}\in\mathbb{R}^2\)</span>，<spanclass="math inline">\(\vec{a}\cdot\vec{a}\geq 0\)</span>。取等号当且仅当<span class="math inline">\(\vec{a}\)</span> 是零向量。</p><p>证明也很简单，假设 <span class="math inline">\(\vec{a}=\lmx\\y\rm\)</span> 注意到 <spanclass="math inline">\(\vec{a}\cdot\vec{a}=x^2+y^2=\dis{\vec{a}}^2\)</span>。显而易见，长度是不能为负的。</p><p>以上就是点积的三条性质，这些性质大多用来参与运算。</p><h3 id="关系">关系</h3><p>这还不是点积最神奇的地方，最神奇的地方在于点积和两个向量的长度和夹角都有关。</p><ol type="1"><li><p>对于单位圆上的向量 <spanclass="math inline">\(\vec{a},\vec{b}\)</span>，其夹角为 <spanclass="math inline">\(\theta\)</span>，都有 <spanclass="math inline">\(\vec{a}\cdot\vec{b}=\cos \theta\)</span>。</p><p>证明：假设向量 <span class="math inline">\(\vec{b}\)</span> 是由<span class="math inline">\(\vec{a}\)</span> 逆时针 <spanclass="math inline">\(\theta\)</span>度之后得到的，由于众所周知，逆时针旋转 <spanclass="math inline">\(\theta\)</span> 度之后 的旋转矩阵是 <spanclass="math inline">\(\lm \cos \theta &amp; -\sin \theta \\ \sin \theta&amp; \cos \theta \rm\)</span>。设 <spanclass="math inline">\(\vec{a}=\lm x\\y\rm\)</span>，那么有 <spanclass="math inline">\(\vec{b}=\vec{a}\lm \cos \theta &amp; -\sin \theta\\ \sin \theta &amp; \cos \theta \rm=\lm x\\y\rm \lm \cos \theta &amp;-\sin \theta \\ \sin \theta &amp; \cos \theta \rm=\lmx\cos\theta-y\sin\theta \\ x\sin\theta+y\cos\theta\rm\)</span>。所以<span class="math display">\[\displaylines{\vec{a}\cdot\vec{b}&amp;=x(x\cos\theta-y\sin\theta)+y(x\sin\theta+y\cos\theta)\\&amp;=x^2\cos\theta-xy\sin \theta+xy\sin \theta +y^2\cos\theta\\&amp;=(x^2+y^2)\cos \theta=\dis{\vec{a}}\cos \theta=\cos \theta}\]</span>证毕。</p></li><li><p><spanclass="math inline">\(\vec{a}\cdot\vec{b}=\dis{\vec{a}}\dis{\vec{b}}\cos\theta\)</span>。</p><p>证明：既然有了单位向量点积的关系，我们不如将这两个向量转化为单位向量。显然<spanclass="math inline">\(\dfrac{1}{\dis{\vec{a}}}\vec{a},\dfrac{1}{\dis{\vec{b}}}\vec{b}\)</span>都是单位向量，而且夹角的大小不变。因此 <spanclass="math inline">\((\dfrac{1}{\dis{\vec{a}}}\vec{a})\cdot(\dfrac{1}{\dis{\vec{b}}}\vec{b})=\cos\theta\)</span>。再用双线性得<spanclass="math inline">\(\dfrac{1}{\dis{\vec{a}}\dis{\vec{b}}}(\vec{a}\cdot\vec{b})=\cos\theta\)</span>，移项就可以得到<spanclass="math inline">\(\vec{a}\cdot\vec{b}=\dis{\vec{a}}\dis{\vec{b}}\cos\theta\)</span>。以上两点可以看出</p></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> OI </category>
-          
-          <category> OI </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>瞎谈点积</title>
       <link href="/jie-xi-ji-he/xia-tan-dian-ji/"/>
       <url>/jie-xi-ji-he/xia-tan-dian-ji/</url>
       
@@ -113,11 +92,11 @@
     
     
     <entry>
-      <title>实像和虚像</title>
-      <link href="/shi-xiang-he-xu-xiang/"/>
-      <url>/shi-xiang-he-xu-xiang/</url>
+      <title>小孔成像</title>
+      <link href="/xiao-kong-cheng-xiang/"/>
+      <url>/xiao-kong-cheng-xiang/</url>
       
-        <content type="html"><![CDATA[<h3 id="实像">实像</h3><p>具体定义见物理课本。考虑实像的形成。我们将物看作许多个点光源，不难看出，成清晰实像形成的条件是从每个点光源上发出的光线会在光屏上投射要一个点上，如果不是一个点（而是一个光斑）成的像就会不清晰。### 虚像 具体定义还是看物理课本。以平面镜为例，一般来说，会有这样的光路图。</p><p><img src="/img/平面镜1.png" alt="平面镜1.png" />怎么理解？经过平面镜反射后的光路，等价于撤去平面镜后位于C‘点的点光源发出的光线，C'点就是虚像的位置（既然等价，我们的大脑自然会认为C'点有东西了，这就是所谓虚像）。再举一个例子： <img src="/img/凸透镜3_1.png" alt="凸透镜3_1.png" />光源（实箭头）成的虚像（虚箭头）意味着，光源发出的经过凸透镜后的光线相当于撤去凸透镜后，在虚像处放置一个与虚像等大的光源发出的光路，所以大脑会认为虚像处有东西，看到虚像。</p>]]></content>
+        <content type="html"><![CDATA[<p>小孔成像，顾名思义，就是再光源和光屏之间放一个小孔，观察光源的成像效果。发现小孔再光屏上成倒立实像。</p><p>我们再[[实像和虚像]]里曾讨论过实像的形成，小孔成像是怎么实现的？很简单，把点光源发出的其他光线挡住，只留下一束光线打在光屏上。<img src="img/小孔成像2.png" /></p><p><img src="img/小孔成像3.png" />这样就做到了每个点光源上发出的光线会在光屏上投射要一个点上。</p><p>严格意义来说，其实并不是一个点，构成像的单位（即，每个点光源投射到光屏上的形状）是孔的形状（而不是一个点）。像有许多个”单位“构成（光源上的每个点光源都会留下一个）。这样就可以解释许多现象，比如将孔遮去一部分（或改变孔的大小）只会改变构成像的”单位“，减少打到光屏上光的数量，不会使像不完整或大小产生改变。大孔成斑是因为一个单位太大，分辨不出像的形状（极度模糊）。</p><blockquote><p>其实还有一种理解，就是光源通过孔上的每一个点会再光屏上成一个像，光源的像有一个个的这样的像组成，也能解释。比如大孔成斑是因为这样像太小，分辨不出来。其他类似。</p></blockquote>]]></content>
       
       
       <categories>
@@ -134,11 +113,11 @@
     
     
     <entry>
-      <title>小孔成像</title>
-      <link href="/xiao-kong-cheng-xiang/"/>
-      <url>/xiao-kong-cheng-xiang/</url>
+      <title>实像和虚像</title>
+      <link href="/shi-xiang-he-xu-xiang/"/>
+      <url>/shi-xiang-he-xu-xiang/</url>
       
-        <content type="html"><![CDATA[<p>小孔成像，顾名思义，就是再光源和光屏之间放一个小孔，观察光源的成像效果。发现小孔再光屏上成倒立实像。</p><p>我们再[[实像和虚像]]里曾讨论过实像的形成，小孔成像是怎么实现的？很简单，把点光源发出的其他光线挡住，只留下一束光线打在光屏上。<img src="img/小孔成像2.png" /></p><p><img src="img/小孔成像3.png" />这样就做到了每个点光源上发出的光线会在光屏上投射要一个点上。</p><p>严格意义来说，其实并不是一个点，构成像的单位（即，每个点光源投射到光屏上的形状）是孔的形状（而不是一个点）。像有许多个”单位“构成（光源上的每个点光源都会留下一个）。这样就可以解释许多现象，比如将孔遮去一部分（或改变孔的大小）只会改变构成像的”单位“，减少打到光屏上光的数量，不会使像不完整或大小产生改变。大孔成斑是因为一个单位太大，分辨不出像的形状（极度模糊）。</p><blockquote><p>其实还有一种理解，就是光源通过孔上的每一个点会再光屏上成一个像，光源的像有一个个的这样的像组成，也能解释。比如大孔成斑是因为这样像太小，分辨不出来。其他类似。</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h3 id="实像">实像</h3><p>具体定义见物理课本。考虑实像的形成。我们将物看作许多个点光源，不难看出，成清晰实像形成的条件是从每个点光源上发出的光线会在光屏上投射要一个点上，如果不是一个点（而是一个光斑）成的像就会不清晰。### 虚像 具体定义还是看物理课本。以平面镜为例，一般来说，会有这样的光路图。</p><p><img src="/img/平面镜1.png" alt="平面镜1.png" />怎么理解？经过平面镜反射后的光路，等价于撤去平面镜后位于C‘点的点光源发出的光线，C'点就是虚像的位置（既然等价，我们的大脑自然会认为C'点有东西了，这就是所谓虚像）。再举一个例子： <img src="/img/凸透镜3_1.png" alt="凸透镜3_1.png" />光源（实箭头）成的虚像（虚箭头）意味着，光源发出的经过凸透镜后的光线相当于撤去凸透镜后，在虚像处放置一个与虚像等大的光源发出的光路，所以大脑会认为虚像处有东西，看到虚像。</p>]]></content>
       
       
       <categories>
