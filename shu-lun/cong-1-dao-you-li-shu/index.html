@@ -1,0 +1,1018 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#5e72e4">
+  <meta name="author" content="Sving1024">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="数学有趣的一点在于，有些概念总是在应用之后再定义。 ——沃兹基硕德  今天，我们将要再这里，定义数学中最基础的概念，数字！ 正整数集合 一切的一切，都从\(1\)开始： \[\left\{1\right\}\] #### 后继运算 接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将 \(x\) 的后继数记作 \(\operatorname{s}(x)\)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从1到有理数">
+<meta property="og:url" content="https://blogs.sving1024.top/shu-lun/cong-1-dao-you-li-shu/index.html">
+<meta property="og:site_name" content="Sving&#39;s Blogs">
+<meta property="og:description" content="数学有趣的一点在于，有些概念总是在应用之后再定义。 ——沃兹基硕德  今天，我们将要再这里，定义数学中最基础的概念，数字！ 正整数集合 一切的一切，都从\(1\)开始： \[\left\{1\right\}\] #### 后继运算 接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将 \(x\) 的后继数记作 \(\operatorname{s}(x)\)。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-16T07:45:07.232Z">
+<meta property="article:modified_time" content="2024-03-16T07:43:59.230Z">
+<meta property="article:author" content="Sving1024">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>从1到有理数 - Sving&#39;s Blogs</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/xm_custom/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blogs.sving1024.top","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Sving&#39;s Blogs</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/none.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="从1到有理数"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-16 15:45" pubdate>
+          2024年3月16日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">从1到有理数</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>数学有趣的一点在于，有些概念总是在应用之后再定义。 ——沃兹基硕德</p>
+</blockquote>
+<p>今天，我们将要再这里，定义数学中最基础的概念，数字！</p>
+<h3 id="正整数集合">正整数集合</h3>
+<p>一切的一切，都从<span class="math inline">\(1\)</span>开始： <span
+class="math display">\[\left\{1\right\}\]</span> #### 后继运算
+接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将
+<span class="math inline">\(x\)</span> 的后继数记作 <span
+class="math inline">\(\operatorname{s}(x)\)</span>。（鉴于这是篇关于数学的文章，就不用
+<span class="math inline">\(x++\)</span> 之类的表达方式了）。</p>
+<p>这个运算有一下几条性质: 1. <span class="math inline">\(1\)</span>
+不是任何数的后继数。 2. 任何不是 <span class="math inline">\(1\)</span>
+的数都是一个数的后继数。 3. 如果两数后继数相等，则这两个数相等。
+这样，我们就可以定义 <span class="math inline">\(\mathbb{N}_1\)</span>。
+1. <span class="math inline">\(1\in\mathbb{N}_1\)</span> 2. 如果 <span
+class="math inline">\(x\in\mathbb{N}_1\)</span>，那么 <span
+class="math inline">\(\operatorname{s}(x)\in\mathbb{N}_1\)</span>。
+之后，我们给予 <span class="math inline">\(1\)</span> 的后继数一个符号
+<span class="math inline">\(2\)</span>，<span
+class="math inline">\(2\)</span> 的后继数一个符号 <span
+class="math inline">\(3\)</span>，依次类推，就有了我们现在所说的正整数。这实际上就是我们常说的皮亚诺算数公理。</p>
+<h4 id="数学归纳法">数学归纳法</h4>
+<p>在 <span class="math inline">\(\mathbb{N}_1\)</span>
+中，数学归纳法是成立的。数学归纳法是指对于任何一个命题 <span
+class="math inline">\(\operatorname{P}(x)\)</span>，如果可以证明 <span
+class="math inline">\(\operatorname{P}(1)\)</span> 成立，并且可以证明
+<span
+class="math inline">\(\operatorname{P}(n)\Rightarrow\operatorname{P}(s(n))\)</span>，就可以证明
+<span class="math inline">\(\operatorname{P}(x)\)</span> 对全体 <span
+class="math inline">\(x\in \mathbb{N}_1\)</span> 成立。即 <span
+class="math display">\[
+\left. \begin{array}\operatorname{P}(1)\\
+\operatorname{P}(x)\Rightarrow\operatorname{P}(\operatorname{s}(x))
+\end{array} \right\}\Rightarrow \forall x\in
+\mathbb{N}_1,\operatorname{P}(x)
+\]</span> 乍一看，数学归纳法似乎很符合直觉，这样似乎总是正确的，因为
+<span class="math inline">\(\operatorname{P}(1)\)</span> 可以推出 <span
+class="math inline">\(\operatorname{P}(2)\)</span> 成立，<span
+class="math inline">\(\operatorname{P}(2)\)</span> 又可以推出 <span
+class="math inline">\(\operatorname{P}(3)\)</span>
+成立……这样一直进行下去，总有一步可以推出 <span
+class="math inline">\(\forall
+x\in\mathbb{N}_1,\operatorname{P}(x)\)</span> 成立（显然 <span
+class="math inline">\(x\)</span>
+是有限的，因此论证总可以在有限步之内完成）。然而，数学归纳法也可以推导出了哥德尔不完备定理，从而证明包含皮亚诺算数公理体系的数学不具有完备性。</p>
+<h4 id="其它运算符">其它运算符</h4>
+<p>接下来，就是定义其他运算： 1. 加法 <span
+class="math inline">\(\mathbb{N}_1\)</span> 上的加法运算有两条法则： 1.
+<span class="math inline">\(a+1=\operatorname{s}(a)\)</span> 2. <span
+class="math inline">\(a+\operatorname{s}(b)=\operatorname{s}(a+b)\)</span>。
+这样定义加法是可以保证最终可以运算出结果的，因为可以用第二条法则不断减少
+<span class="math inline">\(b\)</span> 直到 <span
+class="math inline">\(b=1\)</span>，此时再用第一条法则就可以算出结果 2.
+乘法 <span class="math inline">\(\mathbb{N}_1\)</span>
+上的乘法运算同样有两条法则： 1. <span
+class="math inline">\(a\times1=a\)</span> 2. <span
+class="math inline">\(a\times\operatorname{s}(b)=ab+a\)</span>
+和加法类似，这样定义乘法可以保证任意两个 <span
+class="math inline">\(\mathbb{N}_1\)</span> 中的数相乘都可以算出结果。
+以及证明各种运算律： 1. （加法交换律）<span
+class="math inline">\(a+b=b+a\)</span> 首先，我们先证明 <span
+class="math inline">\(\operatorname{s}(a)+b=\operatorname{s}(a+b)\)</span>。
+当 <span class="math inline">\(b=1\)</span> 时，<span
+class="math display">\[\displaylines{\operatorname{s}(a)+1=\operatorname{s}(\operatorname{s}(a))\\\operatorname{s}(a+1)=\operatorname{s}(\operatorname{s}(a))}\]</span>
+所以当 <span class="math inline">\(b=1\)</span> 时有 <span
+class="math inline">\(\operatorname{s}(a)+b=\operatorname{s}(a+b)\)</span>。
+假设当 <span class="math inline">\(b=n\)</span> 时 <span
+class="math inline">\(\operatorname{s}(a)+b=\operatorname{s}(a+b)\)</span>，那么当
+<span class="math inline">\(b=\operatorname{s}(n)\)</span> 时<span
+class="math display">\[\displaylines{\operatorname{s}(a)+b=\operatorname{s}(a)+\operatorname{s}(n)=\operatorname{s}(\operatorname{s}(a)+n)=\operatorname{s}(\operatorname{s}(a+n))\\\operatorname{s}(a+b)=\operatorname{s}(a+\operatorname{s}(n))=\operatorname{s}(\operatorname{s}(a+n))}\]</span>
+所以也有 <span
+class="math inline">\(\operatorname{s}(a)+b=\operatorname{s}(a+b)\Rightarrow
+\operatorname{s}(a)+\operatorname{s}(b)=\operatorname{s}(a+\operatorname{s}(b))\)</span>。再由数学归纳法可知
+<span
+class="math display">\[\operatorname{s}(a)+b=\operatorname{s}(a+b)\]</span>
+接下来开始证明加法交换律。</p>
+<pre><code class="hljs">先证明 $a+1=1+a$（即当 $b=1$ 时的情况），仍然利用数学归纳法证明。
+
+当 $a=1$ 时，$a+1=1+a=2$。
+当 $a=n$ 时有 $a+1=1+a$，则当 $a=\operatorname&#123;s&#125;(n)$ 时有$$a+1=\operatorname&#123;s&#125;(n)+1=\operatorname&#123;s&#125;(n+1)=\operatorname&#123;s&#125;(1+n)=1+\operatorname&#123;s&#125;(n)=1+a$$再由数学归纳法可知原命题成立。
+接下来假设 $b=n$ 时有 $a+b=b+a$，则当 $b=\operatorname&#123;s&#125;(n)$ 时
+$$a+b=a+\operatorname&#123;s&#125;(n)=\operatorname&#123;s&#125;(a+n)=\operatorname&#123;s&#125;(n+a)=\operatorname&#123;s&#125;(n)+a=b+a$$在用数学归纳法可以得知加法交换律成立。</code></pre>
+<ol start="2" type="1">
+<li><p>（乘法交换律）<span class="math inline">\(a\times b=b\times
+a\)</span> 和加法交换律类似，先用数学归纳法证明 <span
+class="math inline">\(a\times1=1\times a\)</span>，再用一次数学归纳法证
+<span class="math inline">\(a\times b=b\times a\)</span>。 当 <span
+class="math inline">\(a=1\)</span> 时，<span
+class="math inline">\(a\times 1=1\times a=1\)</span>。 当 <span
+class="math inline">\(a=n\)</span> 时有 <span
+class="math inline">\(a\times 1=1\times a\)</span>，则当 <span
+class="math inline">\(a=\operatorname{s}(n)\)</span> 时有<span
+class="math display">\[a\times 1=\operatorname{s}(n)\times
+1=\operatorname{s}(n)=n+1=1\times n+1=1\times
+\operatorname{s}(n)=1\times a\]</span>再由数学归纳法可知原命题成立。</p>
+<p>接下来证明 <span class="math inline">\(\operatorname{s}(a)\times
+b=ab+b\)</span>。 当 <span class="math inline">\(b=1\)</span> 时有 <span
+class="math inline">\(\operatorname{s}(a)\times
+b=\operatorname{s}(a)=a+1=ab+b\)</span>。 当 <span
+class="math inline">\(b=n\)</span> 时 <span
+class="math inline">\(\operatorname{s}(a)\times b=ab+b\)</span>，那么当
+<span class="math inline">\(b=\operatorname{s}(n)\)</span> 时 <span
+class="math display">\[\displaylines{\operatorname{s}(a)\times
+b=\operatorname{s}(a)\times
+\operatorname{s}(n)=\operatorname{s}(a)\times
+n+\operatorname{s}(a)=an+n+a+1\\
+ab+b=a\times\operatorname{s}(n)+\operatorname{s}(n)=an+a+n+1=an+n+a+1}\]</span>
+证明完毕。</p>
+<p>接下来假设 <span class="math inline">\(b=n\)</span> 时有 <span
+class="math inline">\(a\times b=b\times a\)</span>，则当 <span
+class="math inline">\(b=\operatorname{s}(n)\)</span> 时<span
+class="math display">\[a\times b=a\times
+\operatorname{s}(n)=an+a=na+a=\operatorname{s}(n)\times a=b\times
+a\]</span>在用数学归纳法可以得知乘法交换律成立。</p></li>
+<li><p>（乘法分配律）<span
+class="math inline">\(a\times(b+c)=ac+bc\)</span> 证明：当 <span
+class="math inline">\(c=1\)</span> 时，有 <span
+class="math display">\[a\times(b+c)=a\times\operatorname{s}(b)=ab+a=ab+ac\]</span>当
+<span class="math inline">\(c=n\)</span> 时，<span
+class="math inline">\(a\times(b+c)=ac+bc\)</span>，当 <span
+class="math inline">\(c=\operatorname{s}(n)\)</span> 时 <span
+class="math display">\[\displaylines{a\times(b+c)=a\times
+[b+\operatorname{s}(n)]\\=a\times\operatorname{s}(b+n)=a\times(b+n)+a\\=ab+an+a\\=ab+a\times\operatorname{s}(n)\\=ab+ac}\]</span>用数学归纳法得知原命题成立。</p></li>
+<li><p>（加法结合律）<span
+class="math inline">\((a+b)+c=a+(b+c)\)</span>
+这次不用用数学归纳法了，太好了。 当 <span
+class="math inline">\(b=1\)</span> 时，<span
+class="math display">\[\displaylines{(a+b)+c=\operatorname{s}(a)+c=\operatorname{s}(a+c)\\
+a+(b+c)=a+\operatorname{s}(c)=\operatorname{s}(a+c)}\]</span>当 <span
+class="math inline">\(b\not = 1\)</span> 时，设 <span
+class="math inline">\(b=\operatorname{s}(p)\)</span>，<span
+class="math display">\[\displaylines{(a+b)+c=[a+\operatorname{s}(p)]+c=\operatorname{s}(a+p)+c=\operatorname{s}(a+p+c)\\
+a+(b+c)=a+[\operatorname{s}(p)+c]=a+\operatorname{s}(p+c)=\operatorname{s}(a+p+c)}\]</span>
+所以原命题成立。</p></li>
+<li><p>（乘法结合律）<span class="math inline">\((a\times b)\times
+c=a\times (b\times c)\)</span> 当 <span
+class="math inline">\(b=1\)</span> 时，<span
+class="math display">\[\displaylines{(a\times b)\times c=a\times c\\
+a\times(b\times c)=a\times c}\]</span>当 <span
+class="math inline">\(b\not = 1\)</span> 时，依然设 <span
+class="math inline">\(b=\operatorname{s}(p)\)</span>，<span
+class="math display">\[\displaylines{(a\times b)\times
+c=[a\times\operatorname{s}(p)]\times c=(ap+a)\times
+c=acp+ac\\a\times(b\times c)=a\times[\operatorname{s}(p)\times
+c]=a\times(pc+c)=acp+ac}\]</span>所以原命题成立。</p></li>
+</ol>
+<h4 id="序关系">序关系</h4>
+<p>我们定义 <span class="math inline">\(\mathbb{N}_1\)</span>
+上的一个序关系，记作 <span class="math inline">\(\lt\)</span>。我们定义
+<span class="math inline">\(a\lt b\)</span> 当且仅当存在 <span
+class="math inline">\(c\)</span>，使 <span
+class="math inline">\(a+c=b\)</span>。 ##### 性质 1. （<span
+class="math inline">\(\lt\)</span> 是严格序）<span
+class="math inline">\(a\not\lt a,a\lt b,b\lt c\Rightarrow a\lt
+c\)</span> 因为对于任意 <span class="math inline">\(x\)</span>，<span
+class="math inline">\(a+x=a+x\)</span>，所以 <span
+class="math inline">\(a\lt a+x\)</span>，因此 <span
+class="math inline">\(a\not\lt a\)</span>。假设 <span
+class="math inline">\(a+m=b,b+n=c\)</span>，那么 <span
+class="math inline">\(a+n+m=c\)</span>，所以 <span
+class="math inline">\(a\lt c\)</span>。 2. <span
+class="math inline">\(a\lt b\Rightarrow\begin{cases}a+c\lt b+c\\ ac\lt
+bc \end{cases}\)</span> 证明：假设 <span
+class="math inline">\(a+p=b\)</span>，那么 <span
+class="math inline">\(a+p+c=b+c\)</span>，<span
+class="math inline">\(ac+pc=(a+p)c=bc\)</span>。 3. （最小数原理）在
+<span class="math inline">\(\mathbb{N}_1\)</span>
+的非空子集中，必有最小元。</p>
+<h3 id="自然数集合">自然数集合</h3>
+<p>在 <span class="math inline">\(\mathbb{N}_1\)</span>
+的基础上增加一个元素 <span class="math inline">\(0\)</span>，令 <span
+class="math inline">\(\operatorname{s}(0)=1\)</span>。我们为零专门加一些补丁来保证
+<span class="math inline">\(\mathbb{N}_0\)</span>
+上的加乘运算是可以进行的。<span
+class="math display">\[\displaylines{0\lt 1,0\lt x(x\in \mathbb{N}_1)\\
+0+x=x+0=x\\0\times
+x=x\times0=0}\]</span>容易证明，正整数集合上的各种运算律，最小数原理在
+<span class="math inline">\(\mathbb{N}_0\)</span> 上仍然成立。</p>
+<h4 id="和-1"><span class="math inline">\(0\)</span> 和 <span
+class="math inline">\(1\)</span></h4>
+<p>那么，究竟什么是 <span class="math inline">\(0\)</span>，<span
+class="math inline">\(1\)</span>
+呢？有个非常有趣的说法，叫做万物都是有结构的空。我们可以这样定义 <span
+class="math inline">\(0\)</span>。<span
+class="math display">\[0=\emptyset\]</span>接着这么定义 <span
+class="math inline">\(\operatorname{s}(x)\)</span><span
+class="math display">\[\operatorname{s}(x)=\{x,\emptyset\}\]</span>举个例子，<span
+class="math inline">\(\operatorname{s}(0)=1\)</span>，所以<span
+class="math inline">\(1=\{0,\emptyset
+\}\)</span>，由于两个元素重复了，所以 <span
+class="math inline">\(1=\{\emptyset\}\)</span>。之后就是 <span
+class="math inline">\(\operatorname{s}(1)=2\)</span>，那么 <span
+class="math inline">\(2=\{ 1,\emptyset
+\}=\{\{\emptyset\},\emptyset\}\)</span>。看，万物果然是有结构的空。</p>
+<h3 id="整数集合">整数集合</h3>
+<p>由于在 <span class="math inline">\(\mathbb{N}\)</span>
+上的一些加法方程无解，而且不能任意做差。因此，我们引入一个新的集合，整数集合
+<span class="math inline">\(\mathbb{Z}\)</span>。</p>
+<p>先定义 <span
+class="math inline">\(\mathop{\mathbb{Z}}\limits^{\sim}=\mathbb{N}_1\times\mathbb{N}_0\)</span>。也就是说，<span
+class="math inline">\(\mathop{\mathbb{Z}}\limits^{\sim}\)</span>
+中的每个元素都是由一个正整数和一个自然数组成的数对。我们将这样一个元素记作
+<span
+class="math inline">\((a,b),a\in\mathbb{N}_1,b\in\mathbb{N}_0\)</span>。接下来定义等价运算
+<span class="math inline">\(=\)</span>。我们说 <span
+class="math inline">\((a,b)=(a^\prime,b^\prime)\)</span> 当且仅当 <span
+class="math inline">\(a+b^\prime=a^\prime+b\)</span>。</p>
+<p>（传递性）如果 <span
+class="math inline">\((a,b)=(a^\prime,b^\prime),(a^\prime,b^\prime)=(a^{\prime\prime},b^{\prime\prime})\)</span>，那么
+<span
+class="math inline">\((a,b)=(a^{\prime\prime},b^{\prime\prime})\)</span>。从前两个条件可以看出，<span
+class="math inline">\(a+b^\prime=a^\prime+b,a^\prime+b^{\prime\prime}=a^{\prime\prime}+b^\prime\)</span>，两式相加得
+<span
+class="math inline">\(a+b^\prime+a^\prime+b^{\prime\prime}=a^\prime+b+a^{\prime\prime}+b^\prime\)</span>，消去
+<span class="math inline">\(a^\prime+b^\prime\)</span> 得 <span
+class="math inline">\(a+b^{\prime\prime}=a^{\prime\prime}+b\)</span>，原命题得证。我们将所有重复的元素从
+<span class="math inline">\(\mathop{\mathbb{Z}}\limits^\sim\)</span>
+中减去得到 <span class="math inline">\(\mathbb{Z}\)</span>。</p>
+<p>接下来定义 <span class="math inline">\(\mathbb{Z}\)</span>
+上的各种运算。 1. 加法：<span
+class="math inline">\((a,b)+(c,d)=(a+c,b+d)\)</span>。 2. 乘法：<span
+class="math inline">\((a,b)\times(c,d)=(ac+bd,ad+bc)\)</span> 3.
+相反数：<span class="math inline">\(-(a,b)=(b,a)\)</span>
+之后，我们需要证明这些运算的结果和代表元无关。就是换一个和其中一个元素等价的数，结果是否和原来一样。以加法为例。假设
+<span
+class="math inline">\((a,b)=(a^\prime,b^\prime)\)</span>，那么<span
+class="math display">\[\displaylines{(a,b)+(c,d)=(a+c,b+d)\\
+(a^\prime,b^\prime)+(c,d)=(a^\prime+c,b^\prime+d)}\]</span>此时<span
+class="math display">\[\displaylines{a+c+b^\prime+d=a+b^\prime+c+d\\
+b+d+a^\prime+c=a^\prime+b+c+d}\]</span>所以 <span
+class="math inline">\((a+c,b+d)=(a^\prime+c,b^\prime+d)\)</span>。</p>
+<p>接下来是乘法： <span
+class="math display">\[\displaylines{(a,b)\times(c,d)=(ac+bd,ad+bc)\\
+(a^\prime,b^\prime)\times(c,d)=(a^\prime c+b^\prime d,a^\prime
+d+b^\prime c)}\]</span>此时<span
+class="math display">\[\displaylines{ad+bc+a^\prime c+b^\prime
+d=(a^\prime+b)c+(a+b ^\prime)d\\ ac+bd+a^\prime d+b^\prime
+c=(a+b^\prime)c+(a^\prime+b)d}\]</span>所以是等价的。</p>
+<p>还有相反数： <span
+class="math display">\[\displaylines{-(a,b)=(b,a)\\-(a^\prime,b^\prime)=(b^\prime,a^\prime)}\]</span>显然
+<span
+class="math inline">\(a+b^\prime=a^\prime+b\)</span>，结果等价。</p>
+<p><span class="math inline">\(\mathbb{Z}\)</span>
+上的各种运算律都是直接运算再用 <span
+class="math inline">\(\mathbb{N}\)</span>
+上的运算量就可以证明了，这里不过多赘述。</p>
+<p><span class="math inline">\(\mathbb{Z}\)</span>
+还有一个有趣的性质，<span
+class="math inline">\((\mathbb{Z},0,+,-)\)</span> 是交换群。这意味着 1.
+加法交换律和加法结合律成立 2. <span
+class="math inline">\(x+0=0+x\)</span> 3. <span
+class="math inline">\(x+(-x)=(-x)+x=0\)</span>
+这些刚刚都证明过了。此时，我们称 <span class="math inline">\(0\)</span>
+为单位元或恒等元。</p>
+<p>同时，<span class="math inline">\(\mathbb{Z}\)</span>
+是一个整环。这意味着 1. 乘法交换律，结合律，分配律成立。 2. <span
+class="math inline">\(1\times x=x\times 1\)</span> 3. 没有零因子：<span
+class="math inline">\(x,y\not = 0\Rightarrow xy\not=0\)</span>，<span
+class="math inline">\(xy=0\Rightarrow x=0\lor y=0\)</span> 此时称 <span
+class="math inline">\(1\)</span> 为乘法单位元。</p>
+<p>此外，<span class="math inline">\(\mathbb{Z}\)</span>
+还是一个欧式环，因为 <span class="math inline">\(\mathbb{Z}\)</span>
+中有除法原理。</p>
+<h3 id="有理数">有理数</h3>
+<p>和整数类似，我们仍先定义 <span
+class="math inline">\(\mathop{\mathbb{Q}}\limits^\sim=\mathbb{Z}\times\mathbb{Z}^*\)</span>（<span
+class="math inline">\(\mathbb{Z}^*=\mathbb{Z}-\{0\}\)</span>），将其中的一个元素记为
+<span
+class="math inline">\((a,b),a\in\mathbb{Z},b\in\mathbb{Z}^*\)</span>，我们给这个元素一个符号
+<span class="math inline">\(\dfrac{a}{b}\)</span>。接着定义 <span
+class="math inline">\(\mathbb{Q}\)</span> 中的等价关系：<span
+class="math inline">\((a,b)=(c,d)\)</span> 当且仅当 <span
+class="math inline">\(ad=bc\)</span>。</p>
+<p>类似的，将 <span class="math inline">\(\mathbb{Z}\)</span> 嵌入 <span
+class="math inline">\(\mathbb{Q}\)</span>：<span
+class="math inline">\(a\in\mathbb{Z},a\rightarrow\dfrac{a}{1}\)</span>。</p>
+<p>定义加法，乘法： 1. <span
+class="math inline">\(\dfrac{a}{b}\times\dfrac{c}{d}=\dfrac{ac}{bd}\)</span>
+2. <span
+class="math inline">\(\dfrac{a}{b}+\dfrac{c}{d}=\dfrac{ad+bc}{bd}\)</span>
+3. <span class="math inline">\(\forall x\in\mathbb{Q}^*,\exists
+y,xy=1\)</span>，此时称 <span class="math inline">\(y\)</span> 为 <span
+class="math inline">\(x\)</span> 的倒数，记作 <span
+class="math inline">\(y=x^{-1}\)</span>，假设 <span
+class="math inline">\(x=\dfrac{a}{b}\)</span>，那么 <span
+class="math inline">\(x^{-1}=\dfrac{b}{a}\)</span>。
+各种性质，运算律的证明和 <span class="math inline">\(\mathbb{Z}\)</span>
+上的大差不差，因此这里不过多赘述。这也说明了，<span
+class="math inline">\(\mathbb{Q}\)</span> 是环.</p>
+<p>此外 <span class="math inline">\(\mathbb{Q}\)</span> 为域，这意味着
+1. <span class="math inline">\(\mathbb{Q}\)</span> 为交换环。 2. <span
+class="math inline">\(\mathbb{Q}\)</span> 中的每个元素都有倒数。</p>
+<p>至此，我们终于定义完成了从正整数到有理数，以后终于可以不再顾忌的使用这些数字（和运算律）了。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/" class="category-chain-item">数论</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>从1到有理数</div>
+      <div>https://blogs.sving1024.top/shu-lun/cong-1-dao-you-li-shu/</div>
+    </div>
+    <div class="license-meta">
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月16日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/jie-xi-ji-he/xia-tan-dian-ji/" title="瞎谈点积">
+                        <span class="hidden-mobile">瞎谈点积</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"9a4516e6925e7355535c","clientSecret":"239305091da560ff3395d087914b0a77c75d8be6","repo":"hexo-comments","owner":"Sving1024","admin":["Sving1024"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://vercel.prohibitorum.top/github_access_token"},
+          {
+            id: '42d5d0c0eb1155d0f1c19ae58ca56785'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <p xmlns:cc="http://creativecommons.org/ns#" >本博客所有作品在 <a href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC 4.0协议</a> 下提供<a href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" srcset="/img/loading.gif" lazyload> <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" srcset="/img/loading.gif" lazyload> <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" srcset="/img/loading.gif" lazyload></a></p> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/xm_custom/custom.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
