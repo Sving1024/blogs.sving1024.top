@@ -26,7 +26,7 @@
 <meta property="og:description" content="数学有趣的一点在于，有些概念总是在应用之后再定义。 ——沃兹基硕德  今天，我们将要再这里，定义数学中最基础的概念，数字！ 正整数集合 一切的一切，都从\(1\)开始： \[\left\{1\right\}\] 后继运算 接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将 \(x\) 的后继数记作 \(\operatorname{s}(x)\)。（鉴于这">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-16T07:45:07.232Z">
-<meta property="article:modified_time" content="2024-03-16T07:53:07.000Z">
+<meta property="article:modified_time" content="2024-03-16T07:56:32.634Z">
 <meta property="article:author" content="Sving1024">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -293,12 +293,12 @@ class="math inline">\(\mathbb{N}_1\)</span>。</p></li>
 <li><p><span class="math inline">\(1\in\mathbb{N}_1\)</span></p></li>
 <li><p>如果 <span class="math inline">\(x\in\mathbb{N}_1\)</span>，那么
 <span
-class="math inline">\(\operatorname{s}(x)\in\mathbb{N}_1\)</span>。
-之后，我们给予 <span class="math inline">\(1\)</span> 的后继数一个符号
-<span class="math inline">\(2\)</span>，<span
-class="math inline">\(2\)</span> 的后继数一个符号 <span
-class="math inline">\(3\)</span>，依次类推，就有了我们现在所说的正整数。这实际上就是我们常说的皮亚诺算数公理。</p></li>
+class="math inline">\(\operatorname{s}(x)\in\mathbb{N}_1\)</span>。</p></li>
 </ol>
+<p>之后，我们给予 <span class="math inline">\(1\)</span>
+的后继数一个符号 <span class="math inline">\(2\)</span>，<span
+class="math inline">\(2\)</span> 的后继数一个符号 <span
+class="math inline">\(3\)</span>，依次类推，就有了我们现在所说的正整数。这实际上就是我们常说的皮亚诺算数公理。</p>
 <h4 id="数学归纳法">数学归纳法</h4>
 <p>在 <span class="math inline">\(\mathbb{N}_1\)</span>
 中，数学归纳法是成立的。数学归纳法是指对于任何一个命题 <span
@@ -523,16 +523,16 @@ class="math inline">\(a+b^{\prime\prime}=a^{\prime\prime}+b\)</span>，原命题
 class="math inline">\((a,b)+(c,d)=(a+c,b+d)\)</span>。</li>
 <li>乘法：<span
 class="math inline">\((a,b)\times(c,d)=(ac+bd,ad+bc)\)</span></li>
-<li>相反数：<span class="math inline">\(-(a,b)=(b,a)\)</span>
-之后，我们需要证明这些运算的结果和代表元无关。就是换一个和其中一个元素等价的数，结果是否和原来一样。以加法为例。假设
+<li>相反数：<span class="math inline">\(-(a,b)=(b,a)\)</span></li>
+</ol>
+<p>之后，我们需要证明这些运算的结果和代表元无关。就是换一个和其中一个元素等价的数，结果是否和原来一样。以加法为例。假设
 <span
 class="math inline">\((a,b)=(a^\prime,b^\prime)\)</span>，那么<span
 class="math display">\[\displaylines{(a,b)+(c,d)=(a+c,b+d)\\
 (a^\prime,b^\prime)+(c,d)=(a^\prime+c,b^\prime+d)}\]</span>此时<span
 class="math display">\[\displaylines{a+c+b^\prime+d=a+b^\prime+c+d\\
 b+d+a^\prime+c=a^\prime+b+c+d}\]</span>所以 <span
-class="math inline">\((a+c,b+d)=(a^\prime+c,b^\prime+d)\)</span>。</li>
-</ol>
+class="math inline">\((a+c,b+d)=(a^\prime+c,b^\prime+d)\)</span>。</p>
 <p>接下来是乘法： <span
 class="math display">\[\displaylines{(a,b)\times(c,d)=(ac+bd,ad+bc)\\
 (a^\prime,b^\prime)\times(c,d)=(a^\prime c+b^\prime d,a^\prime
@@ -553,15 +553,15 @@ class="math inline">\(\mathbb{N}\)</span>
 class="math inline">\((\mathbb{Z},0,+,-)\)</span> 是交换群。这意味着 1.
 加法交换律和加法结合律成立 2. <span
 class="math inline">\(x+0=0+x\)</span> 3. <span
-class="math inline">\(x+(-x)=(-x)+x=0\)</span>
-这些刚刚都证明过了。此时，我们称 <span class="math inline">\(0\)</span>
-为单位元或恒等元。</p>
+class="math inline">\(x+(-x)=(-x)+x=0\)</span></p>
+<p>这些刚刚都证明过了。此时，我们称 <span
+class="math inline">\(0\)</span> 为单位元或恒等元。</p>
 <p>同时，<span class="math inline">\(\mathbb{Z}\)</span>
 是一个整环。这意味着 1. 乘法交换律，结合律，分配律成立。 2. <span
 class="math inline">\(1\times x=x\times 1\)</span> 3. 没有零因子：<span
 class="math inline">\(x,y\not = 0\Rightarrow xy\not=0\)</span>，<span
-class="math inline">\(xy=0\Rightarrow x=0\lor y=0\)</span> 此时称 <span
-class="math inline">\(1\)</span> 为乘法单位元。</p>
+class="math inline">\(xy=0\Rightarrow x=0\lor y=0\)</span></p>
+<p>此时称 <span class="math inline">\(1\)</span> 为乘法单位元。</p>
 <p>此外，<span class="math inline">\(\mathbb{Z}\)</span>
 还是一个欧式环，因为 <span class="math inline">\(\mathbb{Z}\)</span>
 中有除法原理。</p>
@@ -578,22 +578,30 @@ class="math inline">\(ad=bc\)</span>。</p>
 <p>类似的，将 <span class="math inline">\(\mathbb{Z}\)</span> 嵌入 <span
 class="math inline">\(\mathbb{Q}\)</span>：<span
 class="math inline">\(a\in\mathbb{Z},a\rightarrow\dfrac{a}{1}\)</span>。</p>
-<p>定义加法，乘法： 1. <span
-class="math inline">\(\dfrac{a}{b}\times\dfrac{c}{d}=\dfrac{ac}{bd}\)</span>
-2. <span
-class="math inline">\(\dfrac{a}{b}+\dfrac{c}{d}=\dfrac{ad+bc}{bd}\)</span>
-3. <span class="math inline">\(\forall x\in\mathbb{Q}^*,\exists
+<p>定义加法，乘法：</p>
+<ol type="1">
+<li><span
+class="math inline">\(\dfrac{a}{b}\times\dfrac{c}{d}=\dfrac{ac}{bd}\)</span></li>
+<li><span
+class="math inline">\(\dfrac{a}{b}+\dfrac{c}{d}=\dfrac{ad+bc}{bd}\)</span></li>
+<li><span class="math inline">\(\forall x\in\mathbb{Q}^*,\exists
 y,xy=1\)</span>，此时称 <span class="math inline">\(y\)</span> 为 <span
 class="math inline">\(x\)</span> 的倒数，记作 <span
 class="math inline">\(y=x^{-1}\)</span>，假设 <span
 class="math inline">\(x=\dfrac{a}{b}\)</span>，那么 <span
-class="math inline">\(x^{-1}=\dfrac{b}{a}\)</span>。
-各种性质，运算律的证明和 <span class="math inline">\(\mathbb{Z}\)</span>
+class="math inline">\(x^{-1}=\dfrac{b}{a}\)</span>。</li>
+</ol>
+<p>各种性质，运算律的证明和 <span
+class="math inline">\(\mathbb{Z}\)</span>
 上的大差不差，因此这里不过多赘述。这也说明了，<span
 class="math inline">\(\mathbb{Q}\)</span> 是环.</p>
-<p>此外 <span class="math inline">\(\mathbb{Q}\)</span> 为域，这意味着
-1. <span class="math inline">\(\mathbb{Q}\)</span> 为交换环。 2. <span
-class="math inline">\(\mathbb{Q}\)</span> 中的每个元素都有倒数。</p>
+<p>此外 <span class="math inline">\(\mathbb{Q}\)</span>
+为域，这意味着</p>
+<ol type="1">
+<li><span class="math inline">\(\mathbb{Q}\)</span> 为交换环。</li>
+<li><span class="math inline">\(\mathbb{Q}\)</span>
+中的每个元素都有倒数。</li>
+</ol>
 <p>至此，我们终于定义完成了从正整数到有理数，以后终于可以不再顾忌的使用这些数字（和运算律）了。</p>
 
                 
