@@ -18,15 +18,15 @@
   <meta name="author" content="Sving1024">
   <meta name="keywords" content="">
   
-    <meta name="description" content="数学有趣的一点在于，有些概念总是在应用之后再定义。 ——沃兹基硕德  今天，我们将要再这里，定义数学中最基础的概念，数字！ 正整数集合 一切的一切，都从\(1\)开始： \[\left\{1\right\}\] #### 后继运算 接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将 \(x\) 的后继数记作 \(\operatorname{s}(x)\)。">
+    <meta name="description" content="数学有趣的一点在于，有些概念总是在应用之后再定义。 ——沃兹基硕德  今天，我们将要再这里，定义数学中最基础的概念，数字！ 正整数集合 一切的一切，都从\(1\)开始： \[\left\{1\right\}\] 后继运算 接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将 \(x\) 的后继数记作 \(\operatorname{s}(x)\)。（鉴于这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从1到有理数">
 <meta property="og:url" content="https://blogs.sving1024.top/shu-lun/cong-1-dao-you-li-shu/index.html">
 <meta property="og:site_name" content="Sving&#39;s Blogs">
-<meta property="og:description" content="数学有趣的一点在于，有些概念总是在应用之后再定义。 ——沃兹基硕德  今天，我们将要再这里，定义数学中最基础的概念，数字！ 正整数集合 一切的一切，都从\(1\)开始： \[\left\{1\right\}\] #### 后继运算 接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将 \(x\) 的后继数记作 \(\operatorname{s}(x)\)。">
+<meta property="og:description" content="数学有趣的一点在于，有些概念总是在应用之后再定义。 ——沃兹基硕德  今天，我们将要再这里，定义数学中最基础的概念，数字！ 正整数集合 一切的一切，都从\(1\)开始： \[\left\{1\right\}\] 后继运算 接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将 \(x\) 的后继数记作 \(\operatorname{s}(x)\)。（鉴于这">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-16T07:45:07.232Z">
-<meta property="article:modified_time" content="2024-03-16T07:43:59.230Z">
+<meta property="article:modified_time" content="2024-03-16T07:50:42.148Z">
 <meta property="article:author" content="Sving1024">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -276,8 +276,9 @@
 <p>今天，我们将要再这里，定义数学中最基础的概念，数字！</p>
 <h3 id="正整数集合">正整数集合</h3>
 <p>一切的一切，都从<span class="math inline">\(1\)</span>开始： <span
-class="math display">\[\left\{1\right\}\]</span> #### 后继运算
-接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将
+class="math display">\[\left\{1\right\}\]</span></p>
+<h4 id="后继运算">后继运算</h4>
+<p>接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将
 <span class="math inline">\(x\)</span> 的后继数记作 <span
 class="math inline">\(\operatorname{s}(x)\)</span>。（鉴于这是篇关于数学的文章，就不用
 <span class="math inline">\(x++\)</span> 之类的表达方式了）。</p>
@@ -317,21 +318,32 @@ x\in\mathbb{N}_1,\operatorname{P}(x)\)</span> 成立（显然 <span
 class="math inline">\(x\)</span>
 是有限的，因此论证总可以在有限步之内完成）。然而，数学归纳法也可以推导出了哥德尔不完备定理，从而证明包含皮亚诺算数公理体系的数学不具有完备性。</p>
 <h4 id="其它运算符">其它运算符</h4>
-<p>接下来，就是定义其他运算： 1. 加法 <span
-class="math inline">\(\mathbb{N}_1\)</span> 上的加法运算有两条法则： 1.
-<span class="math inline">\(a+1=\operatorname{s}(a)\)</span> 2. <span
+<p>接下来，就是定义其他运算：</p>
+<ol type="1">
+<li>加法 <span class="math inline">\(\mathbb{N}_1\)</span>
+上的加法运算有两条法则：
+<ol type="1">
+<li><span class="math inline">\(a+1=\operatorname{s}(a)\)</span></li>
+<li><span
 class="math inline">\(a+\operatorname{s}(b)=\operatorname{s}(a+b)\)</span>。
 这样定义加法是可以保证最终可以运算出结果的，因为可以用第二条法则不断减少
 <span class="math inline">\(b\)</span> 直到 <span
-class="math inline">\(b=1\)</span>，此时再用第一条法则就可以算出结果 2.
-乘法 <span class="math inline">\(\mathbb{N}_1\)</span>
-上的乘法运算同样有两条法则： 1. <span
-class="math inline">\(a\times1=a\)</span> 2. <span
-class="math inline">\(a\times\operatorname{s}(b)=ab+a\)</span>
+class="math inline">\(b=1\)</span>，此时再用第一条法则就可以算出结果</li>
+</ol></li>
+<li>乘法 <span class="math inline">\(\mathbb{N}_1\)</span>
+上的乘法运算同样有两条法则：
+<ol type="1">
+<li><span class="math inline">\(a\times1=a\)</span></li>
+<li><span class="math inline">\(a\times\operatorname{s}(b)=ab+a\)</span>
 和加法类似，这样定义乘法可以保证任意两个 <span
-class="math inline">\(\mathbb{N}_1\)</span> 中的数相乘都可以算出结果。
-以及证明各种运算律： 1. （加法交换律）<span
-class="math inline">\(a+b=b+a\)</span> 首先，我们先证明 <span
+class="math inline">\(\mathbb{N}_1\)</span>
+中的数相乘都可以算出结果。</li>
+</ol></li>
+</ol>
+<p>以及证明各种运算律：</p>
+<ol type="1">
+<li><p>（加法交换律）<span class="math inline">\(a+b=b+a\)</span>
+首先，我们先证明 <span
 class="math inline">\(\operatorname{s}(a)+b=\operatorname{s}(a+b)\)</span>。
 当 <span class="math inline">\(b=1\)</span> 时，<span
 class="math display">\[\displaylines{\operatorname{s}(a)+1=\operatorname{s}(\operatorname{s}(a))\\\operatorname{s}(a+1)=\operatorname{s}(\operatorname{s}(a))}\]</span>
@@ -347,13 +359,19 @@ class="math inline">\(\operatorname{s}(a)+b=\operatorname{s}(a+b)\Rightarrow
 <span
 class="math display">\[\operatorname{s}(a)+b=\operatorname{s}(a+b)\]</span>
 接下来开始证明加法交换律。</p>
-<pre><code class="hljs">先证明 $a+1=1+a$（即当 $b=1$ 时的情况），仍然利用数学归纳法证明。
-
-当 $a=1$ 时，$a+1=1+a=2$。
-当 $a=n$ 时有 $a+1=1+a$，则当 $a=\operatorname&#123;s&#125;(n)$ 时有$$a+1=\operatorname&#123;s&#125;(n)+1=\operatorname&#123;s&#125;(n+1)=\operatorname&#123;s&#125;(1+n)=1+\operatorname&#123;s&#125;(n)=1+a$$再由数学归纳法可知原命题成立。
-接下来假设 $b=n$ 时有 $a+b=b+a$，则当 $b=\operatorname&#123;s&#125;(n)$ 时
-$$a+b=a+\operatorname&#123;s&#125;(n)=\operatorname&#123;s&#125;(a+n)=\operatorname&#123;s&#125;(n+a)=\operatorname&#123;s&#125;(n)+a=b+a$$在用数学归纳法可以得知加法交换律成立。</code></pre>
-<ol start="2" type="1">
+<p>先证明 <span class="math inline">\(a+1=1+a\)</span>（即当 <span
+class="math inline">\(b=1\)</span>
+时的情况），仍然利用数学归纳法证明。</p>
+<p>当 <span class="math inline">\(a=1\)</span> 时，<span
+class="math inline">\(a+1=1+a=2\)</span>。 当 <span
+class="math inline">\(a=n\)</span> 时有 <span
+class="math inline">\(a+1=1+a\)</span>，则当 <span
+class="math inline">\(a=\operatorname{s}(n)\)</span> 时有<span
+class="math display">\[a+1=\operatorname{s}(n)+1=\operatorname{s}(n+1)=\operatorname{s}(1+n)=1+\operatorname{s}(n)=1+a\]</span>再由数学归纳法可知原命题成立。
+接下来假设 <span class="math inline">\(b=n\)</span> 时有 <span
+class="math inline">\(a+b=b+a\)</span>，则当 <span
+class="math inline">\(b=\operatorname{s}(n)\)</span> 时 <span
+class="math display">\[a+b=a+\operatorname{s}(n)=\operatorname{s}(a+n)=\operatorname{s}(n+a)=\operatorname{s}(n)+a=b+a\]</span>在用数学归纳法可以得知加法交换律成立。</p></li>
 <li><p>（乘法交换律）<span class="math inline">\(a\times b=b\times
 a\)</span> 和加法交换律类似，先用数学归纳法证明 <span
 class="math inline">\(a\times1=1\times a\)</span>，再用一次数学归纳法证
