@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>复数和平面几何</title>
+    <link href="/fu-shu-he-ping-mian-ji-he/"/>
+    <url>/fu-shu-he-ping-mian-ji-he/</url>
+    
+    <content type="html"><![CDATA[<p>众所周知，在实数域上我们时不能随意开方的，因为没有数的平方为负。为了解决这个问题，我们定义一个新数，<spanclass="math inline">\(\rm{i}\)</span>。我们定义<spanclass="math display">\[\rm{i}^2=-1\]</span>定义复数 <spanclass="math inline">\(x\in \mathbb{C}\)</span> 是形如 <spanclass="math inline">\(a+b\rm{i}\)</span> 的数。</p><p>接下来定义各种运算符：</p><ol type="1"><li>加法：<spanclass="math inline">\((a+b\rm{i})+(c+d\rm{i})=(a+c)+(b+d)\rm{i}\)</span></li><li>乘法：<spanclass="math inline">\((a+b\rm{i})(c+d\rm{i})=ac+ad\rm{i}+bc\rm{i}-bd=(ac-bd)+(ad+bc)\rm{i}\)</span></li><li>相反数：<spanclass="math inline">\(-(a+b\rm{i})=(-a)+(-b)\rm{i}\)</span></li><li>倒数：<spanclass="math inline">\((a+b\rm{i})^{-1}=\dfrac{1}{a+b\rm{i}}\)</span>这一点十分有趣，到底结果是多少呢？我们假设 <spanclass="math inline">\((a+b\rm{i})^{-1}=c+d\rm{i}\)</span>，然后可以得到<spanclass="math display">\[\displaylines{&amp;(a+b\rm{i})^{-1}=c+d\rm{i}\\\Rightarrow&amp;(a+b\rm{i})(c+d\rm{i})=1\\ \Rightarrow&amp;(ac-bd)+(ad+bc)\rm{i}=1\\ \Rightarrow &amp;\begin{cases}ac-bd=1\\ad+bc=0\end{cases}\\ \Rightarrow &amp;\begin{cases}c=\dfrac{a}{a^2+b^2}\\d=-\dfrac{b}{a^2+b^2}\end{cases}(a\not=0,b\not=0)}\]</span></li></ol><h2 id="模型1向量">模型1：向量</h2><p>我们将 <span class="math inline">\((a,b)\)</span>当作平面上的一个向量，我们惊人的发现：负数加法就是向量加法，而负数乘法，可以定义一种叫复乘的运算，定义两个向量<span class="math inline">\(\begin{bmatrix}a\\b \end{bmatrix} \times\begin{bmatrix}c\\d \end{bmatrix}=\begin{bmatrix}ac-bd\\ ad+bc\end{bmatrix}\)</span>，这样，我们就可以将复数当作向量来计算了。</p><p>有趣的是，两个向量进行复乘，结果恰好等于两个向量长度相乘，与 <spanclass="math inline">\(x\)</span>轴正半轴的逆时针夹角相加得到的向量。感兴趣可以自己算一下，我们稍后会给出证明。</p><h2 id="模型2映射">模型2：映射</h2><p>虽然 <span class="math inline">\(x^2=-1\)</span>在实数与上没有解，但是我们能不能找到一种映射 <spanclass="math inline">\(J:\mathbb{R}^2\mapsto \mathbb{R}^2\)</span>，使得<span class="math inline">\(J^2=-id\)</span>？显然是有的，逆时针旋转<span class="math inline">\(90^\circ\)</span> 就是其中一个。此时 <spanclass="math inline">\(J\)</span> 是线性变换，矩阵为 <spanclass="math inline">\(\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span>。此时，我们自然可以把这个<span class="math inline">\(J\)</span> 对应到 <spanclass="math inline">\(\rm{i}\)</span>，把复数 <spanclass="math inline">\(a+b\rm{i}\)</span> 同样当作映射，写成 <spanclass="math inline">\(a\times id+b\times J\)</span>的形式，最后的变换矩阵为 <spanclass="math inline">\(\begin{bmatrix}a&amp;-b\\b&amp;a\end{bmatrix}\)</span>。</p><p>我们再次惊人的发现：复数相加知道把对应的矩阵相加就可以得到结果的矩阵，复数相乘只要把对应的矩阵相乘即可，实际上对应了映射的复合（而且满足交换律）。</p><p>我们将最终的矩阵提取出来一个 <spanclass="math inline">\(\sqrt{a^2+b^2}\)</span>，将原来的矩阵写成 <spanclass="math inline">\(\sqrt{a^2+b^2}\begin{bmatrix}\dfrac{a}{\sqrt{a^2+b^2}}&amp;-\dfrac{b}{\sqrt{a^2+b^2}}\\ \dfrac{b}{\sqrt{a^2+b^2}}&amp;\dfrac{a}{\sqrt{a^2+b^2}} \end{bmatrix}\)</span> 的形式，发现 <spanclass="math inline">\((\dfrac{a}{\sqrt{a^2+b^2}})^2+(\dfrac{b}{\sqrt{a^2+b^2}})^2=1\)</span>，因此原来的矩阵实际上就是一个旋转变换复合上一个放缩变换，放缩的大小恰好就是<spanclass="math inline">\(\sqrt{a^2+b^2}\)</span>（即两个基向量的长度）。</p><p>此时进行复乘，实际上就是将放缩的长度相乘，将旋转的角度相加。</p><h2 id="映射和向量">映射和向量</h2><p>从模型1可以知道，<span class="math inline">\(\mathbb{R}^2\)</span>上的一个元素恰好对应了一个 <spanclass="math inline">\(\mathbb{C}\)</span> 中的元素。我们从中取出一个元素<span class="math inline">\(\begin{bmatrix}a\\b\end{bmatrix}\)</span>，将 <spanclass="math inline">\(\begin{bmatrix}a\\b \end{bmatrix}\)</span> 和<span class="math inline">\(\begin{bmatrix}c\\ d \end{bmatrix}\)</span>进行复乘，得到 <span class="math inline">\(\begin{bmatrix}ac-bd\\ ad+bc\end{bmatrix}\)</span>。有趣的是，将 <spanclass="math inline">\(\begin{bmatrix}c\\ d \end{bmatrix}\)</span> 应用<span class="math inline">\(\begin{bmatrix}a\\b \end{bmatrix}\)</span>所对应的 <span class="math inline">\(\begin{bmatrix}a&amp; -b \\ b&amp;a \end{bmatrix}\)</span> 变换，同样可以得到 <spanclass="math inline">\(\begin{bmatrix}ac-bd\\ ad+bc\end{bmatrix}\)</span>。因此，两个模型是可以混用的。实际上，我们可以通过在模型二的算式后乘上一个单位向量<spanclass="math inline">\(\begin{bmatrix}1\\0\end{bmatrix}\)</span>，就可以将矩阵转化成同一个复数对应的向量，就可以得到这个结论（由于矩阵乘法满足结合律，所以先复合和先转化为向量没有区别，最后结果是一样的）。因此，复乘其实就是在应用变换，这样，，就不难解释复乘长度相乘，角度相加的现象了。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数学</category>
+      
+      <category>数学</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>从1到有理数</title>
     <link href="/shu-lun/cong-1-dao-you-li-shu/"/>
     <url>/shu-lun/cong-1-dao-you-li-shu/</url>
