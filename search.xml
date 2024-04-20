@@ -4,31 +4,6 @@
   
     
     <entry>
-      <title>多项式与环</title>
-      <link href="/duo-xiang-shi-yu-huan/"/>
-      <url>/duo-xiang-shi-yu-huan/</url>
-      
-        <content type="html"><![CDATA[<p>我们在<ahref="/数学/数论/从1到有理数.md">上一篇文章</a>里定义了整数，然而，数学中还有另一个重要的东西，那就是代数式。今天我们先来定义多项式。在本文中，我们记 <spanclass="math inline">\(R\)</span> 为交换幺环</p><h2 id="多项式函数">多项式函数</h2><p>非常有趣的是，作为代数创始人的丢番图是先定义的多项式函数，再定义的多项式。<del>丢番图这么做，一定有他的深意</del>因此我们像他一样先定义多项式。</p><p><strong>定义</strong>：多项式函数接受一个输入，并且通过加，减，乘法得到输出。<br />比如，<span class="math inline">\(f(x)=x^2+2x+1\)</span>，<spanclass="math inline">\(f(x,y)=x^4-2y^2+3xy-2\)</span>都是多项式函数。对于一个多项式函数 <spanclass="math inline">\(f:R^n\mapsto R\)</span>，记这个函数为 <spanclass="math inline">\(n\)</span> 元多项式函数。</p><p>这里再介绍两类特殊的多项式函数：<br />1. 常函数：顾名思义，常函数的输出是一个定值。即 <spanclass="math inline">\(f(x_1,x_2,\cdots,x_n)=a\)</span>。 2.坐标系函数：坐标系函数的输出是它的输入之一。即 <spanclass="math inline">\(f(x_1,\cdots,x_n)=x_i(i\in [1,n])\)</span>。<br />对于任何的多项式函数 <span class="math inline">\(f,g\)</span>，<spanclass="math inline">\(fg,f+g\)</span>都是多项式函数。因为将输出加或乘起来并没有新的运算，仍然只用了加减乘，因此仍然是多项式函数。<br />多项式函数就讲到这里，接下来进入正题：</p><h2 id="多项式">多项式</h2><h3 id="定义">定义</h3><p>先来看看丢番图是怎么定义的： - 有变元，例如我们可以将 <spanclass="math inline">\(x,y\)</span> 作为变元。 -单项式为变元符号与常量的乘积，比如 <spanclass="math inline">\(3x,5xy,y^2\)</span>。 - 多项式为单项式的和。 -同类项：如果除了常量外两个单项式完全一致，称这两个单项式为同类项。 -合并同类项：将同类相的常量加起来 -乘法：将多项式的每一项与另一个多项式的每一项相乘再相加<br />后面几个的具体定义见初中课本。</p><p>接下来，我们记 <span class="math inline">\(R[x_1,\cdots,x_n]\)</span>为 <span class="math inline">\(R\)</span> 上的，变元为 <spanclass="math inline">\(x_1,\cdots,x_n\)</span> 的多项式的集合。</p><h3 id="给出">给出</h3><p>考虑如何给出一个多项式。记 <span class="math inline">\(p\inR[x_1,\cdots,x_n]\)</span>，显然，对于任何单项式 <spanclass="math inline">\(x_1^{a_1}x_2^{a_2}\cdotsx_n^{a_n}\)</span>，称前面的常数为系数，将每个变量的系数记作有序 <spanclass="math inline">\(n\)</span> 元组 <spanclass="math inline">\((a_1,\cdots,a_n)\)</span>，如果两个单项式的这个<span class="math inline">\(n\)</span>元组相同，那么就可以认定这两项是同类项。再合并同类项之后，每个 <spanclass="math inline">\(n\)</span>元组都对应唯一一个系数，否则就是你没有合并完。我们用 <spanclass="math inline">\(C_p(a_1,\cdots,a_n)\)</span> 来表示多项式 <spanclass="math inline">\(p\)</span> 中 <spanclass="math inline">\(x_1^{a_1}x_2^{a_2}\cdots x_n^{a_n}\)</span>的系数。在多项式中，没有出现的项其实就是系数为 <spanclass="math inline">\(0\)</span> 的项。</p><h3 id="运算">运算</h3><p>接下来考虑多项式的加法和乘法：<br />- 根据定义，在进行加法时需要合并同类项，而同类项可以用 <spanclass="math inline">\((a_1,\cdots,a_n)\)</span> 这个 <spanclass="math inline">\(n\)</span> 元组判定。因此，对于只要将两个多项式中<span class="math inline">\((a_1,\cdots,a_n)\)</span>所对应单项式的系数相加即可。这就是指 <spanclass="math display">\[C_{p+q}(a_1,\cdots,a_n)=C_p(a_1,\cdots,a_n)+C_q(a_1,\cdots,a_n)\]</span>-在进行乘法时，需要将多项式的每一项与另一个多项式的每一项相乘再相加。考虑在什么情况下会得到<span class="math inline">\((a_1,\cdots,a_n)\)</span>所对应的多项式。乘法其实就是把对应变元的次数加起来，所以我们只要使两个单项式对应变元的次数加起来等于结果的次数即可。可以通过枚举每个<span class="math inline">\((b_1,\cdots,b_n)(0\leq b_i \leqa_i)\)</span> ，显然 <spanclass="math inline">\((b_1,\cdots,b_n)\)</span> 和 <spanclass="math inline">\((a_1-b_1,\cdots,a_n-b_n)\)</span> 的乘积就是 <spanclass="math inline">\((a_1,\cdots,a_n)\)</span>，并且可以通过这种方式得到所有乘起来可以得到<span class="math inline">\((a_1,\cdots,a_n)\)</span>的两个单项式。只要将这些单项式系数对应相乘，再加起来就得到了乘积多项式中对应单项式的系数。即<spanclass="math display">\[C_{pq}(a_1,\cdots,a_n)=\sum_{(b_1,\cdots,b_n)\in\mathbb{N}^n,0\leq b_i\leqa_i}{C_p(b_1,\cdots,b_n)C_q(a_1-b_1,\cdots,a_n-b_n)}\]</span><br />因为 <span class="math inline">\(x_1,\cdots,x_n\)</span> 本质上是 <spanclass="math inline">\(R\)</span>上的元素，而多项式可以堪称这些值与常数的相乘或相加，所以多项式的加减可以看成是<span class="math inline">\(R\)</span>上的加减，因此它们具有一样的性质。而 <spanclass="math inline">\(R\)</span>是交换幺环，所以加减满足交换律，结合律，分配律等。因此 <spanclass="math inline">\(R[x_1,\cdots.x_n]\)</span> 也是环。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 数学 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数学 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>城市游戏题解</title>
       <link href="/ti-jie/cheng-shi-you-xi-ti-jie/"/>
       <url>/ti-jie/cheng-shi-you-xi-ti-jie/</url>
