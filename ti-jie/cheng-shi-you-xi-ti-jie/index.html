@@ -18,23 +18,25 @@
   <meta name="author" content="Sving1024">
   <meta name="keywords" content="OI,数学,物理,Hexo">
   
-    <meta name="description" content="模仿直方图中最大的矩形的求法，把地图分行处理，将下一行看作是累加再上一行后面的矩形，当出现R时我们认为矩形缺了一块。 先考虑题目的一种简单情况：两边矩形的边界都在扩大，如图所示  那么要求出其中最大矩形的面积，我们可以考虑将每个矩形的高度作为结果矩形的高，宽度延展到右边界得到的面积。再这个例子中，就是这几个矩形中的最大值      此时考虑左侧有分叉的情况，比如：  此时，再考虑有分叉的">
+    <meta name="description" content="模仿直方图中最大的矩形的求法，把地图分行处理，将下一行看作是累加再上一行后面的矩形，当出现R时我们认为矩形缺了一块。 先考虑题目的一种简单情况：两边矩形的边界都在扩大，如图所示  那么要求出其中最大矩形的面积，我们可以考虑将每个矩形的高度作为结果矩形的高，宽度延展到右边界得到的面积。再这个例子中，就是这几个矩形中的最大值      此时考虑左侧有分叉的情况，比如：  此时，再考虑有分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="城市游戏题解">
 <meta property="og:url" content="https://blogs.sving1024.top/ti-jie/cheng-shi-you-xi-ti-jie/index.html">
 <meta property="og:site_name" content="Sving1024&#39;s Blogs">
-<meta property="og:description" content="模仿直方图中最大的矩形的求法，把地图分行处理，将下一行看作是累加再上一行后面的矩形，当出现R时我们认为矩形缺了一块。 先考虑题目的一种简单情况：两边矩形的边界都在扩大，如图所示  那么要求出其中最大矩形的面积，我们可以考虑将每个矩形的高度作为结果矩形的高，宽度延展到右边界得到的面积。再这个例子中，就是这几个矩形中的最大值      此时考虑左侧有分叉的情况，比如：  此时，再考虑有分叉的">
+<meta property="og:description" content="模仿直方图中最大的矩形的求法，把地图分行处理，将下一行看作是累加再上一行后面的矩形，当出现R时我们认为矩形缺了一块。 先考虑题目的一种简单情况：两边矩形的边界都在扩大，如图所示  那么要求出其中最大矩形的面积，我们可以考虑将每个矩形的高度作为结果矩形的高，宽度延展到右边界得到的面积。再这个例子中，就是这几个矩形中的最大值      此时考虑左侧有分叉的情况，比如：  此时，再考虑有分">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413123538.png">
 <meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413123741.png">
+<meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413124127.png">
 <meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413152545.png">
 <meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413153959.png">
 <meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413154349.png">
 <meta property="article:published_time" content="2024-04-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-04-21T13:17:02.638Z">
+<meta property="article:modified_time" content="2024-04-26T11:02:37.026Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI,数学,物理,Hexo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413123741.png">
+<meta name="twitter:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413123538.png">
   
   
   
@@ -277,25 +279,25 @@
               <div class="markdown-body">
                 
                 <p>模仿直方图中最大的矩形的求法，把地图分行处理，将下一行看作是累加再上一行后面的矩形，当出现R时我们认为矩形缺了一块。</p>
-<p>先考虑题目的一种简单情况：两边矩形的边界都在扩大，如图所示 <img
-src="/img/Pasted%20image%2020240413123538.png" srcset="/img/loading.gif" lazyload /></p>
-<p>那么要求出其中最大矩形的面积，我们可以考虑将每个矩形的高度作为结果矩形的高，宽度延展到右边界得到的面积。再这个例子中，就是这几个矩形中的最大值
+<p>先考虑题目的一种简单情况：两边矩形的边界都在扩大，如图所示<br />
+<img src="/img/Pasted%20image%2020240413123538.png" srcset="/img/loading.gif" lazyload /></p>
+<p>那么要求出其中最大矩形的面积，我们可以考虑将每个矩形的高度作为结果矩形的高，宽度延展到右边界得到的面积。再这个例子中，就是这几个矩形中的最大值<br />
 <img src="/img/Pasted%20image%2020240413123741.png" srcset="/img/loading.gif" lazyload /> <img
 src="/img/Pasted%20image%2020240413123822.png" srcset="/img/loading.gif" lazyload /> <img
 src="/img/Pasted%20image%2020240413123843.png" srcset="/img/loading.gif" lazyload /> <img
 src="/img/Pasted%20image%2020240413123910.png" srcset="/img/loading.gif" lazyload /> <img
 src="/img/Pasted%20image%2020240413123931.png" srcset="/img/loading.gif" lazyload />
-此时考虑左侧有分叉的情况，比如： <img
-src="/img/Pasted%20image%2020240413124127.png" srcset="/img/loading.gif" lazyload />
-此时，再考虑有分叉的行的时候，只要考虑矩形分成各个小段后，各个小段的高度作为矩形的高度，宽度延展到右边界的矩形中最大的一个最大值即可。例如再考虑第4列时，应该考虑这两个矩形面积的最大值。
+此时考虑左侧有分叉的情况，比如：<br />
+<img src="/img/Pasted%20image%2020240413124127.png" srcset="/img/loading.gif" lazyload />
+此时，再考虑有分叉的行的时候，只要考虑矩形分成各个小段后，各个小段的高度作为矩形的高度，宽度延展到右边界的矩形中最大的一个最大值即可。例如再考虑第4列时，应该考虑这两个矩形面积的最大值。<br />
 <img src="/img/Pasted%20image%2020240413152545.png" srcset="/img/loading.gif" lazyload />
 注意到宽度一定，所以高度高的面积就大。注意到这两种情况都有一个共同点，就是后面的矩形都可以覆盖前面的矩形。因此，我们可以维护一个具有这样性质的单调栈。</p>
 <p>接下来考虑插入的情况。</p>
 <ol type="1">
 <li>如果新插入的矩形不会改变单调性，直接插入。</li>
-<li>如果新插入的矩形会改变单调性，那么持续弹出栈顶，依次考虑每个矩形，更新最大值。注意到再这样考虑完之后，只有可以与新插入的矩型会参与后面的计算，其余部分则是无用的，因此我们用这个矩形来替代原矩形。比如这张图中红色部分则是无用的。
+<li>如果新插入的矩形会改变单调性，那么持续弹出栈顶，依次考虑每个矩形，更新最大值。注意到再这样考虑完之后，只有可以与新插入的矩型会参与后面的计算，其余部分则是无用的，因此我们用这个矩形来替代原矩形。比如这张图中红色部分则是无用的。<br />
 <img src="/img/Pasted%20image%2020240413153959.png" srcset="/img/loading.gif" lazyload />
-注意，由于每个矩形的形状不同，因此最后保留的部分也不一定相同，再弹出时要比较与上一个矩形是否完全一样，如果是再累加长度，否则新开一个矩形。比如下图中黄色和蓝色两个矩形都是被保留下来的，但是形状不一样。
+注意，由于每个矩形的形状不同，因此最后保留的部分也不一定相同，再弹出时要比较与上一个矩形是否完全一样，如果是再累加长度，否则新开一个矩形。比如下图中黄色和蓝色两个矩形都是被保留下来的，但是形状不一样。<br />
 <img src="/img/Pasted%20image%2020240413154349.png" srcset="/img/loading.gif" lazyload /></li>
 </ol>
 <p>我们可以用一个二进制整数来存储矩形的长度（1代表F，0代表R），用按位或运算来检验是否可以完全覆盖，用按位与得到保留下来的矩形，扫描最长的连续1的长度得到高度。考虑到答案范围较大，因此可以使用<code>std::bitset</code>来存储。</p>
