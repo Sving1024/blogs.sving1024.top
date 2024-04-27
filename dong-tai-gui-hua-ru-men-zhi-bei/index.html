@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blogs.sving1024.top/img/95pzs0ne.png">
 <meta property="article:published_time" content="2024-03-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-03-02T03:30:34.000Z">
+<meta property="article:modified_time" content="2024-04-27T06:52:25.605Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI">
 <meta name="twitter:card" content="summary_large_image">
@@ -299,26 +299,33 @@ class="math inline">\(p_{rec}\)</span>，到达下一个点的最优路径为 <s
 class="math inline">\(\operatorname{max}(p_l,p_r)+p_{rec}\)</span>。我们只要枚举每层每个点，像这样求出最优解即可。像这样的算法叫做动态规划（Dynamic
 Programming，简称DP）。</p>
 <h3 id="动态规划简介">动态规划简介</h3>
-<p>接下来更加详细的介绍动态规划算法。 #### 概念解释 1.
-在上面的例子中，求出 <span class="math inline">\(p_{rec}\)</span>
+<p>接下来更加详细的介绍动态规划算法。</p>
+<h4 id="概念解释">概念解释</h4>
+<ol type="1">
+<li>在上面的例子中，求出 <span class="math inline">\(p_{rec}\)</span>
 要先求出 <span class="math inline">\(p_l\)</span> 和 <span
 class="math inline">\(p_r\)</span>。我们将求出 <span
 class="math inline">\(p_l,p_r\)</span> 称为 <span
 class="math inline">\(p_{rec}\)</span>
 的”子问题“，通常，子问题是一个数据规模更小的相同问题。<br />
-2. 在上文中，我们用点上的数字来描述一个问题，比如“到编号为 <span
+</li>
+<li>在上文中，我们用点上的数字来描述一个问题，比如“到编号为 <span
 class="math inline">\(1\)</span>
 的点的最有解”，但实际上可能会优重复，而且查找并不方便。因此我们可以用行号列号来描述一个问题。比如“到第
 <span class="math inline">\(3\)</span> 行第 <span
 class="math inline">\(2\)</span>
-个点的最优解”。像这样描述一个子问题，叫做“状态”。 3.
-在上面的例子中，我们按照行号枚举每个点。在这里，我们将一行的点分为一类，从上到下枚举。其中一类被称为动态规划的阶段，设计阶段时要保证，在解决一个问题前，要保证问题的所有子问题都被正确解决。
-4. 上文的 <span
+个点的最优解”。像这样描述一个子问题，叫做“状态”。<br />
+</li>
+<li>在上面的例子中，我们按照行号枚举每个点。在这里，我们将一行的点分为一类，从上到下枚举。其中一类被称为动态规划的阶段，设计阶段时要保证，在解决一个问题前，要保证问题的所有子问题都被正确解决。<br />
+</li>
+<li>上文的 <span
 class="math inline">\(\operatorname{max}(p_l,p_r)+p_{rec}\)</span>
-描述了如何从一个状态的到下一个状态（从子问题的最优解推导出问题的最优解），被称为“状态转移方程”。</p>
-<p>接下来考虑动态规划要满足的条件： #### 最优子结构
-所谓最优子结构，是指以下两点 1.
-到达每个状态前做出的决策并不会影响之后做出的决策（对应上文如果有一条路径可以到达某个点，之前的路径并不会影响之后走的路径）
+描述了如何从一个状态的到下一个状态（从子问题的最优解推导出问题的最优解），被称为“状态转移方程”。</li>
+</ol>
+<p>接下来考虑动态规划要满足的条件：</p>
+<h4 id="最优子结构">最优子结构</h4>
+<p>所谓最优子结构，是指以下两点 1.
+到达每个状态前做出的决策并不会影响之后做出的决策（对应上文如果有一条路径可以到达某个点，之前的路径并不会影响之后走的路径）<br />
 2.
 问题的最优解一定来自于子问题的最优解（对应上文到达每个点的最优解只和到达上一个点的最优解有关）</p>
 <h4 id="无后效性">无后效性</h4>
