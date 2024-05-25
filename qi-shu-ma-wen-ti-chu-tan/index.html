@@ -18,29 +18,22 @@
   <meta name="author" content="Sving1024">
   <meta name="keywords" content="OI,数学,物理,Hexo">
   
-    <meta name="description" content="模仿直方图中最大的矩形的求法，把地图分行处理，将下一行看作是累加再上一行后面的矩形，当出现R时我们认为矩形缺了一块。 先考虑题目的一种简单情况：两边矩形的边界都在扩大，如图所示  那么要求出其中最大矩形的面积，我们可以考虑将每个矩形的高度作为结果矩形的高，宽度延展到右边界得到的面积。再这个例子中，就是这几个矩形中的最大值      此时考虑左侧有分叉的情况，比如：  此时，再考虑有分">
+    <meta name="description" content="最近在算法竞赛进阶指南上看到了奇数码问题，但是没讲证明。恰好最近刻上老师讲了证明，简单记录一下证明过程。证明过程需要用到映射和基本的群论知识，如果你不了解，建议先学习一下这些前置知识。本文中的复合运算符 \(\circ\) 有时会省略。 题目简介 奇数码问题是一个经典的群论问题。也许你听说过数字华容道或 \(15\) 拼图问题，那就是它最常见的变体， \(4\times4\) 的奇数码问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="城市游戏题解">
-<meta property="og:url" content="https://blogs.sving1024.top/ti-jie/cheng-shi-you-xi-ti-jie/index.html">
+<meta property="og:title" content="奇数码问题初探">
+<meta property="og:url" content="https://blogs.sving1024.top/qi-shu-ma-wen-ti-chu-tan/index.html">
 <meta property="og:site_name" content="Sving1024&#39;s Blogs">
-<meta property="og:description" content="模仿直方图中最大的矩形的求法，把地图分行处理，将下一行看作是累加再上一行后面的矩形，当出现R时我们认为矩形缺了一块。 先考虑题目的一种简单情况：两边矩形的边界都在扩大，如图所示  那么要求出其中最大矩形的面积，我们可以考虑将每个矩形的高度作为结果矩形的高，宽度延展到右边界得到的面积。再这个例子中，就是这几个矩形中的最大值      此时考虑左侧有分叉的情况，比如：  此时，再考虑有分">
+<meta property="og:description" content="最近在算法竞赛进阶指南上看到了奇数码问题，但是没讲证明。恰好最近刻上老师讲了证明，简单记录一下证明过程。证明过程需要用到映射和基本的群论知识，如果你不了解，建议先学习一下这些前置知识。本文中的复合运算符 \(\circ\) 有时会省略。 题目简介 奇数码问题是一个经典的群论问题。也许你听说过数字华容道或 \(15\) 拼图问题，那就是它最常见的变体， \(4\times4\) 的奇数码问题。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413123538.png">
-<meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413123741.png">
-<meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413124127.png">
-<meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413152545.png">
-<meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413153959.png">
-<meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413154349.png">
-<meta property="article:published_time" content="2024-04-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-04-26T11:02:37.026Z">
+<meta property="article:published_time" content="2024-05-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-25T07:27:38.000Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI,数学,物理,Hexo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020240413123538.png">
   
   
   
-  <title>城市游戏题解 - Sving1024&#39;s Blogs</title>
+  <title>奇数码问题初探 - Sving1024&#39;s Blogs</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="城市游戏题解"></span>
+            <span id="subtitle" data-typed-text="奇数码问题初探"></span>
           
         </div>
 
@@ -213,8 +206,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-13 00:00" pubdate>
-          2024年4月13日 凌晨
+        <time datetime="2024-05-25 00:00" pubdate>
+          2024年5月25日 凌晨
         </time>
       </span>
     
@@ -225,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          979 字
+          2.6k 字
         
       </span>
     
@@ -236,7 +229,7 @@
         
         
         
-          9 分钟
+          23 分钟
         
       </span>
     
@@ -273,41 +266,230 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">城市游戏题解</h1>
+            <h1 id="seo-header">奇数码问题初探</h1>
             
             
               <div class="markdown-body">
                 
-                <p>模仿直方图中最大的矩形的求法，把地图分行处理，将下一行看作是累加再上一行后面的矩形，当出现R时我们认为矩形缺了一块。</p>
-<p>先考虑题目的一种简单情况：两边矩形的边界都在扩大，如图所示<br />
-<img src="/img/Pasted%20image%2020240413123538.png" srcset="/img/loading.gif" lazyload /></p>
-<p>那么要求出其中最大矩形的面积，我们可以考虑将每个矩形的高度作为结果矩形的高，宽度延展到右边界得到的面积。再这个例子中，就是这几个矩形中的最大值<br />
-<img src="/img/Pasted%20image%2020240413123741.png" srcset="/img/loading.gif" lazyload /> <img
-src="/img/Pasted%20image%2020240413123822.png" srcset="/img/loading.gif" lazyload /> <img
-src="/img/Pasted%20image%2020240413123843.png" srcset="/img/loading.gif" lazyload /> <img
-src="/img/Pasted%20image%2020240413123910.png" srcset="/img/loading.gif" lazyload /> <img
-src="/img/Pasted%20image%2020240413123931.png" srcset="/img/loading.gif" lazyload />
-此时考虑左侧有分叉的情况，比如：<br />
-<img src="/img/Pasted%20image%2020240413124127.png" srcset="/img/loading.gif" lazyload />
-此时，再考虑有分叉的行的时候，只要考虑矩形分成各个小段后，各个小段的高度作为矩形的高度，宽度延展到右边界的矩形中最大的一个最大值即可。例如再考虑第4列时，应该考虑这两个矩形面积的最大值。<br />
-<img src="/img/Pasted%20image%2020240413152545.png" srcset="/img/loading.gif" lazyload />
-注意到宽度一定，所以高度高的面积就大。注意到这两种情况都有一个共同点，就是后面的矩形都可以覆盖前面的矩形。因此，我们可以维护一个具有这样性质的单调栈。</p>
-<p>接下来考虑插入的情况。</p>
-<ol type="1">
-<li>如果新插入的矩形不会改变单调性，直接插入。</li>
-<li>如果新插入的矩形会改变单调性，那么持续弹出栈顶，依次考虑每个矩形，更新最大值。注意到再这样考虑完之后，只有可以与新插入的矩型会参与后面的计算，其余部分则是无用的，因此我们用这个矩形来替代原矩形。比如这张图中红色部分则是无用的。<br />
-<img src="/img/Pasted%20image%2020240413153959.png" srcset="/img/loading.gif" lazyload />
-注意，由于每个矩形的形状不同，因此最后保留的部分也不一定相同，再弹出时要比较与上一个矩形是否完全一样，如果是再累加长度，否则新开一个矩形。比如下图中黄色和蓝色两个矩形都是被保留下来的，但是形状不一样。<br />
-<img src="/img/Pasted%20image%2020240413154349.png" srcset="/img/loading.gif" lazyload /></li>
-</ol>
-<p>我们可以用一个二进制整数来存储矩形的长度（1代表F，0代表R），用按位或运算来检验是否可以完全覆盖，用按位与得到保留下来的矩形，扫描最长的连续1的长度得到高度。考虑到答案范围较大，因此可以使用<code>std::bitset</code>来存储。</p>
-<p>这个算法的复杂度是：单调栈 <span
-class="math inline">\(\operatorname{O}(n)\)</span>，扫描得到最大连续一的长度
+                <p>最近在算法竞赛进阶指南上看到了奇数码问题，但是没讲证明。恰好最近刻上老师讲了证明，简单记录一下证明过程。证明过程需要用到映射和基本的群论知识，如果你不了解，建议先学习一下这些前置知识。本文中的复合运算符
+<span class="math inline">\(\circ\)</span> 有时会省略。</p>
+<h3 id="题目简介">题目简介</h3>
+<p>奇数码问题是一个经典的群论问题。也许你听说过数字华容道或 <span
+class="math inline">\(15\)</span> 拼图问题，那就是它最常见的变体， <span
+class="math inline">\(4\times4\)</span> 的奇数码问题。将这个问题扩展到
+<span class="math inline">\(n\times n\)</span>
+的情况就是我们要研究的奇数码问题。在这篇文章，我们主要研究它的可解性问题。</p>
+<h3 id="可解性">可解性</h3>
+<h3 id="赏金">赏金</h3>
+<p>1896 年，美国著名棋手SamLoyd 曾经悬赏1000
+美金，来看看有没有人可以解出这个问题：<span class="math display">\[
+\begin{array}{|c|c|c|c|}
+\hline 1&amp;2&amp;3&amp;4\\
+\hline 5&amp;6&amp;7&amp;8\\
+\hline 9&amp;10&amp;11&amp;12\\
+\hline 13&amp;15&amp;14&amp;\\
+\hline
+\end{array}
+\]</span>其中只有 <span class="math inline">\(14\)</span> 和 <span
+class="math inline">\(15\)</span>
+是进行交换的。我们将稍后来解决这个问题。<del>你可以自己玩玩看，看看你能不你拿到这1000美元</del></p>
+<h3 id="对换置换与轮换">对换，置换与轮换</h3>
+<p>在解决这个问题前，我们先引入几个概念。<br />
+- 置换，又叫排列，指的是在集合 <span class="math inline">\(S\)</span>
+中的双射 <span class="math inline">\(f:S \mapsto S\)</span>。例如，对于
+<span class="math inline">\(S=\{1,2,3\}\)</span>，定义 <span
+class="math inline">\(f(1)=3,f(2)=2,f(3)=1\)</span>，<span
+class="math inline">\(f\)</span> 就是一个置换。实际上，如果用 <span
+class="math inline">\(f(x)\)</span> 替换 <span
+class="math inline">\(x\)</span>，会发现其实集合里面每个数都出现了，只是顺序可能不同。就像这样<span
+class="math display">\[\displaylines{1&amp;2&amp;3\\
+\downarrow&amp;\downarrow&amp;\downarrow\\3&amp;2&amp;1}\]</span>刚刚这种表示也可以用来记录一个置换。即<span
+class="math display">\[f=\begin{pmatrix}1&amp;2&amp;3\\
+\downarrow&amp;\downarrow&amp;\downarrow\\3&amp;2&amp;1\end{pmatrix}\]</span>特别的，对于
+<span class="math inline">\(f(x)=x\)</span>
+这种映射也是置换，成为恒同变换或者叫恒同置换，记作 <span
+class="math inline">\(\rm{id}\)</span>。<br />
+-
+对换，顾名思义，就是只有两个元素进行了交换，其他元素不变。形式化的，<span
+class="math inline">\(f:S\mapsto S\)</span> 是对换是指存在 <span
+class="math inline">\(x,y\in S,f(x)=y,f(y)=x\)</span>，并且对于其他元素
+<span class="math inline">\(z\in S,f(z)=z\)</span>，我们可以用 <span
+class="math inline">\(f=(x,y)\)</span> 来表示这是一个交换 <span
+class="math inline">\(x,y\)</span> 的对换。假设 <span
+class="math inline">\(S=\{1,2,3,4\}\)</span>，我们可以用 <span
+class="math inline">\(f=(2,3)\)</span>
+来表示一个对换，它的涵义就等于<span
+class="math display">\[f=\begin{pmatrix}1&amp;2&amp;3&amp;4\\
+\downarrow&amp;\downarrow&amp;\downarrow&amp;\downarrow\\1&amp;3&amp;2&amp;4\end{pmatrix}\]</span>
+- 轮换，就是指几个元素轮流交换。形式化的，就是对于若干的元素<span
+class="math inline">\(x_1,x_2,\cdots,x_n\)</span>，<span
+class="math display">\[f(x)=\begin{cases}x_{i+1}&amp;{\rm if} \space
+x=x_i,i\in[1,n-1]\\x_1 &amp;{\rm if}\space x=x_n \\x&amp;{\rm if}\space
+x\not=x_i,u\in[1,n]\end{cases}\]</span>我们用 <span
+class="math inline">\(f=(x_1,x_2,\cdots,x_n)\)</span>
+来表示这个轮换。举个例子，假设 <span
+class="math inline">\(S=\{1,2,3,4\}\)</span>，<span
+class="math inline">\(f(1,3,4)\)</span> 就是指这个置换 <span
+class="math display">\[f=\begin{pmatrix}1&amp;2&amp;3&amp;4\\
+\downarrow&amp;\downarrow&amp;\downarrow&amp;\downarrow\\4&amp;2&amp;1&amp;3\end{pmatrix}\]</span>
+其中有一些结论并不是本文的重点，在下文会直接使用，建议先了解一下相关知识。
+### 可解性判定 我们先来讨论 <span
+class="math inline">\(4\times4\)</span>
+的情况。方便起见，我们将所有的空格都移动到右下角。我们将这十五的格子首尾相连，形成一排。将
+<span class="math inline">\(1\sim 15\)</span> 计入集合 <span
+class="math inline">\(S\)</span> 中。 我们定义 <span
+class="math inline">\(f(x,y)\)</span> 是将第 <span
+class="math inline">\(x\)</span> 个和第 <span
+class="math inline">\(y\)</span> 个进行交换，轮换也类似的定义。</p>
+<h4 id="奇变换与偶变换">奇变换与偶变换</h4>
+<p>我们建立一个初始状态（<span class="math inline">\(1\sim 15\)</span>
+排列好的情况）到现在状态的映射（空格也算进去，记作 <span
+class="math inline">\(0\)</span>）。我们发现这恰好是一个置换，我们求解这个问题其实就是就这个置换的逆。
+首先，恒同变换 <span class="math inline">\(\rm id\)</span>
+是偶变换。<br />
+考虑我们有什么操作可以进行，由于最终空格一定要回到原处，因此一来一回有两次路径，共有偶数次上下或左右对换，因此这个置换是偶置换就是可解的必要条件。但是开头的谜题指交换了
+<span class="math inline">\(14\)</span> 和 <span
+class="math inline">\(15\)</span>，是奇变换，因此不可解。但是偶置换是充分条件吗？</p>
+<h4 id="轮换">轮换</h4>
+<p>不同与前一章的建模方法，这次的映射不算空格，只有 <span
+class="math inline">\(15\)</span>
+个元素。我们来证明凡是偶置换都可以解。将这个置换记作 <span
+class="math inline">\(g\)</span>。由于空格始终都没有动，因此将空格去掉也是偶变换。</p>
+<p>考虑在这个问题之中到底有什么操作可以进行。首先，对于这样的四个格子，可以让空格转一圈来使三个元素进行轮换。<span
+class="math display">\[\begin{array}{|c|c|}
+\hline 11&amp;12\\
+\hline 14&amp;\\
+\hline
+\end{array}\rightarrow \begin{array}{|c|c|}
+\hline 11&amp;\\
+\hline 14&amp;12\\
+\hline
+\end{array}\rightarrow \begin{array}{|c|c|}
+\hline &amp;11\\
+\hline 14&amp;12\\
+\hline
+\end{array}\rightarrow \begin{array}{|c|c|}
+\hline 14&amp;11\\
+\hline &amp;12\\
+\hline
+\end{array}\rightarrow \begin{array}{|c|c|}
+\hline 14&amp;11\\
+\hline 12&amp;\\
+\hline
+\end{array}\]</span>可以进行任意次轮换。</p>
+<p>然后，我们可以通过将空格移到任意一个位置，在像上面一样进行轮换，接着原路返回，就可以在任意位置实现像这样的三轮换了。<span
+class="math display">\[\begin{array}{|c|c|c|c|}
+\hline 1&amp;2&amp;3&amp;4\\
+\hline 5&amp;6&amp;7&amp;8\\
+\hline 9&amp;10&amp;11&amp;12\\
+\hline 13&amp;15&amp;14&amp;\\
+\hline
+\end{array}
+\rightarrow
+\begin{array}{|c|c|c|c|}
+\hline 1&amp;2&amp;3&amp;4\\
+\hline 5&amp;6&amp;&amp;7\\
+\hline 9&amp;10&amp;11&amp;8\\
+\hline 13&amp;15&amp;14&amp;12\\
+\hline
+\end{array}
+\rightarrow
+\begin{array}{|c|c|c|c|}
+\hline 1&amp;6&amp;2&amp;4\\
+\hline 5&amp;3&amp;&amp;7\\
+\hline 9&amp;10&amp;11&amp;8\\
+\hline 13&amp;15&amp;14&amp;12\\
+\hline
+\end{array}
+\rightarrow
+\begin{array}{|c|c|c|c|}
+\hline 1&amp;6&amp;2&amp;4\\
+\hline 5&amp;3&amp;7&amp;8\\
+\hline 9&amp;10&amp;11&amp;12\\
+\hline 13&amp;15&amp;14&amp;\\
+\hline
+\end{array}
+\]</span>因此所有像这样的轮换都可以进行。</p>
+<p>那么，我们只要使用轮换来实现对换的效果就可以了。实现的方法如下： -
+对于四个不同的元素 <span class="math inline">\(a,b,c,d\)</span>，<span
+class="math inline">\((a,b)(c,d)=(a,b)(b,c)(b,c)(c,d)=(a,b,c)(b,c,d)\)</span><br />
+- 对于三个不同的元素 <span class="math inline">\(a,b,c\)</span>，<span
+class="math inline">\((a,b)(b,c)=(a,b,c)\)</span><br />
+由于 <span class="math inline">\(g\)</span> 为偶，因此 <span
+class="math inline">\(g\)</span>
+的逆也为偶。因此，我们只要思考如何实现任何三个元素的轮换就可以了。</p>
+<p>这也是可以实现的。首先，我们需要了解置换对轮换的共轭是什么样的。假设
+<span class="math inline">\(g\)</span> 是置换。<span
+class="math display">\[g(x_1,\cdots,x_n)g^{-1}=(g(x_1),\cdots,g(x_n))\]</span>这是因为只有
+<span class="math inline">\(g^{-1}g(x_i)=x_i\)</span>，而 <span
+class="math inline">\(x_i\)</span> 会被轮换改变，因此只有 <span
+class="math inline">\(g(x_i)\)</span>
+这些元素会被轮换改变，其他的数并不会被轮换改变，之后进行的 <span
+class="math inline">\(g\)</span> 可以和 <span
+class="math inline">\(g^{-1}\)</span> 抵消，因此就相当于 <span
+class="math inline">\(g(x_i)\)</span>
+这些元素进行轮换。在这里不严格进行证明了，可以多模拟几遍感受一下。</p>
+<p>我们先来讨论 <span class="math inline">\((i,12,15),i\in
+\{1,2,\cdots,11,13,14\}\)</span> （没有 <span
+class="math inline">\(12\)</span> 和 <span
+class="math inline">\(15\)</span>）这样的轮换。一定存在置换 <span
+class="math inline">\(f:S\mapsto S\)</span> 满足 <span
+class="math inline">\(f(11)=i,f(15)=15,f(12)=12\)</span>，其他元素我们不关心。此时
 <span
-class="math inline">\(\operatorname{O}(m)\)</span>，由于每次更新都要扫描，因此总复杂度是
-<span class="math inline">\(\operatorname{O}(nm)\)</span>。</p>
-<p>参考代码：（由于代码中大量使用stl，常数较大，因此手动开启O2优化。复杂度是正确的）
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bitset&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stack&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span>&#123;<br>    bitset&lt;1005&gt; b;<br>    <span class="hljs-type">int</span> width;<br>    <span class="hljs-type">int</span> maxl;<br>&#125;;<br><br><span class="hljs-type">int</span> n,m;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">max_lenth</span><span class="hljs-params">(<span class="hljs-type">const</span> bitset&lt;<span class="hljs-number">1005</span>&gt;&amp; b)</span></span>&#123;<br>    <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> res=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;m;i++)&#123;<br>        <span class="hljs-keyword">if</span>(b[i+<span class="hljs-number">1</span>]==<span class="hljs-number">1</span>)&#123;<br>            res++;<br>        &#125;<br>        <span class="hljs-keyword">else</span>&#123;<br>            ans=<span class="hljs-built_in">max</span>(ans,res);<br>            res=<span class="hljs-number">0</span>;<br>        &#125;<br>    &#125;<br>    ans=<span class="hljs-built_in">max</span>(ans,res);<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    ios_base::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>    cin.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>),cout.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>);<br>    cin&gt;&gt;n&gt;&gt;m;<br>    <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>    stack&lt;node&gt; s;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        bitset&lt;1005&gt; bi;<br>        stack&lt;node&gt; temp;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;m;j++,bi&lt;&lt;=<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-type">char</span> x;<br>            cin&gt;&gt;x;<br>            <span class="hljs-keyword">if</span>(x==<span class="hljs-string">&#x27;F&#x27;</span>)&#123;<br>                bi^=<span class="hljs-number">1</span>;<br>            &#125;<br>        &#125;<br>        temp.<span class="hljs-built_in">push</span>(&#123;bi,<span class="hljs-number">1</span>,<span class="hljs-built_in">max_lenth</span>(bi)&#125;);<br>        <span class="hljs-type">int</span> width=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span>(!s.<span class="hljs-built_in">empty</span>()&amp;&amp;(bi|s.<span class="hljs-built_in">top</span>().b)!=bi)&#123;<br>            width+=s.<span class="hljs-built_in">top</span>().width;<br>            <span class="hljs-keyword">if</span>((bi&amp;s.<span class="hljs-built_in">top</span>().b)==temp.<span class="hljs-built_in">top</span>().b)&#123;<br>                <span class="hljs-keyword">auto</span> x=temp.<span class="hljs-built_in">top</span>();<br>                temp.<span class="hljs-built_in">pop</span>();<br>                x.width+=s.<span class="hljs-built_in">top</span>().width;<br>                temp.<span class="hljs-built_in">push</span>(x);<br>            &#125;<br>            <span class="hljs-keyword">else</span>&#123;<br>	            temp.<span class="hljs-built_in">push</span>(&#123;(bi&amp;s.<span class="hljs-built_in">top</span>().b),s.<span class="hljs-built_in">top</span>().width,<span class="hljs-built_in">max_lenth</span>(bi&amp;s.<span class="hljs-built_in">top</span>().b)&#125;);<br>            &#125;<br>            ans=<span class="hljs-built_in">max</span>(ans,s.<span class="hljs-built_in">top</span>().maxl*width);<br>            s.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>        <span class="hljs-keyword">while</span>(!temp.<span class="hljs-built_in">empty</span>())&#123;<br>            s.<span class="hljs-built_in">push</span>(temp.<span class="hljs-built_in">top</span>());<br>            temp.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>    &#125;<br>    <span class="hljs-type">int</span> w=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span>(!s.<span class="hljs-built_in">empty</span>())&#123;<br>        w+=s.<span class="hljs-built_in">top</span>().width;<br>        ans=<span class="hljs-built_in">max</span>(ans,s.<span class="hljs-built_in">top</span>().maxl*w);<br>        s.<span class="hljs-built_in">pop</span>();<br>    &#125;<br>    cout&lt;&lt;ans*<span class="hljs-number">3</span>&lt;&lt;endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></p>
+class="math inline">\(f(11,12,15)f^{-1}=(f(11),f(12),f(15))=(i,12,15)\)</span></p>
+<p>接下来考虑 <span class="math inline">\((i,j,15),i\not = j\space
+\text{AND}\space i,j=\in \{1,2,\cdots,11,13,14\}\)</span>。<span
+class="math display">\[\displaylines{(i,j,15) &amp;= (j,15,i)\\
+&amp;=(j,15)(15,12)(12,15)(15,i)\\&amp;=(j,15,12)(12,15,i)}\]</span>对于
+<span class="math inline">\((i,j,12)\)</span> 的情况同理。</p>
+<p>最后，就是任意三个元素 <span class="math inline">\(i,j,k\)</span>
+的轮换 <span class="math inline">\((i,j,k)\)</span> 了。<span
+class="math display">\[\displaylines{(i,j,k)&amp;=(i,j)(j,k)\\&amp;=(i,j)(j,15)(15,j)(j,k)\\&amp;=(i,j,15)(15,j,k)}\]</span>至此，任何三轮换就都可以进行了。因此，偶置换总是可解的。</p>
+<h3 id="扩展">扩展</h3>
+<h4 id="ntimes-n"><span class="math inline">\(n\times n\)</span></h4>
+<p>上面的两种方法很容易扩展到 <span class="math inline">\(n\times
+n\)</span> 的情况。实际上，从 <span
+class="math inline">\(4\times4\)</span> 扩展到 <span
+class="math inline">\(n\times n\)</span> 只需要改变集合 <span
+class="math inline">\(S\)</span> 的大小和轮换部分的数值。集合 <span
+class="math inline">\(S\)</span>
+的大小实际与证明过程并无关系，因此只要将 <span
+class="math inline">\(12\)</span> 和 <span
+class="math inline">\(15\)</span> 替换成 <span
+class="math inline">\(n^2-n\)</span> 和 <span
+class="math inline">\(n^2-1\)</span> 即可。</p>
+<h4 id="逆序对">逆序对</h4>
+<p>考虑轮换方法。首先我们考虑只是用临项交换来将解决问题。所需要的置换次数其实就是序列的逆序对个数。由于这种只用临项交换的方法和其它使用对换的方法都是
+<span class="math inline">\(g\)</span>
+的逆，因此它们的奇偶性相同。所以一个状态是否可解就只需要看逆序对的奇偶性就可以了。</p>
+<h4 id="空格">空格</h4>
+<p>如果空格不在最右下角怎么办？考虑将空格移到右下角的过程。我们已经知道可解性和逆序对的关系了，因此我们只要注意逆序对个数就可以了。左右移动空格并不会改变逆序对个数，而像下移动空格会使逆序对发生变化。由于一个数和空格交换，到了
+<span class="math inline">\(n-1\)</span>
+个数之前。这就相当与这个数与前一个数交换 <span
+class="math inline">\(n-1\)</span>
+次的结果。因为每个数都各不相同，因此每次交换必定对逆序对产生 <span
+class="math inline">\(\pm1\)</span>
+的变化。由于我们只关心奇偶性，因此我们只关心这些 <span
+class="math inline">\(\pm1\)</span>
+加起来之后对奇偶性产生的影响，也就是模 <span
+class="math inline">\(2\)</span> 的结果。而 <span
+class="math inline">\(-1\equiv 1\pmod
+2\)</span>，所以它对逆序对奇偶性产生的影响就是 <span
+class="math inline">\((n-1)\times 1 \equiv n-1 \pmod 2\)</span>。</p>
+<p>换句话将，这个操作对逆序对产生的影响和这 <span
+class="math inline">\(n-1\)</span> 个数的大小无关，只和 <span
+class="math inline">\(n-1\)</span>
+的奇偶性有关！因此，我们只要将原序列的逆序对个数求出，在加上需要移动的行数乘上
+<span class="math inline">\(n-1\)</span>，就可以进行判定了。</p>
+<h4 id="任意两个状态是否可达">任意两个状态是否可达</h4>
+<p>实际上，通过上面两种方法我们可以了解到，任意两个状态分别记作 <span
+class="math inline">\(f,g\)</span>，只要可以通过偶数次对换相互抵达，那么这两个状态在奇数码问题中就可以相互抵达。当然，需要先将空格移动到最右下角。当然，由于两个状态都需要加上行数乘上
+<span class="math inline">\(n-1\)</span>，我们只需要计算行数差在乘上
+<span class="math inline">\(n-1\)</span> 就可以得到影响了。</p>
+<h4 id="ntimes-m"><span class="math inline">\(n\times m\)</span></h4>
+<p>这个问题的推广实际上也不是很难，只需要将上面两个问题的 <span
+class="math inline">\(n-1\)</span> 替换位 <span
+class="math inline">\(m-1\)</span> 即可，因为只有这两项和列数有关。</p>
 
                 
               </div>
@@ -326,15 +508,8 @@ class="math inline">\(\operatorname{O}(m)\)</span>，由于每次更新都要扫
     
       <span class="category-chain">
         
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  <a href="/categories/Math/" class="category-chain-item">数学</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
-  
-  
-
   
 
       </span>
@@ -353,15 +528,15 @@ class="math inline">\(\operatorname{O}(m)\)</span>，由于每次更新都要扫
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>城市游戏题解</div>
-      <div>https://blogs.sving1024.top/ti-jie/cheng-shi-you-xi-ti-jie/</div>
+      <div>奇数码问题初探</div>
+      <div>https://blogs.sving1024.top/qi-shu-ma-wen-ti-chu-tan/</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月13日</div>
+          <div>2024年5月25日</div>
         </div>
       
       
@@ -399,18 +574,12 @@ class="math inline">\(\operatorname{O}(m)\)</span>，由于每次更新都要扫
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/qi-shu-ma-wen-ti-chu-tan/" title="奇数码问题初探">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">奇数码问题初探</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/fu-shu-he-ping-mian-ji-he/" title="复数和平面几何">
-                        <span class="hidden-mobile">复数和平面几何</span>
+                      <a href="/ti-jie/cheng-shi-you-xi-ti-jie/" title="城市游戏题解">
+                        <span class="hidden-mobile">城市游戏题解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -433,7 +602,7 @@ class="math inline">\(\operatorname{O}(m)\)</span>，由于每次更新都要扫
         var options = Object.assign(
           {"clientID":"9a4516e6925e7355535c","clientSecret":"239305091da560ff3395d087914b0a77c75d8be6","repo":"hexo-comments","owner":"Sving1024","admin":["Sving1024"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://vercel.prohibitorum.top/github_access_token"},
           {
-            id: '92b822c9544d8318656503ac9c8bd432'
+            id: '1618be33264d366de960b9cc04be740d'
           }
         )
         var gitalk = new Gitalk(options);
