@@ -218,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          499 字
+          493 字
         
       </span>
     
@@ -289,24 +289,29 @@ class="math inline">\(A=\begin{bmatrix}m&amp;p\\n&amp;q\end{bmatrix}\)</span>.
 \A\lvec x\\ y \rvec =x\lA+y\rA=\lvec mx+py\\nx+qy\rvec
 \]</span> 结论：<span
 class="math inline">\(y=\dfrac{n+qk_0}{m+pk_0},b=\dfrac{mqb_0-npb_0}{m+pk_0}\)</span>（没错，<span
-class="math inline">\(b_1\)</span>的值里包含矩阵的行列式，我也不知道为什么）。
-1. <span class="math inline">\(k_1\)</span>的推导 1. 直接计算
-过程比较朴素，就是取两个<span
+class="math inline">\(b_1\)</span>的值里包含矩阵的行列式，我也不知道为什么）。</p>
+<ol type="1">
+<li><span class="math inline">\(k_1\)</span>的推导
+<ol type="1">
+<li>直接计算 过程比较朴素，就是取两个<span
 class="math inline">\(x_0,x_1\)</span>求出变换后的点坐标，再用待定系数法或<span
 class="math inline">\(k=\dfrac{y-y&#39;}{x-x&#39;}\)</span>来求出<span
-class="math inline">\(k\)</span>. 2. 众所周知，<span
-class="math inline">\(\begin{bmatrix}1\\
+class="math inline">\(k\)</span>.</li>
+<li>众所周知，<span class="math inline">\(\begin{bmatrix}1\\
 k\end{bmatrix}\)</span>与直线的方向相同，直线进行变换后该向量变成了<span
 class="math display">\[A\begin{bmatrix}1\\
 k_0\end{bmatrix}=\A\begin{bmatrix}1\\k_0\end{bmatrix} =1\lA+k_0\rA
-=\begin{bmatrix}m+pk_0\\ n+qk_0\end{bmatrix}\]</span> 易得上述结论。 2.
-<span class="math inline">\(b_1\)</span>的推导 1.
-计算：原直线上任取一点<span
+=\begin{bmatrix}m+pk_0\\ n+qk_0\end{bmatrix}\]</span>
+易得上述结论。</li>
+</ol></li>
+<li><span class="math inline">\(b_1\)</span>的推导
+<ol type="1">
+<li>计算：原直线上任取一点<span
 class="math inline">\((x,kx+b)\)</span>,计算出变换后的点坐标<span
 class="math inline">\((x_1,y_1)\)</span>,然后<span
 class="math inline">\(b_1=k_1x_1-y_1\)</span>，将<span
-class="math inline">\(k_1\)</span>带进去计算就好了。 2. 众所周知，<span
-class="math inline">\(b\)</span>其实是<span
+class="math inline">\(k_1\)</span>带进去计算就好了。</li>
+<li>众所周知，<span class="math inline">\(b\)</span>其实是<span
 class="math inline">\(y\)</span>轴截距。因此，我们只要求出一个变换后落在<span
 class="math inline">\(y\)</span>轴上的一个点，求出其变换后的纵坐标即可，设这个点为<span
 class="math inline">\((x,k_0x+b_0)\)</span>，变换后的点为<span
@@ -319,7 +324,9 @@ class="math inline">\(x_1=0\)</span>. 因此<span
 class="math inline">\(\transx{x}{(k_0x+b)}=0\)</span>.解的<span
 class="math inline">\(x=\dfrac{-pb_0}{m+pk_0}\)</span>此时<span
 class="math inline">\(kx+b=\dfrac{mb_0}{m+pk_0}\)</span>,因此<span
-class="math inline">\(b_1=\transy{x}{(k_0x+b_0)}=\dfrac{-npb_0}{m+pk_0}+\dfrac{qmb_0}{m+pk_0}=\dfrac{mqb_0-npb_0}{m+pk_0}\)</span></p>
+class="math inline">\(b_1=\transy{x}{(k_0x+b_0)}=\dfrac{-npb_0}{m+pk_0}+\dfrac{qmb_0}{m+pk_0}=\dfrac{mqb_0-npb_0}{m+pk_0}\)</span></li>
+</ol></li>
+</ol>
 
                 
               </div>
@@ -418,21 +425,15 @@ class="math inline">\(b_1=\transy{x}{(k_0x+b_0)}=\dfrac{-npb_0}{m+pk_0}+\dfrac{q
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ti-jie/staoi-g-round-4-t1-ti-jie/" title="STAOI G Round 4 T1题解">
+                      <a href="/shu-lun/gou-gu-ding-li/" title="勾股定理">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">STAOI G Round 4 T1题解</span>
+                        <span class="hidden-mobile">勾股定理</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/shu-lun/gou-gu-ding-li/" title="勾股定理">
-                        <span class="hidden-mobile">勾股定理</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
