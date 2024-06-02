@@ -26,7 +26,7 @@
 <meta property="og:description" content="最近在算法竞赛进阶指南上看到了奇数码问题，但是没讲证明。恰好最近刻上老师讲了证明，简单记录一下证明过程。证明过程需要用到映射和基本的群论知识，如果你不了解，建议先学习一下这些前置知识。本文中的复合运算符 \(\circ\) 有时会省略。 题目简介 奇数码问题是一个经典的群论问题。也许你听说过数字华容道或 \(15\) 拼图问题，那就是它最常见的变体， \(4\times4\) 的奇数码问题。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-02T06:50:35.533Z">
+<meta property="article:modified_time" content="2024-06-02T08:22:30.154Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="群论">
 <meta name="twitter:card" content="summary_large_image">
@@ -308,7 +308,8 @@ class="math display">\[f=\begin{pmatrix}1&amp;2&amp;3\\
 \downarrow&amp;\downarrow&amp;\downarrow\\3&amp;2&amp;1\end{pmatrix}\]</span>特别的，对于
 <span class="math inline">\(f(x)=x\)</span>
 这种映射也是置换，成为恒同变换或者叫恒同置换，记作 <span
-class="math inline">\(\rm{id}\)</span>。 -
+class="math inline">\(\rm{id}\)</span>。<br />
+-
 对换，顾名思义，就是只有两个元素进行了交换，其他元素不变。形式化的，<span
 class="math inline">\(f:S\mapsto S\)</span> 是对换是指存在 <span
 class="math inline">\(x,y\in S,f(x)=y,f(y)=x\)</span>，并且对于其他元素
@@ -409,8 +410,8 @@ class="math display">\[\begin{array}{|c|c|c|c|}
 \hline
 \end{array}
 \]</span>因此所有像这样的轮换都可以进行。</p>
-<p>那么，我们只要使用轮换来实现对换的效果就可以了。实现的方法如下： -
-对于四个不同的元素 <span class="math inline">\(a,b,c,d\)</span>，<span
+<p>那么，我们只要使用轮换来实现对换的效果就可以了。实现的方法如下：<br />
+- 对于四个不同的元素 <span class="math inline">\(a,b,c,d\)</span>，<span
 class="math inline">\((a,b)(c,d)=(a,b)(b,c)(b,c)(c,d)=(a,b,c)(b,c,d)\)</span><br />
 - 对于三个不同的元素 <span class="math inline">\(a,b,c\)</span>，<span
 class="math inline">\((a,b)(b,c)=(a,b,c)\)</span><br />
