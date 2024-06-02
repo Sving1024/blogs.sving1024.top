@@ -26,7 +26,7 @@
 <meta property="og:description" content="最近在算法竞赛进阶指南上看到了奇数码问题，但是没讲证明。恰好最近刻上老师讲了证明，简单记录一下证明过程。证明过程需要用到映射和基本的群论知识，如果你不了解，建议先学习一下这些前置知识。本文中的复合运算符 \(\circ\) 有时会省略。 题目简介 奇数码问题是一个经典的群论问题。也许你听说过数字华容道或 \(15\) 拼图问题，那就是它最常见的变体， \(4\times4\) 的奇数码问题。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-01T00:02:29.000Z">
+<meta property="article:modified_time" content="2024-06-02T06:50:35.533Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="群论">
 <meta name="twitter:card" content="summary_large_image">
@@ -308,8 +308,7 @@ class="math display">\[f=\begin{pmatrix}1&amp;2&amp;3\\
 \downarrow&amp;\downarrow&amp;\downarrow\\3&amp;2&amp;1\end{pmatrix}\]</span>特别的，对于
 <span class="math inline">\(f(x)=x\)</span>
 这种映射也是置换，成为恒同变换或者叫恒同置换，记作 <span
-class="math inline">\(\rm{id}\)</span>。<br />
--
+class="math inline">\(\rm{id}\)</span>。 -
 对换，顾名思义，就是只有两个元素进行了交换，其他元素不变。形式化的，<span
 class="math inline">\(f:S\mapsto S\)</span> 是对换是指存在 <span
 class="math inline">\(x,y\in S,f(x)=y,f(y)=x\)</span>，并且对于其他元素
@@ -332,9 +331,9 @@ class="math inline">\(S=\{1,2,3,4\}\)</span>，<span
 class="math inline">\(f(1,3,4)\)</span> 就是指这个置换 <span
 class="math display">\[f=\begin{pmatrix}1&amp;2&amp;3&amp;4\\
 \downarrow&amp;\downarrow&amp;\downarrow&amp;\downarrow\\4&amp;2&amp;1&amp;3\end{pmatrix}\]</span>
-其中有一些结论并不是本文的重点，在下文会直接使用，建议先了解一下相关知识。
-### 可解性判定 我们先来讨论 <span
-class="math inline">\(4\times4\)</span>
+其中有一些结论并不是本文的重点，在下文会直接使用，建议先了解一下相关知识。</p>
+<h3 id="可解性判定">可解性判定</h3>
+<p>我们先来讨论 <span class="math inline">\(4\times4\)</span>
 的情况。方便起见，我们将所有的空格都移动到右下角。我们将这十五的格子首尾相连，形成一排。将
 <span class="math inline">\(1\sim 15\)</span> 计入集合 <span
 class="math inline">\(S\)</span> 中。 我们定义 <span
