@@ -1,6 +1,0 @@
-/* 设置背景图片 */
-body {
-    background: url(/img/wallpaper-2K.png);
-    background-attachment: fixed;
-    background-size: cover;  
-  }
