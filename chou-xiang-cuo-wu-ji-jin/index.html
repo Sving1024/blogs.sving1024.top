@@ -26,7 +26,7 @@
 <meta property="og:description" content="本文收录自己犯过的一些离谱错误，用来引以为戒。  (Acwing 121)离散化之后混用下标和离散化的数值 12345678ll tx&#x3D;lower_bound(x,x+rx,i+mid-1)-x,ty&#x3D;lower_bound(y,y+ry,j+mid-1)-y;if(x[tx]&gt;i+mid||tx&gt;&#x3D;rx)tx--;if(y[ty]&gt;j+mid||ty&gt;&#x3D;ry)ty--;l">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-23T14:47:23.624Z">
+<meta property="article:modified_time" content="2024-10-24T12:27:45.000Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI">
 <meta name="twitter:card" content="summary_large_image">
@@ -330,7 +330,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          2.1k 字
         
       </span>
     
@@ -341,7 +341,7 @@ mjx-container[display="true"] + br {
         
         
         
-          17 分钟
+          18 分钟
         
       </span>
     
@@ -438,6 +438,12 @@ T489100)写线性筛的时候需要注意各种边界问题。（以及复制代
 数组（甚至已经声明过了</li>
 <li>(一样)二维 hash 写错数组 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><br><span class="hljs-keyword">for</span>(ll i=<span class="hljs-number">1</span>;i&lt;=n*<span class="hljs-number">2</span>;i++){<br>    <span class="hljs-keyword">for</span> (ll j=<span class="hljs-number">1</span>; j&lt;=m*<span class="hljs-number">2</span>; j++) {<br>        G[i][j].a=(H[i<span class="hljs-number">-1</span>][j].a*P1)+H[i][j].a;<br>        G[i][j].b=(H[i<span class="hljs-number">-1</span>][j].b*P2)+H[i][j].b; <span class="hljs-comment">//&lt;-- 右侧 H[i-1][j] 应为 G[i-1][j]</span><br>    }<br>}<br></code></pre></td></tr></table></figure></li>
 <li>(P9149) 死循环：其一 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">while</span> (h &lt; v.<span class="hljs-built_in">size</span>() &amp;&amp; i == v[h].r) {<br>	ll t = bi.<span class="hljs-built_in">query</span>(v[h].r) - bi.<span class="hljs-built_in">query</span>(v[h].l - <span class="hljs-number">1</span>);<br>	<span class="hljs-keyword">if</span> (t &gt; d) {<br>		<span class="hljs-keyword">continue</span>; <span class="hljs-comment">//&lt;-- 注意 h 并不会更新，导致死循环</span><br>	}<br>	ll rest_w = w - nums - t, rest_d = d - t;<br>	ans += <span class="hljs-built_in">C</span>(rest_d, rest_w);<br>	h++;<br>}<br></code></pre></td></tr></table></figure></li>
+<li>(P3527)无限递归：其一 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(ull l, ull r, ull val)</span> </span>{<br>    <span class="hljs-keyword">if</span> (r &lt; l) {<br>        <span class="hljs-built_in">add</span>(<span class="hljs-number">1</span>, m, val);<br>        <span class="hljs-built_in">add</span>(r + <span class="hljs-number">1</span>, l - <span class="hljs-number">1</span>, -val);<br>    } <span class="hljs-keyword">else</span> {<br>        <span class="hljs-built_in">add</span>(l, val);<br>        <span class="hljs-built_in">add</span>(r + <span class="hljs-number">1</span>, -val);<br>    }<br>    <span class="hljs-keyword">return</span>;<br>}<br></code></pre></td></tr></table></figure> 考虑
+<code>l==3&amp;&amp;r==2</code>
+的情况，<code>add(r + 1, l - 1, -val);</code> 递归后仍然
+<code>r&lt;l</code>。</li>
+<li>(P3810)使用之前记录下来的下标访问元素的时候要原数组是否更改。
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">solve</span>(<span class="hljs-number">0</span>, total - <span class="hljs-number">1</span>); <span class="hljs-comment">// 这个函数是cdq分治，里边要重新排序，之前记录的下标会失效</span><br><span class="hljs-keyword">for</span> (ll i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>    cnt[ans[i]] += arr[i].times;<br>}<br></code></pre></td></tr></table></figure> 解决： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">solve</span>(<span class="hljs-number">0</span>, total - <span class="hljs-number">1</span>);<br><span class="hljs-built_in">sort</span>(arr, arr + total, [](<span class="hljs-type">const</span> e &amp;a, <span class="hljs-type">const</span> e &amp;b) {<span class="hljs-keyword">return</span> a.i&lt;b.i;});<span class="hljs-comment">// &lt;-- 重新排个序就好了</span><br><span class="hljs-keyword">for</span> (ll i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>    cnt[ans[i]] += arr[i].times;<br>}<br></code></pre></td></tr></table></figure> 补上提交记录或许更容易理解：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/184553459">不排序</a>，<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/184561779">排序</a></li>
 </ol>
 
                 
