@@ -79,119 +79,7 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-.MathJax path {
-  stroke-width: 3;
-}
-
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
-
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -338,6 +226,67 @@ mjx-container[display="true"] + br {
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/posts/20874/" target="_self">
+          线段树小结
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/20874/" target="_self">
+        <div>
+          本文主要是对线段树在序列上的应用的简单讲解，并不涉及复杂的线段树应用。 从分治说起 众所周知，分治是一种常见的算法。序列上的分治通常是这种形式： 12345result solve(int l, int r) &#123;    int mid = (l + r) &gt;&gt; 1;    auto resl = solve(l, mid), resr = solve(mid + 1, r);
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-05-17 15:34" pubdate>
+              2025-05-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/posts/6757/" target="_self">
           Linux 上配置 DNS 踩坑记
         </a>
@@ -360,6 +309,27 @@ mjx-container[display="true"] + br {
           </div>
         
         
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
         
       </div>
     </article>
@@ -379,7 +349,7 @@ mjx-container[display="true"] + br {
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/46064/" target="_self">
         <div>
-          本文原计划于  国庆发布。  最近有点颓，写不动题目了，来水一篇博客。 KMP 是 Knuth–Morris–Pratt 算法的简称，由 Knuth、Pratt 和 Morris 在 1977 年共同发布。该算法用来处理字符串匹配的问题（就是给定一个字符串，求它的所有字串中另一个字符串相等的字符串）。 网上有很多讲解 kmp 的文章了，但其实 kmp 有着（自认为）更简单的理解方法。本文记文本串为
+          本文原计划于 \(2024\) 国庆发布。  最近有点颓，写不动题目了，来水一篇博客。 KMP 是 Knuth–Morris–Pratt 算法的简称，由 Knuth、Pratt 和 Morris 在 1977 年共同发布。该算法用来处理字符串匹配的问题（就是给定一个字符串，求它的所有字串中另一个字符串相等的字符串）。 网上有很多讲解 kmp 的文章了，但其实 kmp 有着（自认为）更简单的理解方法
         </div>
       </a>
 
@@ -433,7 +403,7 @@ mjx-container[display="true"] + br {
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/27204/" target="_self">
         <div>
-          图 拆点 拆点常常可以将较小的边权转化为若干个点和边权为  的边，然后就可以利用特殊性质解决问题。 例如：永远挑战，要求复杂度 。 注意到每条边的边权较小，可以在每次连边权为  的边时新建一个点，从起点连边到这个点，在从这个点连边到边的重点，然后 BFS 求解。 分层图 可以将一个图分成多层，来满足表示更多状态的需要。 例如：冻结 注意到  的范围较小，直接暴力将图复制  份，然后在两层图之间对应
+          图 拆点 拆点常常可以将较小的边权转化为若干个点和边权为 \(1\) 的边，然后就可以利用特殊性质解决问题。 例如：永远挑战，要求复杂度 \(O(n+m)\)。 注意到每条边的边权较小，可以在每次连边权为 \(2\) 的边时新建一个点，从起点连边到这个点，在从这个点连边到边的重点，然后 BFS 求解。 分层图 可以将一个图分成多层，来满足表示更多状态的需要。 例如：冻结 注意到 \(K\) 的范围
         </div>
       </a>
 
@@ -595,7 +565,7 @@ mjx-container[display="true"] + br {
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/6079/" target="_self">
         <div>
-          最近在算法竞赛进阶指南上看到了奇数码问题，但是没讲证明。恰好最近刻上老师讲了证明，简单记录一下证明过程。证明过程需要用到映射和基本的群论知识，如果你不了解，建议先学习一下这些前置知识。本文中的复合运算符  有时会省略。 题目简介 奇数码问题是一个经典的群论问题。也许你听说过数字华容道或  拼图问题，那就是它最常见的变体，  的奇数码问题。将这个问题扩展到  的情况就是我们要研究的奇数码问题。在这篇
+          最近在算法竞赛进阶指南上看到了奇数码问题，但是没讲证明。恰好最近刻上老师讲了证明，简单记录一下证明过程。证明过程需要用到映射和基本的群论知识，如果你不了解，建议先学习一下这些前置知识。本文中的复合运算符 \(\circ\) 有时会省略。 题目简介 奇数码问题是一个经典的群论问题。也许你听说过数字华容道或 \(15\) 拼图问题，那就是它最常见的变体， \(4\times4\) 的奇数码问题。将这个
         </div>
       </a>
 
@@ -726,7 +696,7 @@ mjx-container[display="true"] + br {
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/60112/" target="_self">
         <div>
-          众所周知，在实数域上我们时不能随意开方的，因为没有数的平方为负。为了解决这个问题，我们定义一个新数，。我们定义定义复数  是形如  的数。 接下来定义各种运算符：  加法： 乘法： 相反数： 倒数： 这一点十分有趣，到底结果是多少呢？我们假设 ，然后可以得到  模型1：向量 我们将  当作平面上的一个向量，我们惊人的发现：负数加法就是向量加法，而负数乘法，可以定义一种叫复乘的运算，定义两个向量 ，
+          众所周知，在实数域上我们时不能随意开方的，因为没有数的平方为负。为了解决这个问题，我们定义一个新数，\(\rm{i}\)。我们定义\[\rm{i}^2=-1\]定义复数 \(x\in \mathbb{C}\) 是形如 \(a+b\rm{i}\) 的数。 接下来定义各种运算符：  加法：\((a+b\rm{i})+(c+d\rm{i})=(a+c)+(b+d)\rm{i}\) 乘法：\((a+b\r
         </div>
       </a>
 
@@ -787,7 +757,7 @@ mjx-container[display="true"] + br {
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/34037/" target="_self">
         <div>
-          数学有趣的一点在于，有些概念总是在应用之后再定义。 ——沃兹基硕德  今天，我们将要再这里，定义数学中最基础的概念，数字！ 正整数集合 一切的一切，都从开始：  后继运算 接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将  的后继数记作 。（鉴于这是篇关于数学的文章，就不用  之类的表达方式了）。 这个运算有一下几条性质:   不是任何数的后继数。 任何不是  的数都
+          数学有趣的一点在于，有些概念总是在应用之后再定义。 ——沃兹基硕德  今天，我们将要再这里，定义数学中最基础的概念，数字！ 正整数集合 一切的一切，都从\(1\)开始： \[\left\{1\right\}\] 后继运算 接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将 \(x\) 的后继数记作 \(\operatorname{s}(x)\)。（鉴于这是篇关于数学的文
         </div>
       </a>
 
@@ -836,74 +806,6 @@ mjx-container[display="true"] + br {
               <a href="/tags/qun-lun/">#群论</a>
             
               <a href="/tags/shu-lun/">#数论</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/21685/" target="_self">
-          瞎谈点积
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/21685/" target="_self">
-        <div>
-          从标题可以看出这篇文章时关于点积的。本文讨论的是平面点积。本文记  的长度为 。 参与点积运算的是两个向量。架设有两个向量 ，则我们定义点积为 。点积是一个很神奇的东西，先说它的几条性质。 性质 交换律 对于任意 ，都有 。 证明：显而易见吧。  双线性 双线性意味着一下两点：    证明都不难，根据定义展开计算即可，在这里不做赘述。  正定性 其实就是非负性 正定性意味着对于任何向量 ，。取等
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-03-09 00:00" pubdate>
-              2024-03-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Math/" class="category-chain-item">数学</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Math/CartisianPlaneGeometry/" class="category-chain-item">Cartisian平面几何</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/ji-he/">#几何</a>
             
           </div>
         
