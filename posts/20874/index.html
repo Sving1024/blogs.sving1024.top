@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020250517134545.png">
 <meta property="article:published_time" content="2025-05-17T07:34:44.000Z">
-<meta property="article:modified_time" content="2025-05-17T13:18:28.584Z">
+<meta property="article:modified_time" content="2025-05-17T13:22:06.152Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k 字
+          2.9k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          22 分钟
+          25 分钟
         
       </span>
     
@@ -328,8 +328,22 @@ class="math inline">\(1\times 10 ^9\)</span> 的值域上维护信息时），<s
 class="math inline">\(4\)</span>
 倍的空间变得难以承受。然而，并不是每个结点最后都会使用。因此，我们只在使用的时候才给这个点分配空间，这就是动态开点。此时需要在结点上记录左右子树的下标。通常采用数组加
 <code>new_node</code> 函数来进行。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp">node tree[N*<span class="hljs-number">60</span>];<span class="hljs-comment">// 此处大小需要自行计算。</span><br>ll cnt = <span class="hljs-number">0</span>;<br><br><span class="hljs-comment">//使用时：</span><br>tree[p].lc = cnt++;<br>tree[tree[p].lc] = <span class="hljs-built_in">node</span>();<br><span class="hljs-comment">//...其他初始化操作</span><br></code></pre></td></tr></table></figure> <div class="note note-success @实现">
-            <p>这道题的前置知识是矩阵。更加复杂的更新与标记下传。</p>
+            <p>应当避免使用 <code>std::vector</code> 来实现动态开点线段树。原因是<code>std::vector</code> 的 <code>push_back</code>会使迭代器失效，在递归过程中造成一系列问题。</p>
           </div></p>
+<h3 id="参考题目">参考题目</h3>
+<p>这些题目是用于加深理解的。限于篇幅，并不能一一讲解，可以参考对应题目的题解。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1253">洛谷 P1253</a>
+需要厘清如何合并标记。</li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_abc250_e">AtCoder
+AT_abc250_e</a> 标记永久化的典型应用。</li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4198">洛谷 P4198</a>
+虽然在讲解中我们都假设 <code>merge</code> 或者 <code>update</code> 是
+<span class="math inline">\(O(1)\)</span>
+的，但实际上并非如此，只要最后的复杂度可以接受（具体题目具体分析）都可以使用。这题可以先考虑如何使用分治实现（如何合并两个区间的信息），在借助线段树的结构维护信息，优化复杂度。此外，一道题需要维护的信息不止一种，因此查询也可以有很多种。</li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7453">洛谷 P7453</a>
+这道题的前置知识是矩阵。更加复杂的更新与标记下传。</li>
+</ul>
 <h3 id="可持久化线段树">可持久化线段树</h3>
 <p>可持久化线段树可以支持在线的修改在历史版本上的修改，查询。最简单的方法就是每个修改新开一颗树，显然时空双飞。</p>
 <p>正如我们之前提到的，单点修改最多影响 <span
@@ -352,12 +366,12 @@ class="math inline">\(r\)</span> 时刻的线段树查询一个和 <span
 class="math inline">\(l\)</span> 有关的东西。结合例题来说一下。</p>
 
     <div class="fold">
-      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-b8d4299b" role="button" aria-expanded="false" aria-controls="collapse-b8d4299b">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-59ea1d47" role="button" aria-expanded="false" aria-controls="collapse-59ea1d47">
         <div class="fold-arrow">▶</div>例题
       </div>
-      <div class="fold-collapse collapse" id="collapse-b8d4299b">
+      <div class="fold-collapse collapse" id="collapse-59ea1d47">
         <div class="fold-content">
-          <p><span class="math inline">\(n,q\leq 1\times 10^6\)</span>。</p>
+          <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1972">洛谷 P1962</a> 改。给定一个长度为 <span class="math inline">\(n\)</span> 的序列 <spanclass="math inline">\(A_i\)</span>，<spanclass="math inline">\(q\)</span> 次询问，每次回答 <spanclass="math inline">\([l,r]\)</span>之间的数去重后的个数。<strong>强制在线</strong>。 <spanclass="math inline">\(n,q\leq 1\times 10^6\)</span>。</p>
         </div>
       </div>
     </div>
