@@ -29,8 +29,9 @@
 <meta property="og:description" content="本文原计划于 \(2024\) 国庆发布。  最近有点颓，写不动题目了，来水一篇博客。 KMP 是 Knuth–Morris–Pratt 算法的简称，由 Knuth、Pratt 和 Morris 在 1977 年共同发布。该算法用来处理字符串匹配的问题（就是给定一个字符串，求它的所有字串中另一个字符串相等的字符串）。 网上有很多讲解 kmp 的文章了，但其实 kmp 有着（自认为）更简单的理解方法">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020241123223703.png">
+<meta property="og:image" content="https://blogs.sving1024.top/img/Pasted%20image%2020241207230611.png">
 <meta property="article:published_time" content="2025-01-27T15:32:06.000Z">
-<meta property="article:modified_time" content="2025-05-22T14:10:37.533Z">
+<meta property="article:modified_time" content="2025-05-23T15:17:57.438Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI,数学,物理,Hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -276,140 +277,51 @@
             
               <div class="markdown-body">
                 
-                <p>本文原计划于 <span class="math inline">\(2024\)</span> 国庆发布。
-<img src="/img/Pasted%20image%2020241123223703.png" srcset="/img/loading.gif" lazyload />
-最近有点颓，写不动题目了，来水一篇博客。</p>
-<p>KMP 是 Knuth–Morris–Pratt 算法的简称，由 Knuth、Pratt 和 Morris 在
-1977
-年共同发布。该算法用来处理字符串匹配的问题（就是给定一个字符串，求它的所有字串中另一个字符串相等的字符串）。</p>
-<p>网上有很多讲解 kmp 的文章了，但其实 kmp
-有着（自认为）更简单的理解方法。本文记文本串为 <span
-class="math inline">\(S\)</span>，模式串为 <span
-class="math inline">\(T\)</span>。</p>
+                <p>本文原计划于 <span class="math inline">\(2024\)</span> 国庆发布。 <img src="/img/Pasted%20image%2020241123223703.png" srcset="/img/loading.gif" lazyload /> 最近有点颓，写不动题目了，来水一篇博客。</p>
+<p>KMP 是 Knuth–Morris–Pratt 算法的简称，由 Knuth、Pratt 和 Morris 在 1977 年共同发布。该算法用来处理字符串匹配的问题（就是给定一个字符串，求它的所有字串中另一个字符串相等的字符串）。</p>
+<p>网上有很多讲解 kmp 的文章了，但其实 kmp 有着（自认为）更简单的理解方法。本文记文本串为 <span class="math inline">\(S\)</span>，模式串为 <span class="math inline">\(T\)</span>。</p>
 <p>首先考虑暴力匹配的过程。 <span class="math display">\[
 \displaylines{
 S=&amp;{\color{red}{\texttt{abaaba}}}\texttt{abacbab}\\
 T=&amp;{\color{blue}\texttt{abaaba}}\texttt{cbab}
 }
-\]</span>如图，<span class="math inline">\(T\)</span> 匹配上了 <span
-class="math inline">\(S\)</span>
-的一个字串。当匹配到下一个字符的时候，你会发现下一个字符不等了，这种情况成为失配。此时暴力方法会将头指针向后移一位，然后重复上述的过程。但是，难道已经匹配上的这些字符串不能给我们提供一些额外的信息了吗？</p>
-<p>考虑下一个可以和 <span class="math inline">\(T\)</span> 匹配上的
-<span class="math inline">\(S\)</span> 的字串。将前一个匹配上的字串记为
-<span class="math inline">\(s_1\)</span>，将新匹配的字串记作 <span
-class="math inline">\(s_2\)</span>。</p>
+\]</span>如图，<span class="math inline">\(T\)</span> 匹配上了 <span class="math inline">\(S\)</span> 的一个字串。当匹配到下一个字符的时候，你会发现下一个字符不等了，这种情况成为失配。此时暴力方法会将头指针向后移一位，然后重复上述的过程。但是，难道已经匹配上的这些字符串不能给我们提供一些额外的信息了吗？</p>
+<p>考虑下一个可以和 <span class="math inline">\(T\)</span> 匹配上的 <span class="math inline">\(S\)</span> 的字串。将前一个匹配上的字串记为 <span class="math inline">\(s_1\)</span>，将新匹配的字串记作 <span class="math inline">\(s_2\)</span>。</p>
 <ul>
-<li><span class="math inline">\(s_2\)</span> 在 <span
-class="math inline">\(s_1\)</span> 内开始，在 <span
-class="math inline">\(s_1\)</span> 结束。 <span
-class="math display">\[\displaylines{
+<li><span class="math inline">\(s_2\)</span> 在 <span class="math inline">\(s_1\)</span> 内开始，在 <span class="math inline">\(s_1\)</span> 结束。 <span class="math display">\[\displaylines{
 S=&amp;{\color{red}{\texttt{ab}}}{\color{yellow}\texttt{a}}{\color{red}{\texttt{aba}}}\texttt{abacbab}\\
 T=&amp;{\color{yellow}\texttt{a}}\texttt{baabacbab}
-}\]</span>
-显然这种情况没什么用。因为这个匹配上的字串的长度甚至连原来匹配上的长度都比不上，最终自然不能匹配上整个
-<span class="math inline">\(T\)</span>。</li>
-<li><span class="math inline">\(s_2\)</span> 在 <span
-class="math inline">\(s_1\)</span> 内开始，一直延伸到 <span
-class="math inline">\(s_1\)</span> 的末尾（其实就是说 <span
-class="math inline">\(s_2\)</span> 为 <span
-class="math inline">\(s_1\)</span> 的后缀）。<span
-class="math display">\[\displaylines{
+}\]</span> 显然这种情况没什么用。因为这个匹配上的字串的长度甚至连原来匹配上的长度都比不上，最终自然不能匹配上整个 <span class="math inline">\(T\)</span>。</li>
+<li><span class="math inline">\(s_2\)</span> 在 <span class="math inline">\(s_1\)</span> 内开始，一直延伸到 <span class="math inline">\(s_1\)</span> 的末尾（其实就是说 <span class="math inline">\(s_2\)</span> 为 <span class="math inline">\(s_1\)</span> 的后缀）。<span class="math display">\[\displaylines{
 S=&amp;{\color{red}{\texttt{aba}}}{\color{yellow}\texttt{aba}}\texttt{abacbab}\\
 T=&amp;{\color{yellow}\texttt{aba}}\texttt{abacbab}
-}\]</span>
-这种情况是<strong>有可能</strong>匹配上整个串的，因为上一次匹配时就匹配到了第六个字符，因此程序处理到这里的时候也不止到后面能不能匹配上。<br />
+}\]</span> 这种情况是<strong>有可能</strong>匹配上整个串的，因为上一次匹配时就匹配到了第六个字符，因此程序处理到这里的时候也不止到后面能不能匹配上。<br />
 那么，这种字串有什么特点吗？<br />
-注意到，由于这两个字串都匹配上了 <span class="math inline">\(T\)</span>
-的某个前缀，因此这两个字串的前 <span class="math inline">\(i(1\lt i \lt
-\min(|s1|,|s2|))\)</span> 个字符是相等的。又因为 <span
-class="math inline">\(s_2\)</span> 同时也是 <span
-class="math inline">\(s_1\)</span> 的后缀，可以得到 <span
-class="math inline">\(s_2\)</span> 是 <span
-class="math inline">\(s_1\)</span> 的一段相等的前后缀（“Border“）。</li>
-<li><span class="math inline">\(s_2\)</span> 在 <span
-class="math inline">\(s_1\)</span> 外，<span
-class="math display">\[\displaylines{
+注意到，由于这两个字串都匹配上了 <span class="math inline">\(T\)</span> 的某个前缀，因此这两个字串的前 <span class="math inline">\(i(1\lt i \lt \min(|s1|,|s2|))\)</span> 个字符是相等的。又因为 <span class="math inline">\(s_2\)</span> 同时也是 <span class="math inline">\(s_1\)</span> 的后缀，可以得到 <span class="math inline">\(s_2\)</span> 是 <span class="math inline">\(s_1\)</span> 的一段相等的前后缀（“Border“）。</li>
+<li><span class="math inline">\(s_2\)</span> 在 <span class="math inline">\(s_1\)</span> 外，<span class="math display">\[\displaylines{
 S=&amp;{\color{red}{\texttt{abaaba}}}{\color{yellow}\texttt{aba}}\texttt{cbab}\\
 T=&amp;{\color{yellow}\texttt{aba}}\texttt{abacbab}
 }\]</span> 这种情况显然通过任何已知信息都无法推出了。</li>
 </ul>
-<p>由上述分类可以发现，下一个可能匹配上的位置只和已经匹配上的字符串有关。由于这个字符串必然是模式串的某个前缀，我们可以预处理模式串的所有前缀的
-Border。但是那么多 Border，选哪一个呢？容易发现，选择最长的 Border
-可以保证不漏。因为加入选择较短的 Border，如果较长的 Border
-合法，则不能再次回到较长的
-Border，因为每次指针都会向后面移动。而如果较短的 Border
-合法，必然可以通过上述方法得到。因此我们只需要预处理出模板串的最长
-Border 即可。</p>
+<p>由上述分类可以发现，下一个可能匹配上的位置只和已经匹配上的字符串有关。由于这个字符串必然是模式串的某个前缀，我们可以预处理模式串的所有前缀的 Border。但是那么多 Border，选哪一个呢？容易发现，选择最长的 Border 可以保证不漏。因为加入选择较短的 Border，如果较长的 Border 合法，则不能再次回到较长的 Border，因为每次指针都会向后面移动。而如果较短的 Border 合法，必然可以通过上述方法得到。因此我们只需要预处理出模板串的最长 Border 即可。</p>
 <p>先假设求出了最长的 Border，我们又该怎么做呢？</p>
-<p>首先，令一个指针 <span class="math inline">\(i\)</span> 指向 <span
-class="math inline">\(S\)</span>
-中匹配上的字符串的末尾，令已经匹配上的字符串长度为 <span
-class="math inline">\(k\)</span>，<span class="math inline">\(T\)</span>
-的长度为 <span class="math inline">\(j\)</span> 的前缀的最长 Border
-对应的前缀的末尾的位置为 <span class="math inline">\(B_j\)</span>（没有
-Border 则为 <span class="math inline">\(-1\)</span>）。</p>
+<p>首先，令一个指针 <span class="math inline">\(i\)</span> 指向 <span class="math inline">\(S\)</span> 中匹配上的字符串的末尾，令已经匹配上的字符串长度为 <span class="math inline">\(k\)</span>，<span class="math inline">\(T\)</span> 的长度为 <span class="math inline">\(j\)</span> 的前缀的最长 Border 对应的前缀的末尾的位置为 <span class="math inline">\(B_j\)</span>（没有 Border 则为 <span class="math inline">\(-1\)</span>）。</p>
 <ul>
 <li>初始化：<span class="math inline">\(i\gets 0,k\gets0\)</span>。</li>
-<li>先暴力匹配。如果 <span
-class="math inline">\(S_{i+1}=T_{k+1}\)</span>，则 <span
-class="math inline">\(k\gets k+1,i\gets i+1\)</span>。</li>
-<li>如果失配了，即 <span
-class="math inline">\(S_{i+k+1}\not=T_{k+1}\)</span>，将 <span
-class="math inline">\(k\gets B_k\)</span>，然后继续匹配。</li>
-<li>如果 <span class="math inline">\(k=-1\)</span>，直接令 <span
-class="math inline">\(i\gets
-i+1,k\gets0\)</span>，相当于暴力匹配时失配的处理方式。</li>
-<li>如果 <span
-class="math inline">\(k=|T|\)</span>，说明找到了一个字串。如果还要寻找更多的字串，可以
-<span class="math inline">\(k\gets B_k\)</span>，然后继续匹配。<br />
-这个过程的复杂度是 <span class="math inline">\(O(|S|)\)</span>，证明可见
-OI-Wiki。</li>
+<li>先暴力匹配。如果 <span class="math inline">\(S_{i+1}=T_{k+1}\)</span>，则 <span class="math inline">\(k\gets k+1,i\gets i+1\)</span>。</li>
+<li>如果失配了，即 <span class="math inline">\(S_{i+k+1}\not=T_{k+1}\)</span>，将 <span class="math inline">\(k\gets B_k\)</span>，然后继续匹配。</li>
+<li>如果 <span class="math inline">\(k=-1\)</span>，直接令 <span class="math inline">\(i\gets i+1,k\gets0\)</span>，相当于暴力匹配时失配的处理方式。</li>
+<li>如果 <span class="math inline">\(k=|T|\)</span>，说明找到了一个字串。如果还要寻找更多的字串，可以 <span class="math inline">\(k\gets B_k\)</span>，然后继续匹配。<br />
+这个过程的复杂度是 <span class="math inline">\(O(|S|)\)</span>，证明可见 OI-Wiki。</li>
 </ul>
-<p>我们在暴力匹配是，将 <span class="math inline">\(i\)</span>
-自增前，将上面这个 <span class="math inline">\(i\)</span> 匹配到的最远的
-<span class="math inline">\(k\)</span> 记录下来。显然由于 <span
-class="math inline">\(i\)</span> 单调递增，且每次增加 <span
-class="math inline">\(1\)</span>，每个 <span
-class="math inline">\(i\)</span> 都会有一个对应的 <span
-class="math inline">\(k\)</span>。并且我们只增加了 <span
-class="math inline">\(n\)</span> 次 <span
-class="math inline">\(O(1)\)</span> 的操作，因此不会增加复杂度。</p>
-<p>考虑这个东西的实际意义，应该是代表 <span
-class="math inline">\(S\)</span> 的长度为 <span
-class="math inline">\(i\)</span> 的前缀的后缀和 <span
-class="math inline">\(T\)</span>
-的前缀可以匹配到的最远距离。欸，我们发现这个东西和 Border
-的定义很像。<span class="math inline">\(T\)</span> 每个位置的 Border
-不就是 <span class="math inline">\(T\)</span> 的长度为 <span
-class="math inline">\(i\)</span> 的前缀的后缀和 <span
-class="math inline">\(T\)</span>
-的前缀匹配的最长距离吗（显然，这个前缀的长度并不会超过 <span
-class="math inline">\(i\)</span>——我们可以放心的将“和 <span
-class="math inline">\(T\)</span> 的长度为 <span
-class="math inline">\(i\)</span> 前缀匹配的最长距离吗”替换为“和 <span
-class="math inline">\(T\)</span>
-的前缀匹配的最长距离”）？我们发挥想象力，将上面这个过程中的 <span
-class="math inline">\(S\)</span> 全部换成 <span
-class="math inline">\(T\)</span>，会发生什么？</p>
-<p>我们将初始化改成 <span class="math inline">\(B_{0}\gets-1,i\gets
-1,k\gets0\)</span>，假设现在正在匹配第 <span
-class="math inline">\(i\)</span> 个字符，显然此时有 <span
-class="math inline">\(k&lt;i\)</span>（显然，你匹配上的字符串不能比其中一个字符串还长）。那么，假设此时失配了，就需要令
-<span class="math inline">\(k\gets B_k\)</span>，而这个 <span
-class="math inline">\(k\)</span> 小于 <span
-class="math inline">\(i\)</span>，因此，<span
-class="math inline">\(B_k\)</span>
-在前面已经求出！这样改变程序，不但可以正常运行，甚至还可以帮我们正常求出
-Border（这就其他地方可以看到的“求 Border
-相当于对自己匹配”的意思）！类似匹配的复杂度，求 Border 的复杂度就是
-<span class="math inline">\(O(|T|)\)</span>。</p>
-<p>因此 KMP 的总复杂度就是 <span
-class="math inline">\(O(|S|+|T|)\)</span>。</p>
+<p>我们在暴力匹配是，将 <span class="math inline">\(i\)</span> 自增前，将上面这个 <span class="math inline">\(i\)</span> 匹配到的最远的 <span class="math inline">\(k\)</span> 记录下来。显然由于 <span class="math inline">\(i\)</span> 单调递增，且每次增加 <span class="math inline">\(1\)</span>，每个 <span class="math inline">\(i\)</span> 都会有一个对应的 <span class="math inline">\(k\)</span>。并且我们只增加了 <span class="math inline">\(n\)</span> 次 <span class="math inline">\(O(1)\)</span> 的操作，因此不会增加复杂度。</p>
+<p>考虑这个东西的实际意义，应该是代表 <span class="math inline">\(S\)</span> 的长度为 <span class="math inline">\(i\)</span> 的前缀的后缀和 <span class="math inline">\(T\)</span> 的前缀可以匹配到的最远距离。欸，我们发现这个东西和 Border 的定义很像。<span class="math inline">\(T\)</span> 每个位置的 Border 不就是 <span class="math inline">\(T\)</span> 的长度为 <span class="math inline">\(i\)</span> 的前缀的后缀和 <span class="math inline">\(T\)</span> 的前缀匹配的最长距离吗（显然，这个前缀的长度并不会超过 <span class="math inline">\(i\)</span>——我们可以放心的将“和 <span class="math inline">\(T\)</span> 的长度为 <span class="math inline">\(i\)</span> 前缀匹配的最长距离吗”替换为“和 <span class="math inline">\(T\)</span> 的前缀匹配的最长距离”）？我们发挥想象力，将上面这个过程中的 <span class="math inline">\(S\)</span> 全部换成 <span class="math inline">\(T\)</span>，会发生什么？</p>
+<p>我们将初始化改成 <span class="math inline">\(B_{0}\gets-1,i\gets 1,k\gets0\)</span>，假设现在正在匹配第 <span class="math inline">\(i\)</span> 个字符，显然此时有 <span class="math inline">\(k&lt;i\)</span>（显然，你匹配上的字符串不能比其中一个字符串还长）。那么，假设此时失配了，就需要令 <span class="math inline">\(k\gets B_k\)</span>，而这个 <span class="math inline">\(k\)</span> 小于 <span class="math inline">\(i\)</span>，因此，<span class="math inline">\(B_k\)</span> 在前面已经求出！这样改变程序，不但可以正常运行，甚至还可以帮我们正常求出 Border（这就其他地方可以看到的“求 Border 相当于对自己匹配”的意思）！类似匹配的复杂度，求 Border 的复杂度就是 <span class="math inline">\(O(|T|)\)</span>。</p>
+<p>因此 KMP 的总复杂度就是 <span class="math inline">\(O(|S|+|T|)\)</span>。</p>
 <p>代码：网上太多了，因此就不给了。</p>
 <p>全文完。</p>
 <hr />
-<p>讲个笑话，我自己至今还没写过 KMP 的模板。 <img
-src="/img/Pasted%20image%2020241207230611.png" srcset="/img/loading.gif" lazyload /></p>
+<p>讲个笑话，我自己至今还没写过 KMP 的模板。 <img src="/img/Pasted%20image%2020241207230611.png" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>

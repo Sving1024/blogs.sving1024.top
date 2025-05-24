@@ -29,7 +29,7 @@
 <meta property="og:description" content="图 拆点 拆点常常可以将较小的边权转化为若干个点和边权为 \(1\) 的边，然后就可以利用特殊性质解决问题。 例如：永远挑战，要求复杂度 \(O(n+m)\)。 注意到每条边的边权较小，可以在每次连边权为 \(2\) 的边时新建一个点，从起点连边到这个点，在从这个点连边到边的重点，然后 BFS 求解。 分层图 可以将一个图分成多层，来满足表示更多状态的需要。 例如：冻结 注意到 \(K\) 的范围">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-22T14:10:37.535Z">
+<meta property="article:modified_time" content="2025-05-23T15:17:57.443Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI,数学,物理,Hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -276,117 +276,51 @@
                 
                 <h2 id="图">图</h2>
 <h3 id="拆点">拆点</h3>
-<p>拆点常常可以将较小的边权转化为若干个点和边权为 <span
-class="math inline">\(1\)</span> 的边，然后就可以利用特殊性质解决问题。
-例如：<a
-target="_blank" rel="noopener" href="http://poj.openjudge.cn/practice/1014">永远挑战</a>，要求复杂度
-<span class="math inline">\(O(n+m)\)</span>。
-注意到每条边的边权较小，可以在每次连边权为 <span
-class="math inline">\(2\)</span>
-的边时新建一个点，从起点连边到这个点，在从这个点连边到边的重点，然后 BFS
-求解。</p>
+<p>拆点常常可以将较小的边权转化为若干个点和边权为 <span class="math inline">\(1\)</span> 的边，然后就可以利用特殊性质解决问题。 例如：<a target="_blank" rel="noopener" href="http://poj.openjudge.cn/practice/1014">永远挑战</a>，要求复杂度 <span class="math inline">\(O(n+m)\)</span>。 注意到每条边的边权较小，可以在每次连边权为 <span class="math inline">\(2\)</span> 的边时新建一个点，从起点连边到这个点，在从这个点连边到边的重点，然后 BFS 求解。</p>
 <h3 id="分层图">分层图</h3>
-<p>可以将一个图分成多层，来满足表示更多状态的需要。 例如：<a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4822">冻结</a> 注意到 <span
-class="math inline">\(K\)</span> 的范围较小，直接暴力将图复制 <span
-class="math inline">\(K\)</span>
-份，然后在两层图之间对应点连边权为原来权值一般的边，然后直接跑最短路。</p>
-<p>实际上，该题（以及其他的分层图题目）可以用一中 DP 的方式来做。令
-<span class="math inline">\(dp_{i,j}\)</span> 为用了 <span
-class="math inline">\(j\)</span> 张卡片，到点 <span
-class="math inline">\(i\)</span> 的最短路径。对于每个 <span
-class="math inline">\(j\)</span>
-之间跑最短路，枚举在那条边用卡片进行转移。</p>
+<p>可以将一个图分成多层，来满足表示更多状态的需要。 例如：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4822">冻结</a> 注意到 <span class="math inline">\(K\)</span> 的范围较小，直接暴力将图复制 <span class="math inline">\(K\)</span> 份，然后在两层图之间对应点连边权为原来权值一般的边，然后直接跑最短路。</p>
+<p>实际上，该题（以及其他的分层图题目）可以用一中 DP 的方式来做。令 <span class="math inline">\(dp_{i,j}\)</span> 为用了 <span class="math inline">\(j\)</span> 张卡片，到点 <span class="math inline">\(i\)</span> 的最短路径。对于每个 <span class="math inline">\(j\)</span> 之间跑最短路，枚举在那条边用卡片进行转移。</p>
 <h3 id="最短路相关">最短路相关</h3>
-<p>众所周知，优先队列 BFS 和 Dijkstra（优先队列）的复杂度是 <span
-class="math inline">\(O((n+m)\log m)\)</span>
-的。实际上，该算法的瓶颈其实是取出每个点时对其他点进行松弛的复杂度。对于有特殊性质的图，如果可以想方法减少更新的复杂度，就可以获得复杂度更低的算法。
-例如：（随便想的，不知道有没有原题）</p>
+<p>众所周知，优先队列 BFS 和 Dijkstra（优先队列）的复杂度是 <span class="math inline">\(O((n+m)\log m)\)</span> 的。实际上，该算法的瓶颈其实是取出每个点时对其他点进行松弛的复杂度。对于有特殊性质的图，如果可以想方法减少更新的复杂度，就可以获得复杂度更低的算法。 例如：（随便想的，不知道有没有原题）</p>
 <blockquote>
-<p>给定 <span class="math inline">\(n\)</span> 个点，每个点 <span
-class="math inline">\(i\)</span> 都仅向一个区间 <span
-class="math inline">\([l_i,r_i]\)</span> 连有权值为 <span
-class="math inline">\(k_i\)</span> 的边。保证权值非负。求最短路。</p>
+<p>给定 <span class="math inline">\(n\)</span> 个点，每个点 <span class="math inline">\(i\)</span> 都仅向一个区间 <span class="math inline">\([l_i,r_i]\)</span> 连有权值为 <span class="math inline">\(k_i\)</span> 的边。保证权值非负。求最短路。</p>
 </blockquote>
-<p>注意到每次需要向一个区间的结点更新期最短路，考虑使用线段树。更新时对区间对
-<span class="math inline">\(dis_i+k_i\)</span> 取 <span
-class="math inline">\(\min\)</span>，取出时查询最小值。容易发现对于每个点总共只需要花
-<span class="math inline">\(O(\log n)\)</span>
-的复杂度进行更新，总复杂度 <span class="math inline">\(O(n\log
-n)\)</span>。</p>
+<p>注意到每次需要向一个区间的结点更新期最短路，考虑使用线段树。更新时对区间对 <span class="math inline">\(dis_i+k_i\)</span> 取 <span class="math inline">\(\min\)</span>，取出时查询最小值。容易发现对于每个点总共只需要花 <span class="math inline">\(O(\log n)\)</span> 的复杂度进行更新，总复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
 <h2 id="树">树</h2>
 <h3 id="子树相关">子树相关</h3>
 <p>子树的结点在 DFS 序上对应一个区间，可以利用这个性质进行计算。</p>
 <h3 id="路径覆盖">路径覆盖</h3>
-<p>在树上在覆盖 <span class="math inline">\(u\)</span> 到 <span
-class="math inline">\(v\)</span>
-的路径中统计（保证不是祖先关系），容易发现必定其中一个端点在 <span
-class="math inline">\(u\)</span> 的子树内，另一个在 <span
-class="math inline">\(v\)</span> 的子树内，可以利用 DFS
-序转化成二维数点问题。</p>
+<p>在树上在覆盖 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(v\)</span> 的路径中统计（保证不是祖先关系），容易发现必定其中一个端点在 <span class="math inline">\(u\)</span> 的子树内，另一个在 <span class="math inline">\(v\)</span> 的子树内，可以利用 DFS 序转化成二维数点问题。</p>
 <h3 id="线段树型分治">线段树型分治</h3>
-<p>注意：这里不是在说线段树分治。 <del>线段树也是树</del>
-线段树有以下性质：</p>
+<p>注意：这里不是在说线段树分治。 <del>线段树也是树</del> 线段树有以下性质：</p>
 <ul>
 <li>对于同一层的结点，其长度最多有两种。</li>
 <li>对于一个结点，其左节点覆盖区间的长度大于等于右结点覆盖的区间长度。</li>
-<li>线段树的子节点个数要么是 <span class="math inline">\(0\)</span>
-要么是 <span class="math inline">\(2\)</span>。</li>
+<li>线段树的子节点个数要么是 <span class="math inline">\(0\)</span> 要么是 <span class="math inline">\(2\)</span>。</li>
 </ul>
-<p>这几点都比较容易证明。对于线段树上统计信息的题目，可以记录同一层相同长度的结点的信息，再通过这些信息得到其左子节点和右子节点的信息的和，快速得到下一层结点的信息。
-例如：</p>
+<p>这几点都比较容易证明。对于线段树上统计信息的题目，可以记录同一层相同长度的结点的信息，再通过这些信息得到其左子节点和右子节点的信息的和，快速得到下一层结点的信息。 例如：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1905E">One-X</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7143">[THUPC2021 初赛]
-线段树</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7143">[THUPC2021 初赛] 线段树</a></li>
 </ul>
 <h2 id="数学">数学</h2>
 <h3 id="矩阵">矩阵</h3>
 <p>可以使用矩阵优化的题目往往有以下的性质：</p>
 <ul>
-<li><p>矩阵的大小较小，可以使用 <span
-class="math inline">\(O(n^3)\)</span> 级别的算法。</p></li>
+<li><p>矩阵的大小较小，可以使用 <span class="math inline">\(O(n^3)\)</span> 级别的算法。</p></li>
 <li><p>转移方法类似。</p></li>
 <li><p>转移顺序较为规律，通常只以来上一个转移后的状态。</p></li>
 <li><p>转移是线性的或可以使用广义矩阵乘法来表示。</p>
 <h4 id="矩阵与最短路">矩阵与最短路</h4>
-<p>对于 BF
-算法，可以考虑使用矩阵描述一轮松弛，接着使用矩阵快速幂来优化。
-例如：</p></li>
-<li><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6190">NOI Online #1
-入门组 魔法</a> 仔细看会发现这个东西似乎特别像
-Floyd（实际上如果先枚举中间一维在枚举其余两维就几乎完全一致）？实际上把这个矩阵的
-<span class="math inline">\(n\)</span> 次幂就相当于 BF 算法跑了 <span
-class="math inline">\(n\)</span>
-遍，其实也就是一次全源最短路。如果是暴力乘出来复杂度是 <span
-class="math inline">\(O(n^4)\)</span>，快速幂优化则是 <span
-class="math inline">\(O(n^3\log n)\)</span>。然而 Floyd 却只需要 <span
-class="math inline">\(O(n^3)\)</span>（只需要一次 <span
-class="math inline">\(n^3\)</span>
-的计算）。既然两者都是最短路，对于这类特殊的矩阵乘法，同方阵的 <span
-class="math inline">\(n\)</span> 次幂我们便可以用 Floyd 来优化，对于大于
-<span class="math inline">\(n\)</span>
-的幂次如果保证途中没有负环的话只要计算前 <span
-class="math inline">\(n\)</span>
-次即可<del>（似乎对于解这道题没什么用？）</del>。</p></li>
+<p>对于 BF 算法，可以考虑使用矩阵描述一轮松弛，接着使用矩阵快速幂来优化。 例如：</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6190">NOI Online #1 入门组 魔法</a> 仔细看会发现这个东西似乎特别像 Floyd（实际上如果先枚举中间一维在枚举其余两维就几乎完全一致）？实际上把这个矩阵的 <span class="math inline">\(n\)</span> 次幂就相当于 BF 算法跑了 <span class="math inline">\(n\)</span> 遍，其实也就是一次全源最短路。如果是暴力乘出来复杂度是 <span class="math inline">\(O(n^4)\)</span>，快速幂优化则是 <span class="math inline">\(O(n^3\log n)\)</span>。然而 Floyd 却只需要 <span class="math inline">\(O(n^3)\)</span>（只需要一次 <span class="math inline">\(n^3\)</span> 的计算）。既然两者都是最短路，对于这类特殊的矩阵乘法，同方阵的 <span class="math inline">\(n\)</span> 次幂我们便可以用 Floyd 来优化，对于大于 <span class="math inline">\(n\)</span> 的幂次如果保证途中没有负环的话只要计算前 <span class="math inline">\(n\)</span> 次即可<del>（似乎对于解这道题没什么用？）</del>。</p></li>
 </ul>
-<p>前 <span class="math inline">\(k\)</span>
-次矩阵乘法就相当于确定了边数为 <span class="math inline">\(k\)</span>
-的最短路，每次尝试添加一条边，确定边数为 <span
-class="math inline">\(k+1\)</span> 的最短路，实际上在进行以边数为阶段的
-dp（快速幂优化实际上是尝试一次扩展多条边）。而
-Floyd，众所周知，进行的是以经过的点为阶段的
-dp，两种不同的阶段造成了其不同的复杂度。<del>我较劲脑汁也每想出来这两个有什么更深层次的关系。</del>或许对于其它类似的矩阵乘法也可以用类似的方式优化？</p>
+<p>前 <span class="math inline">\(k\)</span> 次矩阵乘法就相当于确定了边数为 <span class="math inline">\(k\)</span> 的最短路，每次尝试添加一条边，确定边数为 <span class="math inline">\(k+1\)</span> 的最短路，实际上在进行以边数为阶段的 dp（快速幂优化实际上是尝试一次扩展多条边）。而 Floyd，众所周知，进行的是以经过的点为阶段的 dp，两种不同的阶段造成了其不同的复杂度。<del>我较劲脑汁也每想出来这两个有什么更深层次的关系。</del>或许对于其它类似的矩阵乘法也可以用类似的方式优化？</p>
 <h3 id="博弈论">博弈论</h3>
 <p>通常可以使用 SG 函数来求得一方是否有必胜/必败的局面。</p>
-<p>实际上，SG
-函数的构造基于一个简单的思路：如果现在的先手存在必胜局面，那他的对手（也就是上一次的先手）必定是必败局面，然后利用
-<span class="math inline">\(\operatorname{mex}\)</span> 方便计算。</p>
-<p>类似的，对于需要计算出最优策略下的赢钱数目的情况，可以考虑对于先手必胜的局面计算其赢钱的多少，然后对于一个点，其权值显然为其可以通向的点的权值的相反数的最大值（因为下一个先手可以赢钱显然代表这一个先手会输钱）。形式化的，<span
-class="math inline">\(f(x)=\max\{f(y)|(x,y)\in
-E\}\)</span>。初始局面的权值就是最优赢钱数目。</p>
-<p>例如：<a target="_blank" rel="noopener" href="https://vjudge.net/problem/TopCoder-6802">Money
-Game</a></p>
+<p>实际上，SG 函数的构造基于一个简单的思路：如果现在的先手存在必胜局面，那他的对手（也就是上一次的先手）必定是必败局面，然后利用 <span class="math inline">\(\operatorname{mex}\)</span> 方便计算。</p>
+<p>类似的，对于需要计算出最优策略下的赢钱数目的情况，可以考虑对于先手必胜的局面计算其赢钱的多少，然后对于一个点，其权值显然为其可以通向的点的权值的相反数的最大值（因为下一个先手可以赢钱显然代表这一个先手会输钱）。形式化的，<span class="math inline">\(f(x)=\max\{f(y)|(x,y)\in E\}\)</span>。初始局面的权值就是最优赢钱数目。</p>
+<p>例如：<a target="_blank" rel="noopener" href="https://vjudge.net/problem/TopCoder-6802">Money Game</a></p>
 <p>未完待续……</p>
 
                 
