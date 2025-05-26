@@ -29,7 +29,7 @@
 <meta property="og:description" content="原本 nginx 的 webdav 跑的好好的，一放到 cloudflare tunnel 后面就寄了，提示 COPY and MOVE with body are unsupported，于是就改回了 apache2 的 webdav。 首先出现问题的就是重命名。经过一番搜索，找到了这个，照着改完用了一段时间，似乎就没什么问题了。 又过了一段时间，发现不能重命名带有中文字符的文件，然后再次搜索，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-23T15:17:57.448Z">
+<meta property="article:modified_time" content="2025-05-24T04:11:34.021Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI,数学,物理,Hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -274,12 +274,24 @@
             
               <div class="markdown-body">
                 
-                <p>原本 nginx 的 webdav 跑的好好的，一放到 cloudflare tunnel 后面就寄了，提示 <code>COPY and MOVE with body are unsupported</code>，于是就改回了 apache2 的 webdav。</p>
-<p>首先出现问题的就是重命名。经过一番搜索，找到了<a target="_blank" rel="noopener" href="https://serverfault.com/questions/121766/webdav-rename-fails-on-an-apache-mod-dav-install-behind-nginx">这个</a>，照着改完用了一段时间，似乎就没什么问题了。</p>
-<p>又过了一段时间，发现不能重命名带有中文字符的文件，然后再次搜索，发现要 mod_encoding 这个 apache2 的 mod，于是找了半天源码编译，没找到，心里还向着以前似乎单独用 apache 的时候没什么问题。最后发现 debain 的仓库里就有，叫做 <code>libapache2-mod-encoding</code>。</p>
-<p>然而还是不能解决，最后直接连了 apache，发现是正常的，最后还是发现是 nginx 的问题。就在帖子的下面：</p>
+                <p>原本 nginx 的 webdav 跑的好好的，一放到 cloudflare tunnel
+后面就寄了，提示
+<code>COPY and MOVE with body are unsupported</code>，于是就改回了
+apache2 的 webdav。</p>
+<p>首先出现问题的就是重命名。经过一番搜索，找到了<a
+target="_blank" rel="noopener" href="https://serverfault.com/questions/121766/webdav-rename-fails-on-an-apache-mod-dav-install-behind-nginx">这个</a>，照着改完用了一段时间，似乎就没什么问题了。</p>
+<p>又过了一段时间，发现不能重命名带有中文字符的文件，然后再次搜索，发现要
+mod_encoding 这个 apache2 的
+mod，于是找了半天源码编译，没找到，心里还向着以前似乎单独用 apache
+的时候没什么问题。最后发现 debain 的仓库里就有，叫做
+<code>libapache2-mod-encoding</code>。</p>
+<p>然而还是不能解决，最后直接连了 apache，发现是正常的，最后还是发现是
+nginx 的问题。就在帖子的下面：</p>
 <blockquote>
-<p>As <span class="citation" data-cites="Cnly">@Cnly</span> said, using <code>set</code> directive won’t work if there are special characters in both the original <code>Destination</code> header and url. (I have no idea why)</p>
+<p>As <span class="citation" data-cites="Cnly">@Cnly</span> said, using
+<code>set</code> directive won’t work if there are special characters in
+both the original <code>Destination</code> header and url. (I have no
+idea why)</p>
 </blockquote>
 <p>于是把第二个回答的配置抄了过来，结束了。</p>
 
