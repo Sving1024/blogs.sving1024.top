@@ -29,7 +29,7 @@
 <meta property="og:description" content="原本 nginx 的 webdav 跑的好好的，一放到 cloudflare tunnel 后面就寄了，提示 COPY and MOVE with body are unsupported，于是就改回了 apache2 的 webdav。 首先出现问题的就是重命名。经过一番搜索，找到了这个，照着改完用了一段时间，似乎就没什么问题了。 又过了一段时间，发现不能重命名带有中文字符的文件，然后再次搜索，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-24T04:11:34.021Z">
+<meta property="article:modified_time" content="2025-06-25T13:18:26.071Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI,数学,物理,Hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -89,7 +89,119 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -274,24 +386,12 @@
             
               <div class="markdown-body">
                 
-                <p>原本 nginx 的 webdav 跑的好好的，一放到 cloudflare tunnel
-后面就寄了，提示
-<code>COPY and MOVE with body are unsupported</code>，于是就改回了
-apache2 的 webdav。</p>
-<p>首先出现问题的就是重命名。经过一番搜索，找到了<a
-target="_blank" rel="noopener" href="https://serverfault.com/questions/121766/webdav-rename-fails-on-an-apache-mod-dav-install-behind-nginx">这个</a>，照着改完用了一段时间，似乎就没什么问题了。</p>
-<p>又过了一段时间，发现不能重命名带有中文字符的文件，然后再次搜索，发现要
-mod_encoding 这个 apache2 的
-mod，于是找了半天源码编译，没找到，心里还向着以前似乎单独用 apache
-的时候没什么问题。最后发现 debain 的仓库里就有，叫做
-<code>libapache2-mod-encoding</code>。</p>
-<p>然而还是不能解决，最后直接连了 apache，发现是正常的，最后还是发现是
-nginx 的问题。就在帖子的下面：</p>
+                <p>原本 nginx 的 webdav 跑的好好的，一放到 cloudflare tunnel 后面就寄了，提示 <code>COPY and MOVE with body are unsupported</code>，于是就改回了 apache2 的 webdav。</p>
+<p>首先出现问题的就是重命名。经过一番搜索，找到了<a target="_blank" rel="noopener" href="https://serverfault.com/questions/121766/webdav-rename-fails-on-an-apache-mod-dav-install-behind-nginx">这个</a>，照着改完用了一段时间，似乎就没什么问题了。</p>
+<p>又过了一段时间，发现不能重命名带有中文字符的文件，然后再次搜索，发现要 mod_encoding 这个 apache2 的 mod，于是找了半天源码编译，没找到，心里还向着以前似乎单独用 apache 的时候没什么问题。最后发现 debain 的仓库里就有，叫做 <code>libapache2-mod-encoding</code>。</p>
+<p>然而还是不能解决，最后直接连了 apache，发现是正常的，最后还是发现是 nginx 的问题。就在帖子的下面：</p>
 <blockquote>
-<p>As <span class="citation" data-cites="Cnly">@Cnly</span> said, using
-<code>set</code> directive won’t work if there are special characters in
-both the original <code>Destination</code> header and url. (I have no
-idea why)</p>
+<p>As <span class="citation" data-cites="Cnly">@Cnly</span> said, using <code>set</code> directive won’t work if there are special characters in both the original <code>Destination</code> header and url. (I have no idea why)</p>
 </blockquote>
 <p>于是把第二个回答的配置抄了过来，结束了。</p>
 
@@ -492,12 +592,6 @@ idea why)</p>
   
 
 
-  
-  
-
-
-
-
 
 
 
@@ -688,49 +782,6 @@ idea why)</p>
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

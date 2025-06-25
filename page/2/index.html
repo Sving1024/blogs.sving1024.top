@@ -79,7 +79,119 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -234,7 +346,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/34037/" target="_self">
         <div>
-          数学有趣的一点在于，有些概念总是在应用之后再定义。 ——沃兹基硕德  今天，我们将要再这里，定义数学中最基础的概念，数字！ 正整数集合 一切的一切，都从\(1\)开始： \[\left\{1\right\}\] 后继运算 接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将 \(x\) 的后继数记作 \(\operatorname{s}(x)\)。（鉴于这是篇关于数学的文
+          数学有趣的一点在于，有些概念总是在应用之后再定义。 ——沃兹基硕德  今天，我们将要再这里，定义数学中最基础的概念，数字！ 正整数集合 一切的一切，都从开始：  后继运算 接下来，我们定义一个运算符：后继运算符。顾名思义，就是指后面的那个数。下文将  的后继数记作 。（鉴于这是篇关于数学的文章，就不用  之类的表达方式了）。 这个运算有一下几条性质:   不是任何数的后继数。 任何不是  的数都
         </div>
       </a>
 
@@ -304,7 +416,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/21685/" target="_self">
         <div>
-          \(\newcommand{\lm}{\begin{bmatrix}}\newcommand{\rm}{\end{bmatrix}}\newcommand{\dis}[1]{\left\|#1\right\|}\) 从标题可以看出这篇文章时关于点积的。本文讨论的是平面点积。本文记 \(\vec{a}\) 的长度为 \(\left\|\vec{a}\right\|\)。 参与点积运算的是两个向量。架
+          从标题可以看出这篇文章时关于点积的。本文讨论的是平面点积。本文记  的长度为 。 参与点积运算的是两个向量。架设有两个向量 ，则我们定义点积为 。点积是一个很神奇的东西，先说它的几条性质。 性质 交换律 对于任意 ，都有 。 证明：显而易见吧。  双线性 双线性意味着一下两点：    证明都不难，根据定义展开计算即可，在这里不做赘述。  正定性 其实就是非负性 正定性意味着对于任何向量 ，。取等
         </div>
       </a>
 
@@ -372,7 +484,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/61763/" target="_self">
         <div>
-          从搜索的优化说起 考虑这样题目：  写一个程序来查找从最高点到底部任意处结束的路径，使路径经过数字的和最大。每一步可以走到左下方的点也可以到达右下方的点。   显然，我们可以从顶端开始，枚举每一条路径，求出其中的最大值。我们注意到，如果有一条路径可以到达某个点，之前的路径并不会影响之后走的路径。 举个例子：假如通过 \(7-8-1\) 到达了 \(1\) 这个点，接下来打算走 \(1-4-6\)
+          从搜索的优化说起 考虑这样题目：  写一个程序来查找从最高点到底部任意处结束的路径，使路径经过数字的和最大。每一步可以走到左下方的点也可以到达右下方的点。   显然，我们可以从顶端开始，枚举每一条路径，求出其中的最大值。我们注意到，如果有一条路径可以到达某个点，之前的路径并不会影响之后走的路径。 举个例子：假如通过  到达了  这个点，接下来打算走  这几个点到达  这个点，但加入你通过  到达
         </div>
       </a>
 
@@ -414,67 +526,6 @@
               <a href="/tags/suan-fa/">#算法</a>
             
               <a href="/tags/DP/">#动态规划</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/12389/" target="_self">
-          实像和虚像
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/12389/" target="_self">
-        <div>
-          实像 具体定义见物理课本。 考虑实像的形成。我们将物看作许多个点光源，不难看出，成清晰实像形成的条件是从每个点光源上发出的光线会在光屏上投射要一个点上，如果不是一个点（而是一个光斑）成的像就会不清晰。 虚像 具体定义还是看物理课本。 以平面镜为例，一般来说，会有这样的光路图。  怎么理解？经过平面镜反射后的光路，等价于撤去平面镜后位于C‘点的点光源发出的光线，C’点就是虚像的位置（既然等价，我们的
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-18 00:00" pubdate>
-              2024-02-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Physics/" class="category-chain-item">物理</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/guang-xue/">#光学</a>
             
           </div>
         
@@ -538,6 +589,67 @@
               <a href="/tags/guang-xue/">#光学</a>
             
               <a href="/tags/tou-jing/">#透镜</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/12389/" target="_self">
+          实像和虚像
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/12389/" target="_self">
+        <div>
+          实像 具体定义见物理课本。 考虑实像的形成。我们将物看作许多个点光源，不难看出，成清晰实像形成的条件是从每个点光源上发出的光线会在光屏上投射要一个点上，如果不是一个点（而是一个光斑）成的像就会不清晰。 虚像 具体定义还是看物理课本。 以平面镜为例，一般来说，会有这样的光路图。  怎么理解？经过平面镜反射后的光路，等价于撤去平面镜后位于C‘点的点光源发出的光线，C’点就是虚像的位置（既然等价，我们的
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-18 00:00" pubdate>
+              2024-02-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Physics/" class="category-chain-item">物理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/guang-xue/">#光学</a>
             
           </div>
         
@@ -620,7 +732,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/63036/" target="_self">
         <div>
-          特解 先来考虑方程 \(\begin{cases}x+y=A\\x \operatorname{AND} y =B\end{cases}\) 的一组特解。 由于按位与不进位，并且 \(a \operatorname{AND} b=1\) 当且仅当 \(a=b=1\) ,这意味这 \(B\) 的二进制中有一位为 \(1\)，\(x,y\) 相应的位上必定也为 \(1\)，如果这位是 \(0\)，那么
+          特解 先来考虑方程  的一组特解。 由于按位与不进位，并且  当且仅当  ,这意味这  的二进制中有一位为 ， 相应的位上必定也为 ，如果这位是 ，那么只要保证  中相应的位上不同时为  就行。因此，我们可以先构造出一个满足 的最小解，方法是：  将  进行二进制分解，枚举其中的每一位。 如果这一位为 ，则把  相应的位上变为 。 如果这一位是 ，就把  中相应的位保持 。 最后得到的  就是满足
         </div>
       </a>
 
@@ -690,7 +802,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/27741/" target="_self">
         <div>
-          \(\newcommand{\A}{\begin{bmatrix}m&amp;p\\n&amp;q\end{bmatrix}} \newcommand{\lA}{\begin{bmatrix}m\\n\end{bmatrix}} \newcommand{\rA}{\begin{bmatrix}p\\q\end{bmatrix}} \newcommand{\lvec}{\begin{bmatrix}
+          本文研究一条经过二维线性变换的直线的解析式。 我们假设变换前直线的解析式为，变换后的解析式为,变换矩阵. 附：计算变换后的结果的方法 推到过程：  结论：（没错，的值里包含矩阵的行列式，我也不知道为什么）。  的推导  直接计算 过程比较朴素，就是取两个求出变换后的点坐标，再用待定系数法或来求出. 众所周知，与直线的方向相同，直线进行变换后该向量变成了 易得上述结论。  的推导  计算：原直线上
         </div>
       </a>
 
@@ -758,7 +870,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/8575/" target="_self">
         <div>
-          本篇笔记探究\(a^2+b^2=c^2\)的通解。 方程齐次:\(a^2+b^2=c^2\Rightarrow(\lambda a)^2+(\lambda b)^2=(\lambda c)^2\) 不妨设\(a,b,c\in\mathbb{N}_1\)且\(gcd(a,b,c)=1\). 则有 \[ \begin{cases} a=r^2-s^2\\ b=2rs\\ c=r^2+s^2 \end{
+          本篇笔记探究的通解。 方程齐次: 不妨设且. 则有  或互换。 证明：  a,b,c两奇一偶 因为𝟘. 而 又因为两两互质，所以只有当一奇一偶，为奇数时有 之后不妨设为偶。 分解因式。   (记n的质因数分解中p的幂次为) 所以对于的每个质因子p，有   互素 由九章算术·更损相减术可知互素（即，没有公共质因子） 为奇）  所以  或  无论如何，都是平方数（每个质因子的幂次都是的倍数）。 于是
         </div>
       </a>
 
