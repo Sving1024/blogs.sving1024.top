@@ -21,15 +21,15 @@
   <meta name="author" content="Sving1024">
   <meta name="keywords" content="OI,数学,物理,Hexo">
   
-    <meta name="description" content="▶关于隐藏内容                                  你似乎找到了一些隐藏内容！这些内容可能尚不完善，仍有一些错误，还没有准备好在网站上公布。如果你在这个页面找到了一个错误，可以通过邮件等方式告知我修改，十分感谢！                       本文主要讲解传统的 Unix 凭据和能力（Caps）。 众所周知，GN">
+    <meta name="description" content="本文主要讲解传统的 Unix 凭据和能力（Caps）。 众所周知，GNOME 的文件应用里有以管理员打开这个选项。点击后，经过一次 polkit 鉴权就可以访问原本需要 root 才能访问的目录。这是怎么做到的？ 查看一下 &#x2F;usr&#x2F;share&#x2F;polkit-1&#x2F;actions 目录，发现 nautilus 的文件操作 action 来自 org.gtk.vfs.file-operations.p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从“以管理员打开”简要讲述 Linux 的凭据">
 <meta property="og:url" content="https://blogs.sving1024.top/posts/63293/index.html">
 <meta property="og:site_name" content="Svingland - Sving1024&#39;s Blogs">
-<meta property="og:description" content="▶关于隐藏内容                                  你似乎找到了一些隐藏内容！这些内容可能尚不完善，仍有一些错误，还没有准备好在网站上公布。如果你在这个页面找到了一个错误，可以通过邮件等方式告知我修改，十分感谢！                       本文主要讲解传统的 Unix 凭据和能力（Caps）。 众所周知，GN">
+<meta property="og:description" content="本文主要讲解传统的 Unix 凭据和能力（Caps）。 众所周知，GNOME 的文件应用里有以管理员打开这个选项。点击后，经过一次 polkit 鉴权就可以访问原本需要 root 才能访问的目录。这是怎么做到的？ 查看一下 &#x2F;usr&#x2F;share&#x2F;polkit-1&#x2F;actions 目录，发现 nautilus 的文件操作 action 来自 org.gtk.vfs.file-operations.p">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-01T18:57:56.000Z">
-<meta property="article:modified_time" content="2025-07-02T05:48:12.978Z">
+<meta property="article:modified_time" content="2025-07-02T11:55:46.771Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI,数学,物理,Hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -333,7 +333,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.3k 字
         
       </span>
     
@@ -344,7 +344,7 @@ mjx-container[display="true"] + br {
         
         
         
-          12 分钟
+          11 分钟
         
       </span>
     
@@ -386,18 +386,7 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                
-    <div class="fold">
-      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-fbaceee7" role="button" aria-expanded="false" aria-controls="collapse-fbaceee7">
-        <div class="fold-arrow">▶</div>关于隐藏内容
-      </div>
-      <div class="fold-collapse collapse" id="collapse-fbaceee7">
-        <div class="fold-content">
-          <p>你似乎找到了一些隐藏内容！这些内容可能尚不完善，仍有一些错误，还没有准备好在网站上公布。如果你在这个页面找到了一个错误，可以通过邮件等方式告知我修改，十分感谢！</p> 
-        </div>
-      </div>
-    </div>
-<p>本文主要讲解传统的 Unix 凭据和能力（Caps）。</p>
+                <p>本文主要讲解传统的 Unix 凭据和能力（Caps）。</p>
 <p>众所周知，GNOME 的文件应用里有以管理员打开这个选项。点击后，经过一次 polkit 鉴权就可以访问原本需要 root 才能访问的目录。这是怎么做到的？</p>
 <p>查看一下 <code>/usr/share/polkit-1/actions</code> 目录，发现 nautilus 的文件操作 action 来自 <code>org.gtk.vfs.file-operations.policy</code>。根据注释 <code>&lt;!-- This action is used to authorize gvfsd-admin operations. --&gt;</code>，推测可能和 <code>gvfsd-admin</code> 有关。</p>
 <p>然而有一个问题。党务 <code>sudo ps -ef</code> 尝试查看 <code>gvfsd-admin</code> 是否在运行是，发现 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ <span class="hljs-built_in">sudo</span> ps -ef | grep gvfsd            <br><br>Sving10+    1790    1723  0 13:36 ?        00:00:00 /usr/lib/gvfsd<br>Sving10+    1863    1723  0 13:36 ?        00:00:00 /usr/lib/gvfsd-fuse /run/user/1000/gvfs -f<br>Sving10+    2339    1723  0 13:36 ?        00:00:00 /usr/lib/gvfsd-metadata<br>Sving10+    2843    1790  0 13:36 ?        00:00:00 /usr/lib/gvfsd-trash --spawner :1.12 /org/gtk/gvfs/exec_spaw/0<br>Sving10+    2970    1790  0 13:36 ?        00:00:00 /usr/lib/gvfsd-network --spawner :1.12 /org/gtk/gvfs/exec_spaw/1<br>Sving10+    2976    1790  0 13:36 ?        00:00:00 /usr/lib/gvfsd-dnssd --spawner :1.12 /org/gtk/gvfs/exec_spaw/2<br>Sving10+    2987    1723  0 13:36 ?        00:00:00 python3 /usr/bin/wsdd --no-host --discovery --listen /run/user/1000/gvfsd/wsdd<br>Sving10+    3472    1790  0 13:37 ?        00:00:00 /usr/lib/gvfsd-admin --spawner :1.12 /org/gtk/gvfs/exec_spaw/5 --address unix:path=/run/user/1000/bus --<span class="hljs-built_in">dir</span> /run/user/1000<br>Sving10+    6230    1790  0 13:54 ?        00:00:00 /usr/lib/gvfsd-http --spawner :1.12 /org/gtk/gvfs/exec_spaw/6<br>Sving10+   18518    3017  0 15:43 pts/0    00:00:00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox --exclude-dir=.venv --exclude-dir=venv gvfsd<br></code></pre></td></tr></table></figure> 确实在运行，但是为什么 <code>UID</code> 是 <code>Sving1024</code> 而不是 <code>root</code>？那它是如何访问需要 <code>root</code> 权限才能访问的目录？</p>
@@ -509,6 +498,23 @@ mjx-container[display="true"] + br {
 
 
 
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/20874/" title="线段树小结">
+                        <span class="hidden-mobile">线段树小结</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
