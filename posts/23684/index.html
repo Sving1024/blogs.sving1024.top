@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blogs.sving1024.top/posts/23684/OI/img/Pasted%20image%2020250723185136.png">
 <meta property="article:published_time" content="2024-06-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-28T18:22:28.937Z">
+<meta property="article:modified_time" content="2025-09-03T15:00:00.270Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI,数学,物理,Hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -335,7 +335,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.4k 字
+          4.5k 字
         
       </span>
     
@@ -346,7 +346,7 @@ mjx-container[display="true"] + br {
         
         
         
-          37 分钟
+          38 分钟
         
       </span>
     
@@ -419,7 +419,8 @@ mjx-container[display="true"] + br {
 <li><p>(P3527)无限递归：其一 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(ull l, ull r, ull val)</span> </span>{<br>    <span class="hljs-keyword">if</span> (r &lt; l) {<br>        <span class="hljs-built_in">add</span>(<span class="hljs-number">1</span>, m, val);<br>        <span class="hljs-built_in">add</span>(r + <span class="hljs-number">1</span>, l - <span class="hljs-number">1</span>, -val);<br>    } <span class="hljs-keyword">else</span> {<br>        <span class="hljs-built_in">add</span>(l, val);<br>        <span class="hljs-built_in">add</span>(r + <span class="hljs-number">1</span>, -val);<br>    }<br>    <span class="hljs-keyword">return</span>;<br>}<br></code></pre></td></tr></table></figure> 考虑 <code>l==3&amp;&amp;r==2</code> 的情况，<code>add(r + 1, l - 1, -val);</code> 递归后仍然 <code>r&lt;l</code>。</p></li>
 <li><p>(P3810)使用之前记录下来的下标访问元素的时候要原数组是否更改。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">solve</span>(<span class="hljs-number">0</span>, total - <span class="hljs-number">1</span>); <span class="hljs-comment">// 这个函数是cdq分治，里边要重新排序，之前记录的下标会失效</span><br><span class="hljs-keyword">for</span> (ll i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>    cnt[ans[i]] += arr[i].times;<br>}<br></code></pre></td></tr></table></figure> 解决： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">solve</span>(<span class="hljs-number">0</span>, total - <span class="hljs-number">1</span>);<br><span class="hljs-built_in">sort</span>(arr, arr + total, [](<span class="hljs-type">const</span> e &amp;a, <span class="hljs-type">const</span> e &amp;b) {<span class="hljs-keyword">return</span> a.i&lt;b.i;});<span class="hljs-comment">// &lt;-- 重新排个序就好了</span><br><span class="hljs-keyword">for</span> (ll i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>    cnt[ans[i]] += arr[i].times;<br>}<br></code></pre></td></tr></table></figure> 补上提交记录或许更容易理解：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/184553459">不排序</a>，<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/184561779">排序</a></p></li>
 <li><p>(HDU1180 1010)memset 时看清楚变量类型（哎这个为什么 HDU 不报 RE 啊）。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">bool</span> vis[N];<br>...	<br><span class="hljs-built_in">memset</span>(vis, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(ll) * (n + <span class="hljs-number">5</span>)); <span class="hljs-comment">// 应该是 sizeof(bool)</span><br>...<br></code></pre></td></tr></table></figure></p></li>
-<li><p>(QOJ-3030)如果有下标相关的判断和取下标值的判断，要先判断下标，否则可能会 re（如果先判断下标会因为断点不会 re）。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (used[val[j] + min_unused] || val[j] + min_unused &gt; n)<br><span class="hljs-comment">// 应该改成</span><br><span class="hljs-keyword">if</span> (val[j] + min_unused &gt; n || used[val[j] + min_unused])<br></code></pre></td></tr></table></figure></p>
+<li><p>(QOJ-3030)如果有下标相关的判断和取下标值的判断，要先判断下标，否则可能会 re（如果先判断下标会因为断点不会 re）。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (used[val[j] + min_unused] || val[j] + min_unused &gt; n)<br><span class="hljs-comment">// 应该改成</span><br><span class="hljs-keyword">if</span> (val[j] + min_unused &gt; n || used[val[j] + min_unused])<br></code></pre></td></tr></table></figure></p></li>
+<li><p>(P2042) 指针建树要判空指针。</p>
 <h2 id="stl-相关">STL 相关</h2></li>
 <li><p>(Luogu网校 T483205)一边 range-for 一边（用 STL）插入节点会出问题。</p></li>
 <li><p>(Luogu网校 T483205) <code>std::unordered_map&lt;__int128,__int128&gt;</code> 会出问题，因为 <code>__int128</code> 没有默认的 hash 函数。（改为 <code>long long</code> 即可）</p></li>
@@ -490,10 +491,13 @@ mjx-container[display="true"] + br {
 <h3 id="并查集">并查集</h3></li>
 <li><p>(AT_abc280_f) 带权并查集：合并时根节点分不清，没有计算出正确的权值（注释里是正确的写法） <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">m</span><span class="hljs-params">(ll x, ll y, ll dis)</span> </span>{<br>    ll rx = <span class="hljs-built_in">fi</span>(x), ry = <span class="hljs-built_in">fi</span>(y);<br>    <span class="hljs-keyword">if</span> (rx != ry) {<br>        <span class="hljs-comment">//ll r_dis=-f[x].dis+dis+f[y].dis;</span><br>        <span class="hljs-comment">//注意这行，计算出正确的dis值</span><br>        f[rx].fa = ry;<br>        <span class="hljs-comment">//f[rx].dis = r_dis;</span><br>        f[rx].dis=dis;<br>        f[rx].inf |= f[ry].inf;<br>		<span class="hljs-comment">//f[ry].inf|=f[rx].inf;</span><br>		<span class="hljs-keyword">return</span>;<br>    }<br>}<br></code></pre></td></tr></table></figure></p></li>
 </ul>
-<h2 id="图论">图论</h2>
+<h3 id="treap">Treap</h3>
 <ul>
-<li>树剖混用 dfs 序和原下标。</li>
-<li>树剖求 LCA 时先跳深度较大的（应该是链的头深度较大的）</li>
+<li><p>(CF85D) 不要把左子树接到右子树上。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">node *<span class="hljs-title">merge</span><span class="hljs-params">(node *p1, node *p2)</span> </span>{<br>    <span class="hljs-keyword">if</span> (p1 == <span class="hljs-literal">nullptr</span>) {<br>        <span class="hljs-keyword">return</span> p2;<br>    }<br>    <span class="hljs-keyword">if</span> (p2 == <span class="hljs-literal">nullptr</span>) {<br>        <span class="hljs-keyword">return</span> p1;<br>    }<br>    <span class="hljs-keyword">if</span> (p1-&gt;val &gt; p2-&gt;val) {<br>        <span class="hljs-built_in">swap</span>(p1, p2);<br>    }<br>    <span class="hljs-keyword">if</span> (p1-&gt;key &gt; p2-&gt;key) {<br>        p1-&gt;rc = <span class="hljs-built_in">merge</span>(p1-&gt;lc, p2); <span class="hljs-comment">// 应为 p1-&gt;rc</span><br>        p1-&gt;<span class="hljs-built_in">update</span>();<br>        <span class="hljs-keyword">return</span> p1;<br>    }<br>    <span class="hljs-keyword">else</span> {<br>        p2-&gt;lc = <span class="hljs-built_in">merge</span>(p1, p2-&gt;lc);<br>        p2-&gt;<span class="hljs-built_in">update</span>();<br>        <span class="hljs-keyword">return</span> p2;<br>    }<br>}<br></code></pre></td></tr></table></figure></p></li>
+<li><p>(CF85D) 按值分裂的时候分裂出制定的区间，左端点也要减一。</p>
+<h2 id="图论">图论</h2></li>
+<li><p>树剖混用 dfs 序和原下标。</p></li>
+<li><p>树剖求 LCA 时先跳深度较大的（应该是链的头深度较大的）</p></li>
 </ul>
 
                 
