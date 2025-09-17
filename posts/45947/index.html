@@ -29,7 +29,7 @@
 <meta property="og:description" content="看到一个视频才发现自己似乎对 C++17 之后的新特性不是很了解。这片文章记录了我发现的一些有趣的新特性。 本文的特性都是 C++17 之后的特性，而 NOI 系列赛事使用的是 C++14，请勿在考场上使用这些特性（目前最新版本的 GCC 默认标准是 C++17，要使用 C++14 需要手动指定 -std&#x3D;c++14）。 C++17 C++14 之后的第一个版本。 inline 变量 继内联函数之">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-17T16:58:16.902Z">
+<meta property="article:modified_time" content="2025-09-17T16:59:58.835Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI,数学,物理,Hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -393,7 +393,7 @@ mjx-container[display="true"] + br {
 <h3 id="inline-变量">inline 变量</h3>
 <p>继内联函数之后，C++17 又添加了内联变量。</p>
 <blockquote>
-<p>[!NOTE] 值得注意的是，<code>inline</code> 的含义早已发生改变。目前 <code>inline</code> 是指允许多个定义，而非建议编译器进行内联优化</p>
+<p>[!note] 值得注意的是，<code>inline</code> 的含义早已发生改变。目前 <code>inline</code> 是指允许多个定义，而非建议编译器进行内联优化</p>
 </blockquote>
 <h3 id="结构化绑定">结构化绑定</h3>
 <blockquote>
@@ -416,7 +416,7 @@ mjx-container[display="true"] + br {
 <p>以 <code>std::sort</code> 为例： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::<span class="hljs-built_in">sort</span>(std::execution::par, a.<span class="hljs-built_in">begin</span>(), a.<span class="hljs-built_in">end</span>()); <span class="hljs-comment">// 并行优化</span><br>std::<span class="hljs-built_in">sort</span>(std::execution::seq, a.<span class="hljs-built_in">begin</span>(), a.<span class="hljs-built_in">end</span>()); <span class="hljs-comment">// 顺序执行，不进行并行优化</span><br></code></pre></td></tr></table></figure></p>
 <p>此外，C++17 新增了一个函数 <code>std::reduce</code>，其实就是带并行优化的 <code>std::accumulate</code>。由于需要并行优化，因此 <code>std::reduce</code> 操作的类型要有交换律和结合律。</p>
 <blockquote>
-<p>[!WARNING] 请注意，C++ 的浮点加法没有交换律和结合律。</p>
+<p>[!warning] 请注意，C++ 的浮点加法没有交换律和结合律。</p>
 </blockquote>
 <p>当然，使用了并行优化也会带来一些额外的问题，例如竟态条件和死锁等。</p>
 <h3 id="新的类型类模板容器">新的类型/类模板/容器</h3>
@@ -434,11 +434,11 @@ mjx-container[display="true"] + br {
 </ul>
 <p><code>std::gcd</code> 和 <code>std::lcm</code>，就是你们想的那个，返回两个数的最大公因数和最小公倍数。</p>
 <blockquote>
-<p>[!WARNING] 不同于之前的 <code>__gcd</code>，目前 GCC 的 <code>std::gcd</code> 使用二进制 GCD 算法而不是欧几里得算法。请注意<a target="_blank" rel="noopener" href="https://codeforces.com/blog/entry/137056">潜在的复杂度问题</a>。</p>
+<p>[!warning] 不同于之前的 <code>__gcd</code>，目前 GCC 的 <code>std::gcd</code> 使用二进制 GCD 算法而不是欧几里得算法。请注意<a target="_blank" rel="noopener" href="https://codeforces.com/blog/entry/137056">潜在的复杂度问题</a>。</p>
 </blockquote>
 <h2 id="c20">C++20</h2>
 <blockquote>
-<p>[!WARNING] 目前，GCC 对以下内容的支持处于实验性阶段。</p>
+<p>[!warning] 目前，GCC 对以下内容的支持处于实验性阶段。</p>
 </blockquote>
 <h3 id="新头文件">新头文件</h3>
 <h4 id="bit"><code>&lt;bit&gt;</code></h4>
@@ -465,7 +465,7 @@ mjx-container[display="true"] + br {
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (x) {<br>    [[likely]] cout &lt;&lt; <span class="hljs-string">"x = true\n"</span>;<br>    <span class="hljs-comment">// 更可能执行</span><br>}<br><span class="hljs-keyword">else</span> {<br>    [[unlikely]] cout &lt;&lt; <span class="hljs-string">"x = false\n"</span>;<br>    <span class="hljs-comment">// 更不可能执行</span><br>}<br></code></pre></td></tr></table></figure>
 <h2 id="c23">C++23</h2>
 <blockquote>
-<p>[!WARNING] 目前，GCC 对以下内容的支持处于实验性阶段。</p>
+<p>[!warning] 目前，GCC 对以下内容的支持处于实验性阶段。</p>
 </blockquote>
 <p>终于！我们来到了 C++ 标准的当前修订版。</p>
 <h3 id="新的输出函数">新的输出函数</h3>
@@ -484,7 +484,7 @@ mjx-container[display="true"] + br {
 <p>支持使用迭代器 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.844ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2141 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1752,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></span> 构造，使用 <code>extract()</code> 提取底层容器。可以用来替换掉离散化。</p>
 <h2 id="c26">C++26</h2>
 <blockquote>
-<p>[!WARNING] 目前，GCC 对以下内容的支持处于高度实验性阶段。</p>
+<p>[!warning] 目前，GCC 对以下内容的支持处于高度实验性阶段。</p>
 </blockquote>
 <p>C++ 标准的下一代。</p>
 <h3 id="契约">契约</h3>
