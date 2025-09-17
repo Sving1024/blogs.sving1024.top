@@ -29,7 +29,7 @@
 <meta property="og:description" content="看到一个视频才发现自己似乎对 C++17 之后的新特性不是很了解。这片文章记录了我发现的一些有趣的新特性。 本文的特性都是 C++17 之后的特性，而 NOI 系列赛事使用的是 C++14，请勿在考场上使用这些特性（目前最新版本的 GCC 默认标准是 C++17，要使用 C++14 需要手动指定 -std&#x3D;c++14）。 C++17 C++14 之后的第一个版本。 inline 变量 继内联函数之">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-17T16:36:40.259Z">
+<meta property="article:modified_time" content="2025-09-17T16:58:16.902Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI,数学,物理,Hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -488,7 +488,7 @@ mjx-container[display="true"] + br {
 </blockquote>
 <p>C++ 标准的下一代。</p>
 <h3 id="契约">契约</h3>
-<p><code>contracts == assert++</code>;</p>
+<p><code>contracts == assert++;</code>。</p>
 <p>更加灵活的 <code>assert</code>。</p>
 <p>我们可以用 <code>contract_assert</code> 来替换 <code>assert</code>。好处是，在 <code>contract_assert</code> 失败的时候（或者被称为契约被违反的时候），你可以选择四种不同的应对策略（可以使用 <code>-fcontract-semantic=</code> 更改）：</p>
 <ul>
@@ -500,7 +500,7 @@ mjx-container[display="true"] + br {
 <p>此外，部分实现允许你自定义 <code>handle_contract_violation</code> 函数用于处理违反契约的情况。</p>
 <p>此外，契约还允许你在函数调用前后检查参数和返回值。例如： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> <span class="hljs-title">pre</span><span class="hljs-params">(x &gt;= <span class="hljs-number">0</span>)</span> <span class="hljs-title">post</span><span class="hljs-params">(r : r &lt;= <span class="hljs-number">0</span>)</span></span><br><span class="hljs-function"></span>{<br>    <span class="hljs-keyword">return</span> -x;<br>}<br></code></pre></td></tr></table></figure> 表示在调用函数之前检查参数 <code>x</code> 是否大于 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="1.131ex" height="1.557ex" role="img" focusable="false" viewBox="0 -666 500 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g></g></svg></mjx-container></span>，在函数结束之后检查返回值是否小于 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="1.131ex" height="1.557ex" role="img" focusable="false" viewBox="0 -666 500 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g></g></svg></mjx-container></span>。<code>post(r : 条件)</code> 表示用 <code>r</code> 代表函数返回值，可以在条件中使用。</p>
 <h3 id="基本线性代数算法">基本线性代数算法</h3>
-<p>包含了向量加法，点积和矩阵乘法等算法。</p>
+<p>位于 <code>&lt;linalg&gt;</code> 头文件中，包含了向量加法，点积和矩阵乘法等算法。</p>
 <p>目前似乎没有任何编译器支持了这个。</p>
 
                 
