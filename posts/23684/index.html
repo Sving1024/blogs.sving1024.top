@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blogs.sving1024.top/posts/23684/OI/img/Pasted%20image%2020250723185136.png">
 <meta property="article:published_time" content="2024-06-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-07T12:44:46.398Z">
+<meta property="article:modified_time" content="2025-09-24T15:50:15.462Z">
 <meta property="article:author" content="Sving1024">
 <meta property="article:tag" content="OI,数学,物理,Hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -335,7 +335,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.5k 字
+          4.6k 字
         
       </span>
     
@@ -346,7 +346,7 @@ mjx-container[display="true"] + br {
         
         
         
-          38 分钟
+          39 分钟
         
       </span>
     
@@ -420,7 +420,8 @@ mjx-container[display="true"] + br {
 <li><p>(P3810)使用之前记录下来的下标访问元素的时候要原数组是否更改。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">solve</span>(<span class="hljs-number">0</span>, total - <span class="hljs-number">1</span>); <span class="hljs-comment">// 这个函数是cdq分治，里边要重新排序，之前记录的下标会失效</span><br><span class="hljs-keyword">for</span> (ll i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>    cnt[ans[i]] += arr[i].times;<br>}<br></code></pre></td></tr></table></figure> 解决： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">solve</span>(<span class="hljs-number">0</span>, total - <span class="hljs-number">1</span>);<br><span class="hljs-built_in">sort</span>(arr, arr + total, [](<span class="hljs-type">const</span> e &amp;a, <span class="hljs-type">const</span> e &amp;b) {<span class="hljs-keyword">return</span> a.i&lt;b.i;});<span class="hljs-comment">// &lt;-- 重新排个序就好了</span><br><span class="hljs-keyword">for</span> (ll i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>    cnt[ans[i]] += arr[i].times;<br>}<br></code></pre></td></tr></table></figure> 补上提交记录或许更容易理解：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/184553459">不排序</a>，<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/184561779">排序</a></p></li>
 <li><p>(HDU1180 1010)memset 时看清楚变量类型（哎这个为什么 HDU 不报 RE 啊）。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">bool</span> vis[N];<br>...	<br><span class="hljs-built_in">memset</span>(vis, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(ll) * (n + <span class="hljs-number">5</span>)); <span class="hljs-comment">// 应该是 sizeof(bool)</span><br>...<br></code></pre></td></tr></table></figure></p></li>
 <li><p>(QOJ-3030)如果有下标相关的判断和取下标值的判断，要先判断下标，否则可能会 re（如果先判断下标会因为断点不会 re）。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (used[val[j] + min_unused] || val[j] + min_unused &gt; n)<br><span class="hljs-comment">// 应该改成</span><br><span class="hljs-keyword">if</span> (val[j] + min_unused &gt; n || used[val[j] + min_unused])<br></code></pre></td></tr></table></figure></p></li>
-<li><p>(P2042) 指针建树要判空指针。</p>
+<li><p>(P2042) 指针建树要判空指针。</p></li>
+<li><p>(CF2151E) 涉及下标加减要记得特判。如果线段树下标越界可能会有未知的后果。</p>
 <h2 id="stl-相关">STL 相关</h2></li>
 <li><p>(Luogu网校 T483205)一边 range-for 一边（用 STL）插入节点会出问题。</p></li>
 <li><p>(Luogu网校 T483205) <code>std::unordered_map&lt;__int128,__int128&gt;</code> 会出问题，因为 <code>__int128</code> 没有默认的 hash 函数。（改为 <code>long long</code> 即可）</p></li>
