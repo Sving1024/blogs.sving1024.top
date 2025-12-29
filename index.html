@@ -338,6 +338,67 @@ mjx-container[display="true"] + br {
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/posts/17441/" target="_self">
+          P9879 Check Pattern is Good 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/17441/" target="_self">
+        <div>
+          继续加训网络流。 一看就是非常典型的集合划分模型，考虑转化成最小割模型。 但是你注意到直接做可能并不是很好做，因为对颜色的要求和方位有关。 我们先考虑最优情况是什么，显然就是黑白染色，这样每个  的方格都是合法的。 此时如果改变一个格子的颜色，就会使答案减少 。因此我们先黑白染色，然后将格子分成改变颜色和不改变颜色两个集合。这样产生贡献的条件就变成了简单的划分到一个集合了。 因此我们用这种方式建图
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-12-29 22:00" pubdate>
+              2025-12-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/posts/21639/" target="_self">
           NOIP 2025 游记
         </a>
@@ -830,67 +891,6 @@ mjx-container[display="true"] + br {
             <i class="iconfont icon-date"></i>
             <time datetime="2025-09-11 00:00" pubdate>
               2025-09-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/54657/" target="_self">
-          AT_abc422_f 题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/54657/" target="_self">
-        <div>
-          本文记载了我看到这题时抽象的思路历程。 看到这个题目，首先花了  分钟否决掉了直接跑最短路的想法，因为你不好定义两个结果的序关系。 然后，开始考虑一种经典的优化方式，费用提前计算。注意到每个点的贡献和之后的边数有关，因此考虑  表示点  到第  个点，距离最后一个点距离为  的最小代价。那么转移的代价就是这个点的点权乘上距离。但是，我们发现，这是一张无向图，我们不好找到一个很好的顺序来转移（这对吗
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-09-07 00:00" pubdate>
-              2025-09-07
             </time>
           </div>
         
