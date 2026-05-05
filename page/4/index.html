@@ -338,6 +338,71 @@ mjx-container[display="true"] + br {
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/posts/23708/" target="_self">
+          Tailscale DNS 配置小记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/23708/" target="_self">
+        <div>
+          今天尝试在手机上下载 tailscale 访问内网设备，发现了一个问题。手机默认的 dns 解析器只会把 ts.net 的域名和我的设备关联，可是我内网服务器使用的域名并不是这个（假设是 a.example.com）。 我希望将我服务器使用的域名 a.example.com 关联到我的服务器。 首先想到的自然是改 hosts。但是我的手机没有 root，自然也不方便改。 其次是 Virtual H
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-10-20 00:00" pubdate>
+              2025-10-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/DNS/">#DNS</a>
+            
+              <a href="/tags/Tailscale/">#Tailscale</a>
+            
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">#网络配置</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/posts/47057/" target="_self">
           knapsack 题解
         </a>
@@ -944,71 +1009,6 @@ mjx-container[display="true"] + br {
               <a href="/tags/GNOME/">#GNOME</a>
             
               <a href="/tags/polkit/">#polkit</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/32817/" target="_self">
-          当你设置语言的时候，你的 DE 到底做了什么？
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/32817/" target="_self">
-        <div>
-          今天突然想起来一个问题。众所周知，在 GNOME 里有个设置语言的选项。那么，GNOME 到底是做了什么来设置我的语言的呢？ 猜想 ：设置环境变量。然而 ~/.config/ 下并没有 locale.conf。在其他地方也没有。于是我去翻了下源码。 在 gnome-control-center 仓库中的 panels/system/users/cc-user-page.c 里有一个 languag
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-06-30 00:00" pubdate>
-              2025-06-30
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/GNOME/">#GNOME</a>
-            
-              <a href="/tags/%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83/">#桌面环境</a>
-            
-              <a href="/tags/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE/">#区域设置</a>
             
           </div>
         
