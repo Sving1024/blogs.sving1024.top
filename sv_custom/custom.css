@@ -5,3 +5,9 @@ body {
   background-attachment: fixed;
   background-size: cover;  
 }
+
+#subtitle {
+  color: #FFFFFF !important; /* 强行亮白，无视背景深浅 */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 
+               0 0 12px rgba(0, 0, 0, 0.7) !important;
+}

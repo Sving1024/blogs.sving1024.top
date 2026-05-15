@@ -734,11 +734,11 @@ mjx-container[display="true"] + br {
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">#算法竞赛</a>
-            
               <a href="/tags/AtCoder/">#AtCoder</a>
             
               <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">#算法竞赛</a>
             
           </div>
         
@@ -939,9 +939,9 @@ mjx-container[display="true"] + br {
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/shu-lun/">#数论</a>
-            
               <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/shu-lun/">#数论</a>
             
               <a href="/tags/Codeforces/">#Codeforces</a>
             
@@ -1109,7 +1109,37 @@ mjx-container[display="true"] + br {
       }
       var text = subtitle.getAttribute('data-typed-text');
       
-        typing(text);
+        jQuery.ajax({
+          type: 'GET',
+          url: 'https://hitokoto.sving1024.top',
+          headers: {},
+          dataType: 'json',
+          success: function(result) {
+            var apiText;
+            if (result) {
+              var keys = 'hitokoto'.split(',');
+              if (result instanceof Array) {
+                result = result[0];
+              }
+              for (const k of keys) {
+                var value = result[k];
+                if (typeof value === 'string') {
+                  apiText = value;
+                  break;
+                } else if (value instanceof Object) {
+                  result = value;
+                }
+              }
+            }
+            apiText ? typing(apiText) : typing(text);
+          },
+          error: function(xhr, status, error) {
+            if (error) {
+              console.error('Failed to request https://hitokoto.sving1024.top:', error);
+            }
+            typing(text);
+          }
+        })
       
     })(window, document);
   </script>

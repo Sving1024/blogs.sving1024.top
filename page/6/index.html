@@ -584,9 +584,9 @@ mjx-container[display="true"] + br {
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/suan-fa/">#算法</a>
-            
               <a href="/tags/DP/">#动态规划</a>
+            
+              <a href="/tags/suan-fa/">#算法</a>
             
           </div>
         
@@ -1080,7 +1080,37 @@ mjx-container[display="true"] + br {
       }
       var text = subtitle.getAttribute('data-typed-text');
       
-        typing(text);
+        jQuery.ajax({
+          type: 'GET',
+          url: 'https://hitokoto.sving1024.top',
+          headers: {},
+          dataType: 'json',
+          success: function(result) {
+            var apiText;
+            if (result) {
+              var keys = 'hitokoto'.split(',');
+              if (result instanceof Array) {
+                result = result[0];
+              }
+              for (const k of keys) {
+                var value = result[k];
+                if (typeof value === 'string') {
+                  apiText = value;
+                  break;
+                } else if (value instanceof Object) {
+                  result = value;
+                }
+              }
+            }
+            apiText ? typing(apiText) : typing(text);
+          },
+          error: function(xhr, status, error) {
+            if (error) {
+              console.error('Failed to request https://hitokoto.sving1024.top:', error);
+            }
+            typing(text);
+          }
+        })
       
     })(window, document);
   </script>
