@@ -554,22 +554,44 @@ mjx-container[display="true"] + br {
           url: 'https://hitokoto.sving1024.top',
           headers: {},
           dataType: 'json',
-          success: function(result) {
+          success: function (result) {
+            // 打字机输出内容
             var apiText;
+            // 一言、来源作品、发言人
+            var hitokoto, from, fromWho;
+            // 从一言接口得到的JSON结果
             if (result) {
-              var keys = 'fullHitokoto'.split(',');
+              // 需要的结果字段名，取决于_config[.主题名称].yml中的配置
+              var keys = 'hitokoto,from,author'.split(',');
               if (result instanceof Array) {
+                // 得到 去掉外层{}的 数据
                 result = result[0];
               }
+              // 取出实际展示的字段
               for (const k of keys) {
                 var value = result[k];
                 if (typeof value === 'string') {
-                  apiText = value;
-                  break;
+                  if (hitokoto == null) {
+                    hitokoto = value;
+                  } else if (from == null) {
+                    from = value
+                  } else if (fromWho == null) {
+                    fromWho = value;
+                  }
                 } else if (value instanceof Object) {
                   result = value;
                 }
               }
+              // 头像
+              apiText = "";
+              // 样式
+              apiText += '<p class="hitokoto-text">『 ' + hitokoto + ' 』</p>' +
+                '<p class="hitokoto-source">——'
+              // 一言的发言人可能未知
+              if (fromWho != null) {
+                apiText += ' ' + fromWho;
+              }
+              apiText += ' ' + from + '</p>';
             }
             apiText ? typing(apiText) : typing(text);
           },

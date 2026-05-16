@@ -7,7 +7,26 @@ body {
 }
 
 #subtitle {
-  color: #FFFFFF !important; /* 强行亮白，无视背景深浅 */
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7), 
+               0 0 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.hitokoto-text {
+  font-size: 30px !important;
+  text-align: center !important;
+  color: #FFFFFF !important;
+  
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7), 
+               0 0 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.hitokoto-source {
+  margin-top: 15px !important;
+  text-align: right !important;
+  font-size: 24px !important;
+  color: #E0E0E0 !important;
+  
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7), 
                0 0 8px rgba(0, 0, 0, 0.5) !important;
 }
