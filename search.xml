@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>如何获取 Codeforces Gym 部分题目的完整测试点</title>
+      <link href="/posts/36580/"/>
+      <url>/posts/36580/</url>
+      
+        <content type="html"><![CDATA[<p>原来大家都不知道吗。</p><p>首先你必须要是 Coach。</p><p>接着找个能够挂载 ftp 的东西。挂载 <code>ftp://taskbook.codeforces.com</code>。用户名是你的 cf 用户名，密码是你的 cf 密码。</p><p>根目录下是用 GYM 编号命名的文件夹。找到要的那场的 GYM 点进去，依次点开 <code>release</code>，<code>problems</code>。这里会有若干个文件夹，找到你题目对应的那个点进去，你就可以找到题目的 checker 和测试点。</p><p>注意只有部分 GYM 可以，如果你发现没有 <code>problems</code> 文件夹说明不适用这个方法。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> OI </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SGU485 Arrays 题解</title>
       <link href="/posts/17436/"/>
       <url>/posts/17436/</url>
