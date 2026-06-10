@@ -338,6 +338,78 @@ mjx-container[display="true"] + br {
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/posts/15515/" target="_self">
+          CF2148G 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/15515/" target="_self">
+        <div>
+          太困了，所有数据结构都忘光了，所以这个做法没什么数据结构。 首先我们发现，假如 ，考虑将  重排后的数组  满足 。显然，一个序列的  是非单调递减的，因此整个序列的  在第  项之后就没有变过。考虑将所有数除掉整个序列的 ，这样前  项的  就非  而后面的就全是 。 显然我们可以考虑枚举前  项的 ，如果有  个数整除这个 ，那我们就把这  个数放前面，答案至少为 。因此考虑维护一个数组 ，表
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-09-14 00:00" pubdate>
+              2025-09-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/CF2148G/">#CF2148G</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/posts/13931/" target="_self">
           CF2140A Shift Sort 题解
         </a>
@@ -615,13 +687,13 @@ mjx-container[display="true"] + br {
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/posts/4667/" target="_self">
+        <a href="/posts/58141/" target="_self">
           CF2131H Sea, You &amp;amp; copriMe 题解
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/4667/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/58141/" target="_self">
         <div>
           题意简述： 给定  个数的数组 （），从中选出不相交且互质的两对数或输出无解。  首先不难想出一个  的解法，那就是枚举每对数尝试找到一组解。但是你注意到一个数需要花  的时间来枚举，如果没找到一组解这个时间就是十分浪费的。 考虑如何快速判断在数组里一个数是否在数组里有与其互质的数，有的话再枚举。这样最多只要枚举  遍。考虑将原问题强化，计算一个数在数组里与其互质的数的个数。 我们又注意到前
         </div>
@@ -909,71 +981,6 @@ mjx-container[display="true"] + br {
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/6757/" target="_self">
-          Linux 上配置 DNS 踩坑记
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/6757/" target="_self">
-        <div>
-          最近看到了一篇谁动了我的 DNS 解析？（重制版），突然想起自己上次在高铁上因为没有把 dns 改成路由器提供的 dns，导致无法找到上网认证的经历，于是决定好好配置一下 dns。 由于众所周知的原因，ISP 提供的 DNS 服务器通常不是很靠谱，因此我用 dnsmasq 和 dnscrypt-proxy 在本地跑了个 dns 服务器。然而，一些内网地址却只能通过网络接口的 dns 服务器提供解析
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-05-10 00:00" pubdate>
-              2025-05-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/DNS/">#DNS</a>
-            
-              <a href="/tags/Linux/">#Linux</a>
-            
-              <a href="/tags/dnsmasq/">#dnsmasq</a>
             
           </div>
         
