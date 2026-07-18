@@ -338,6 +338,128 @@ mjx-container[display="true"] + br {
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/posts/39685/" target="_self">
+          CF2234G Stripe, Token and Two Players 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/39685/" target="_self">
+        <div>
+          ▶INFO 题意简述                                  有  个格子，每个格子有一个参数 。有一枚棋子初始在第  个格子，力量值为 。有两名玩家轮流操作这个棋子，假设当前棋子在第  个格子，当前玩家可以选择增加最多  的力量值，然后将棋子移动不超过当前力量值的距离（不能原地不动）。先到  的玩家获胜。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-06-08 00:00" pubdate>
+              2026-06-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/50648/" target="_self">
+          QOJ12529 Fibonacci&#39;s Nightmare 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/50648/" target="_self">
+        <div>
+          写完这篇题解就去睡觉。 上来经典套路，方差等于平方的均值减去均值的平方，对应到这里就是 。 我们来考虑如何计算一下这两个东西。 首先是 。考察  是  之间均匀独立分布的随机变量， 那么 。我们注意到实际上  的分布是一样的，因此这两个期望也是一样的。 就是 。考虑全期望公式。  维护一下前缀和即可。 接下来是 。我们如法炮制。  前面的  我们继续用全期望公式展开之后是 。想之前那样维护一个前缀
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-06-01 00:00" pubdate>
+              2026-06-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/posts/31854/" target="_self">
           SP186 LITELANG - The lightest language 题解
         </a>
@@ -776,128 +898,6 @@ mjx-container[display="true"] + br {
             <i class="iconfont icon-date"></i>
             <time datetime="2026-04-27 00:00" pubdate>
               2026-04-27
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/17978/" target="_self">
-          CF643F Bears and Juice 题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/17978/" target="_self">
-        <div>
-          被黑题吓死了。 如何计算答案 首先需要注意酒桶和熊都是区分的，不要读错题目意思了。 不妨先来考虑一些简单的情况。 考虑  的情况。对于这种情况，实际上我们只能接受醉倒  头熊，因为要保证至少一头熊清醒。由于醉倒的熊的个数和用掉的床位是相等的，直接将  对  取  即可。  对于只有一个床位的情况：挨个试过去即可。 天最多可以区分  桶。 对于只有一天，但是允许醉倒很多熊：直接二进制分组。  然而其
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2026-04-22 00:00" pubdate>
-              2026-04-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/57642/" target="_self">
-          P5591 小猪佩奇学数学题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/57642/" target="_self">
-        <div>
-          怎么拖到现在才开始写题解啊。 我不会啊。这咋做啊。 首先就是整除并不好做。我们因此考虑使用  转化一下：  考虑左侧的  这个东西很像二项式定理，因此我们朝着这个方向去凑。考虑把  写成  的形式。  组合意义合并一下两个组合数：  提出一个 。  做变量代换 ，此时要把  替换成 。  显然  是 。将求和下标从  开始，然后就是标准的二项式定理！  太棒了。但是考虑右侧的  怎么处理。 并不好
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2026-04-06 00:00" pubdate>
-              2026-04-06
             </time>
           </div>
         

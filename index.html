@@ -338,6 +338,128 @@ mjx-container[display="true"] + br {
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/posts/34896/" target="_self">
+          CF126D Fibonacci Sums 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/34896/" target="_self">
+        <div>
+          别问为什么现在才来写题解。 题目需要求分解  成若干个不同的斐波那契数列中的数有多少种方案。 由于每个位置最多一次，因此我们可以考虑用一个  字符串来表示。 这个  字符串有两个性质。如果 （换句话说，有连续的 110），那么将其替换成  也是合法的（即，替换为 001）。同理，你也可以考虑拆解。 不妨考虑拆解的情况。你发现，一旦你把 001 拆成 110，那么，第二个  就再也不能继续往下拆了。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-07-18 00:00" pubdate>
+              2026-07-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/41473/" target="_self">
+          AT_arc059_d バイナリハック
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/41473/" target="_self">
+        <div>
+          题解区什么鬼。 只讲转移不说意义吗。这个真的很显然吗。 不妨考虑先钦定操作序列（敲字符还是退格），再钦定具体敲了哪个键。 首先，考虑这一个点，如果一个字符最终被删掉了，那么这个字符是  是  其实无所谓。如果一个字符最终被保留了下来，那么这个字符就必须是对应位置上的字符。 换句话说，假设敲了  个没有被退掉的字符， 个被退格键退掉了，那么总共的敲键方案数就是 。原因每个是  个被退掉的字符都有
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-07-17 00:00" pubdate>
+              2026-07-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/posts/35186/" target="_self">
           P9753 消消乐题解
         </a>
@@ -346,7 +468,7 @@ mjx-container[display="true"] + br {
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/35186/" target="_self">
         <div>
-          不知道算不算题解。 大概是一些零散的想法。 首先一个观察就是，用栈从左侧往右扫描。然后你发现栈内元素一样说明这两个点的区间就是可以消除的。 因此你可以对栈哈希。哈希可以直接考虑数组哈希的做法，对于第  位乘上一个大质数的  次幂在加起来。用栈可以维护到栈顶为止的哈希值，每次 push 就是栈顶的值加上当前值乘上 。 不过，这个东西还是太难发现了。 我们不妨换个角度。 简而言之，你从左往右做操作，相
+          0不知道算不算题解。 大概是一些零散的想法。 首先一个观察就是，用栈从左侧往右扫描。然后你发现栈内元素一样说明这两个点的区间就是可以消除的。 因此你可以对栈哈希。哈希可以直接考虑数组哈希的做法，对于第  位乘上一个大质数的  次幂在加起来。用栈可以维护到栈顶为止的哈希值，每次 push 就是栈顶的值加上当前值乘上 。 不过，这个东西还是太难发现了。 我们不妨换个角度。 简而言之，你从左往右做操作，
         </div>
       </a>
 
@@ -783,128 +905,6 @@ mjx-container[display="true"] + br {
             <i class="iconfont icon-date"></i>
             <time datetime="2026-06-10 21:25" pubdate>
               2026-06-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/39685/" target="_self">
-          CF2234G Stripe, Token and Two Players 题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/39685/" target="_self">
-        <div>
-          ▶INFO 题意简述                                  有  个格子，每个格子有一个参数 。有一枚棋子初始在第  个格子，力量值为 。有两名玩家轮流操作这个棋子，假设当前棋子在第  个格子，当前玩家可以选择增加最多  的力量值，然后将棋子移动不超过当前力量值的距离（不能原地不动）。先到  的玩家获胜。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2026-06-08 00:00" pubdate>
-              2026-06-08
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/50648/" target="_self">
-          QOJ12529 Fibonacci&#39;s Nightmare 题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/50648/" target="_self">
-        <div>
-          写完这篇题解就去睡觉。 上来经典套路，方差等于平方的均值减去均值的平方，对应到这里就是 。 我们来考虑如何计算一下这两个东西。 首先是 。考察  是  之间均匀独立分布的随机变量， 那么 。我们注意到实际上  的分布是一样的，因此这两个期望也是一样的。 就是 。考虑全期望公式。  维护一下前缀和即可。 接下来是 。我们如法炮制。  前面的  我们继续用全期望公式展开之后是 。想之前那样维护一个前缀
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2026-06-01 00:00" pubdate>
-              2026-06-01
             </time>
           </div>
         
