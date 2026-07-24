@@ -338,6 +338,128 @@ mjx-container[display="true"] + br {
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/posts/48882/" target="_self">
+          P10786 百万富翁题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/48882/" target="_self">
+        <div>
+          还是比较有意思的题目。 有一个十分简单的做法，就是考虑直接比较相邻两个数（ 比较， 比较，以此类推）。此时单次需要  次操作，一共需要  次即可确定最大的元素。 这样的总次数是  次，需要询问  轮。我们似乎并不满意。 我们发现，题目限制给了更多的询问次数（ 次），但我们只用掉了其中的  次，浪费了很多次数。 我们可以考虑扩展一下我们的策略。我们考虑不两个两个的比，而是  个  个的比。具体的，假
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-07-24 00:00" pubdate>
+              2026-07-24
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/33240/" target="_self">
+          CF243D Cubes 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/33240/" target="_self">
+        <div>
+          首先由于都是平视，因此我们将这个东西分层考虑，每层分别考虑能看到几个。 由于最多有  个格子，因此这个只会变化  次。 将这个东西转一下，使得光线永远是从右上方照射过来，并且  坐标不为 。 考察什么时候会照到一个光线。实际上我们只关心垂直光线方向的投影。因此我们考虑将一个方块转化成经过右上方顶点的一条直线。 因此，我们就把这个问题转化成了一个线段覆盖问题，每次询问能看到几种颜色不同的线段。 不妨
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-07-19 00:00" pubdate>
+              2026-07-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/posts/34896/" target="_self">
           CF126D Fibonacci Sums 题解
         </a>
@@ -468,7 +590,7 @@ mjx-container[display="true"] + br {
       
       <a class="index-excerpt index-excerpt__noimg" href="/posts/35186/" target="_self">
         <div>
-          0不知道算不算题解。 大概是一些零散的想法。 首先一个观察就是，用栈从左侧往右扫描。然后你发现栈内元素一样说明这两个点的区间就是可以消除的。 因此你可以对栈哈希。哈希可以直接考虑数组哈希的做法，对于第  位乘上一个大质数的  次幂在加起来。用栈可以维护到栈顶为止的哈希值，每次 push 就是栈顶的值加上当前值乘上 。 不过，这个东西还是太难发现了。 我们不妨换个角度。 简而言之，你从左往右做操作，
+          不知道算不算题解。 大概是一些零散的想法。 首先一个观察就是，用栈从左侧往右扫描。然后你发现栈内元素一样说明这两个点的区间就是可以消除的。 因此你可以对栈哈希。哈希可以直接考虑数组哈希的做法，对于第  位乘上一个大质数的  次幂在加起来。用栈可以维护到栈顶为止的哈希值，每次 push 就是栈顶的值加上当前值乘上 。 不过，这个东西还是太难发现了。 我们不妨换个角度。 简而言之，你从左往右做操作，相
         </div>
       </a>
 
@@ -783,128 +905,6 @@ mjx-container[display="true"] + br {
             <i class="iconfont icon-date"></i>
             <time datetime="2026-06-16 10:39" pubdate>
               2026-06-16
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/57954/" target="_self">
-          CF2232E Snaking Arrangement 题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/57954/" target="_self">
-        <div>
-          非常有趣的题目。 首先观察样例，不妨猜测蛇一定是对称的（这点我们稍后证明）。因此我们可以将这个正方形砍掉一半只保留左上角。 考虑对角线上的点，每个点必然不同的蛇。这是因为一条蛇只能往右侧和下方走，所以一条蛇不可能同时占有一个格子和一个格子右上角的格子。 因此，我们考虑为每个对角线上的格子分配一个长度，其对应的棋盘结果是唯一的。因为你只能贴着边界摆放。  比如考虑这张图，如果这样摆放，那么  两个点
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2026-06-12 01:16" pubdate>
-              2026-06-12
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/37012/" target="_self">
-          CF1842G Tenzing and Random Operations 题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/37012/" target="_self">
-        <div>
-          非常好题目。 我们考虑计算出所有可行的答案最后除以  来计算出答案。 考虑一个简单的 dp 设计。令  表示前  个数进行了  次加法操作所得到的方案数。 转移是每次加入一个数或者直接乘转移到下一个位置。你发现这个复杂度直接爆炸了，因为  的范围是 。 我们希望把状态从  中踢出去。 考虑使用乘法分配律。但是暴力展开之后实际上并不好处理。我们继续观察一下，考虑每次操作对每个位置产生的影响，也就是下
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2026-06-10 21:25" pubdate>
-              2026-06-10
             </time>
           </div>
         
