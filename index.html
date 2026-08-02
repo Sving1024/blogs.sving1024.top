@@ -338,6 +338,67 @@ mjx-container[display="true"] + br {
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/posts/43279/" target="_self">
+          QOJ17256 Keep or Gamble 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/43279/" target="_self">
+        <div>
+          本质推式子题目。 不妨考虑什么时候应该停止，什么时候应该继续往下走。 不妨将四种卡片分别记作 。 分别表示分数是  的卡片， 表示直接结束游戏的卡片。 首先一个观察是  卡片没有用。不妨考虑暴力 DP，枚举下一种可能。你可以将“第一次抛的结果”替换成”第一次抛到非  卡片的概率“，这样就变成了一个条件概率，并且这个条件概率和剩下的  卡片数量无关。 另外一个观察就是  的卡片在没有被淘汰的时候一定
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-08-02 00:00" pubdate>
+              2026-08-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/posts/48882/" target="_self">
           P10786 百万富翁题解
         </a>
@@ -881,72 +942,11 @@ mjx-container[display="true"] + br {
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/30682/" target="_self">
-          P3960 列队题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/30682/" target="_self">
-        <div>
-          看上去是要维护一个二维数组，支持区间平移。但是仔细观察后你发现向下的平移只会在最后一列出现。 因此我们实际上只需要支持最后一列的向上平移，和行的向左平移即可。 平衡树做法 对于这种区间平移的问题有一种比较无脑的做法就是直接平衡树。 更具体的，我们对于每行的前  个元素和最后一列的  个元素开一颗平衡树。 每次我们删除第  行的平衡树的第  个元素，将最后一列对应的平衡树的第  个元素插入到最后。然
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2026-06-16 10:39" pubdate>
-              2026-06-16
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#board">9</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
