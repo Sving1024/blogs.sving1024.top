@@ -338,6 +338,67 @@ mjx-container[display="true"] + br {
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/posts/15697/" target="_self">
+          P7357 「PMOI-1」中位数题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/15697/" target="_self">
+        <div>
+          我不懂主席树，但是我会整体二分。 不妨先考虑没有修改的情况怎么做。 看到中位数有个著名的 trcik 就是二分转 。 不妨考虑二分 ，对于询问  判断是否存在一条中位数大于等于  的路径。 判断方法就是将小于  的数点权设置为 ,大于的权值设置成 。如果一条路径和的权值小于 ，那么这条路径的中位数一定大于 。 自然的，我们就会想要查询经过  且权值最小的路径。注意到  互相不为祖先，因此两个端点一
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-08-06 00:00" pubdate>
+              2026-08-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/posts/43279/" target="_self">
           QOJ17256 Keep or Gamble 题解
         </a>
@@ -844,67 +905,6 @@ mjx-container[display="true"] + br {
             <i class="iconfont icon-date"></i>
             <time datetime="2026-07-14 00:00" pubdate>
               2026-07-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/6109/" target="_self">
-          AT_agc033_d Complexity 题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/6109/" target="_self">
-        <div>
-          好题。 首先考虑最简单的区间 DP， 表示在横坐标 ，纵坐标  的最小复杂度，每次转移的时候枚举一下切割线，每次取  即可做到  的复杂度。 你会发现这个复杂度显然不太能接受。 我们考虑优化。不妨分析一下这个复杂度有什么性质。 直觉上来说，肯定是越大的矩形复杂度就越大。形式化的说，如果一个矩形的复杂度为 ，那么在这个矩形的基础上任意增加一行或者一列，新的矩形的复杂度至少是 。 证明比较无脑，直接数
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2026-07-08 00:00" pubdate>
-              2026-07-08
             </time>
           </div>
         
