@@ -338,6 +338,60 @@ mjx-container[display="true"] + br {
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/posts/21559/" target="_self">
+          CSAcademy heap-count 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/21559/" target="_self">
+        <div>
+          没想到这个 trick 还能见到第二遍。 从 AT_agc030_d 学到的。 首先对于堆的个数，我们可以转化成树的拓扑序计数。 首先自底向上 DP 难以避免平方的状态数，因此我们考虑自上而下 DP。 简而言之，考虑  表示已经放了前  个数，此时的轮廓线是 。转移考虑枚举下一个数进行转移。 然后你发现时空双飞。 不过转念一想，我们真的需要记录整个轮廓线吗？我们其实是想知道走了几步之后往我们的目标
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-09-21 00:00" pubdate>
+              2026-09-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/posts/39288/" target="_self">
           AT_arc193_c Grid Coloring 3 题解
         </a>
@@ -844,67 +898,6 @@ mjx-container[display="true"] + br {
             <i class="iconfont icon-date"></i>
             <time datetime="2026-07-17 00:00" pubdate>
               2026-07-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/Solution/" class="category-chain-item">题解</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/35186/" target="_self">
-          P9753 消消乐题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/35186/" target="_self">
-        <div>
-          不知道算不算题解。 大概是一些零散的想法。 首先一个观察就是，用栈从左侧往右扫描。然后你发现栈内元素一样说明这两个点的区间就是可以消除的。 因此你可以对栈哈希。哈希可以直接考虑数组哈希的做法，对于第  位乘上一个大质数的  次幂在加起来。用栈可以维护到栈顶为止的哈希值，每次 push 就是栈顶的值加上当前值乘上 。 不过，这个东西还是太难发现了。 我们不妨换个角度。 简而言之，你从左往右做操作，相
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2026-07-16 00:00" pubdate>
-              2026-07-16
             </time>
           </div>
         
